@@ -3,14 +3,14 @@ A -g
 P LC TF
 R nnvvrnvvnnnnvvvvnvvvnnnnnnnnnnvnnnnnnnnnnvn
 
-U add%b			add.adb			42A0470B PK IL
+U add%b			add.adb			0620875B PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 W ada.real_time.delays%s  a-retide.adb		a-retide.ali
 W devices%s		devices.adb		devices.ali  ED
 W kernel%s		kernel.ads		kernel.ali
-W kernel.serial_output%s  kernel-serial_output.adb  kernel-serial_output.ali
+W kernel.serial_output%s  kernel-serial_output.adb  kernel-serial_output.ali  ED
 W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
@@ -30,7 +30,7 @@ D a-retide.ads		20000718095948 7F3C479C
 D a-stream.ads		20000718095948 5F7C277B
 D a-tags.ads		20000718095948 45EF7E4E
 D add.ads		20191007063732 204085E0
-D add.adb		20201013144635 09972958
+D add.adb		20201013154324 4D17E908
 D devices.ads		20201005172558 76B11196
 D kernel.ads		20010312182047 56BBE4F1
 D kernel-cpu_primitives.ads  20010312182047 5746D7AD
@@ -65,11 +65,11 @@ X 1 ada.ads
 18U9*Ada 10|3r6 3r25
 X 5 a-reatim.ads
 43U13*Real_Time 10|3r10 3r29
-45O9*Time 10|86r28
-50O9*Time_Span 10|87r19
-57U13*Clock 10|90r29
-59U13*"+" 10|90r35 96r50
-89U13*Milliseconds 10|87r32
+45O9*Time 10|87r28
+50O9*Time_Span 10|88r28
+57U13*Clock 10|91r29
+59U13*"+" 10|91r35 113r50
+89U13*Milliseconds 10|88r41
 X 9 add.ads
 1U9*add 10|13b14
 2U13*Background 10|18b15
@@ -77,34 +77,39 @@ X 10 add.adb
 29i5 LEER_POSICION_CABEZA_PRIORITY 43r24
 30i5 LEER_DISTANCIA_PRIORITY
 42t10 leerPosicionCabeza
-85a7 Current_H 93m31 94r38
-86O7 Siguiente_Instante 90m7 95r21 96m9 96r31
-87O7 Intervalo 90r37 96r52
-104U15 Prueba_Dispositivos 106b15
-107i9 Current_V
-108a9 Current_H
-109i9 Current_D
-110a9 Current_O
-111a9 Current_E
-112i9 Current_S
+85a7 Current_H 94m31 95r38 96r13 96r34 104r13 104r34 111r23
+86a7 Previous_H 97r15 97r37 105r15 105r37 111m9
+87O7 Siguiente_Instante 91m7 112r21 113m9 113r31
+88O7 Intervalo 91r37 113r52
+121U15 Prueba_Dispositivos 123b15
+124i9 Current_V
+125a9 Current_H
+126i9 Current_D
+127a9 Current_O
+128a9 Current_E
+129i9 Current_S
 X 11 devices.ads
 5U9*devices 10|7r6 7r19
-36A10*EEG_Samples_Type 10|111r20
-47A10*Eyes_Samples_Type 10|110r20
-58A10*HeadPosition_Samples_Type 10|85r18 108r20
-61U15*Reading_HeadPosition 10|93r9
-68I10*Distance_Samples_Type 10|109r20
-76I10*Speed_Samples_Type 10|107r20
-84I10*Steering_Samples_Type 10|112r20
-119U15*Display_HeadPosition_Sample 10|94r9
+36A10*EEG_Samples_Type 10|128r20
+47A10*Eyes_Samples_Type 10|127r20
+56N41*x 10|96r23 96r44 97r26 97r48
+56N43*y 10|104r23 104r44 105r26 105r48
+58A10*HeadPosition_Samples_Type 10|85r28 86r28 125r20
+61U15*Reading_HeadPosition 10|94r9
+68I10*Distance_Samples_Type 10|126r20
+76I10*Speed_Samples_Type 10|124r20
+84I10*Steering_Samples_Type 10|129r20
+119U15*Display_HeadPosition_Sample 10|95r9
 X 12 kernel.ads
 36U9*Kernel 10|2r6 2r32
 X 17 kernel-serial_output.ads
 36U16*Serial_Output 10|2r13 2r39
+41U14*Put 10|99r13 107r13
+43U14*New_Line 10|100r13 108r13
 X 20 system.ads
 46U9*System 10|4r6 4r18
 X 39 tools.ads
 6U9*tools 10|6r6 6r17
-13U15*Starting_Notice 10|91r7
-14U15*Finishing_Notice 10|98r7
+13U15*Starting_Notice 10|92r7
+14U15*Finishing_Notice 10|115r7
 

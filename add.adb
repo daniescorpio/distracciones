@@ -82,18 +82,33 @@ package body add is
     
     
     task body leerPosicionCabeza is 
-      Current_H: HeadPosition_Samples_Type;
+      Current_H   	 : HeadPosition_Samples_Type;
+      Previous_H	 : HeadPosition_Samples_Type := (0, 0);
       Siguiente_Instante : Time;
-      Intervalo : Time_Span := Milliseconds (400);
+      Intervalo	 	 : Time_Span := Milliseconds (400);
     begin
       
       Siguiente_instante := Clock + Intervalo;
       Starting_Notice ("Prueba sensor cabeza");
       loop
         Reading_HeadPosition (Current_H);
-        --Display_HeadPosition_Sample (Current_H);
-        if ()
+        Display_HeadPosition_Sample (Current_H);
+        if (Current_H(x) > 30 OR Current_H(x) < -30) then 
+          if (Previous_H(x) > 30 OR Previous_H(x) < -30) then
+            --Sintoma de somnolencia o distraccion
+            Put (" --> DISTRACCION");
+            New_Line;
+          end if;
+        end if;
         
+        if (Current_H(y) > 30 OR Current_H(y) < -30) then 
+          if (Previous_H(y) > 30 OR Previous_H(y) < -30) then
+            --Sintoma de somnolencia o distraccion
+            Put (" --> DISTRACCION");
+            New_Line;
+          end if;
+        end if;
+        Previous_H := Current_H;
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + Intervalo;
       end loop;

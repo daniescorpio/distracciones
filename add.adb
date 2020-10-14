@@ -60,9 +60,9 @@ package body add is
 
     -- Aqui se declaran las tareas que forman el STR
 
-    --task LeerDistancia20_200ms is 
-      --pragma priority (LEER_DISTANCIA_PRIORITY);
-    --end leerDistancia20_200ms;
+    task LeerDistancia is 
+      pragma priority (LEER_DISTANCIA_PRIORITY);
+    end LeerDistancia;
     
     task LeerPosicionCabeza is 
       pragma priority (LEER_POSICION_CABEZA_PRIORITY);
@@ -81,38 +81,49 @@ package body add is
     ------------- body of tasks 
     -----------------------------------------------------------------------
 
-    -- Aqui se escriben los cuerpos de las tareas 
 
-    --task body LeerDistancia20_200ms is
-      --Current_D : Distance_Samples_Type := 0;
-      --Current_V : Speed_Samples_Type := 0;
-    
-    --begin
-      --Starting_Notice ("Prueba sensor distancia");
+    -----------------------------------------------------------------------
+    ------------- TAREA DISTANCIA DE SEGURIDAD 
+    -----------------------------------------------------------------------
+
+   task body LeerDistancia is
+      	Current_D : Distance_Samples_Type := 0;
+      	Current_V : Speed_Samples_Type := 0;
+      	Siguiente_Instante   : Time;
+	DS: Float:= 0.0;
+ 
+   begin
+	Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
+      	Starting_Notice ("Prueba sensor distancia");
+	
+	loop
       
-      --for I in 1..20 loop
-        --Reading_Distance (Current_D);
-        --Display_Distance (Current_D);
+        	Reading_Distance (Current_D);
+        	Display_Distance (Current_D);
       
-        --Reading_Speed (Current_V);
-        --Display_Speed (Current_V);
+        	Reading_Speed (Current_V);
+        	Display_Speed (Current_V);
+		DS:= (Float(Current_V)/10.0)**2;
         
-        --if (Current_V > 80) then
-          --if (Current_D < 30) then 
-            --Beep (5);  
-          --elsif (Current_D < 60) then 
-            --Beep (2);
-          --end if;
-        --end if;
+        	if (Float(Current_D) > DS) then
+          		Light(On);
+
+            	elsif(Float(Current_D) > DS/2.0) then
+			Beep (4);
+			Light(On);
+		elsif(Float(Current_D) > DS/3.0 ) then
+			Beep(5);
+		end if;
+		
+		delay until Siguiente_Instante;
+        	Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
         
-        --New_Line;
-        --delay until (Clock + To_time_Span(0.2));
+        end loop;
         
-      --end loop;
       
-      --Finishing_Notice ("Prueba sensor distancia");
+    	Finishing_Notice ("Prueba sensor distancia");
       
-    --end leerDistancia20_200ms;
+    end leerDistancia;
     
     
     -----------------------------------------------------------------------

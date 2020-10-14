@@ -3,7 +3,7 @@ A -g
 P LC TF
 R nnvvrnvvnnnnvvvvnvvvnnnnnnnnnnvnnnnnnnnnnvn
 
-U add%b			add.adb			0620875B PK IL
+U add%b			add.adb			65074FF3 PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
@@ -29,9 +29,9 @@ D a-reatim.ads		20000718095948 5DBAB303
 D a-retide.ads		20000718095948 7F3C479C
 D a-stream.ads		20000718095948 5F7C277B
 D a-tags.ads		20000718095948 45EF7E4E
-D add.ads		20191007063732 204085E0
-D add.adb		20201013154324 4D17E908
-D devices.ads		20201005172558 76B11196
+D add.ads		20201013202223 204085E0
+D add.adb		20201014095649 2E3021A0
+D devices.ads		20201013202223 76B11196
 D kernel.ads		20010312182047 56BBE4F1
 D kernel-cpu_primitives.ads  20010312182047 5746D7AD
 D kernel-interrupts.ads	20010312182047 72CD7AA3
@@ -59,57 +59,66 @@ D s-taskin.ads		20000718095949 09146F23
 D s-tasres.ads		20000718095949 62B4C0AB
 D s-tarest.ads		20000718095949 1D177686
 D s-unstyp.ads		20000718095949 78AFB91D
-D tools.ads		20191007063732 7C34CB2C
+D tools.ads		20201013202224 7C34CB2C
 D unchconv.ads		20000718095949 72DC4539
 X 1 ada.ads
-18U9*Ada 10|3r6 3r25
+18U9*Ada 10|2r6 2r25
 X 5 a-reatim.ads
-43U13*Real_Time 10|3r10 3r29
-45O9*Time 10|87r28
-50O9*Time_Span 10|88r28
-57U13*Clock 10|91r29
-59U13*"+" 10|91r35 113r50
-89U13*Milliseconds 10|88r41
+43U13*Real_Time 10|2r10 2r29
+45O9*Time 10|95r28 140r28
+50O9*Time_Span 10|32r41 33r41
+57U13*Clock 10|99r29 144r29
+59U13*"+" 10|99r35 126r50 144r35 163r50
+89U13*Milliseconds 10|32r54 33r54
 X 9 add.ads
-1U9*add 10|13b14
-2U13*Background 10|18b15
+1U9*add 10|12b14
+2U13*Background 10|17b15
 X 10 add.adb
-29i5 LEER_POSICION_CABEZA_PRIORITY 43r24
+28i5 LEER_POSICION_CABEZA_PRIORITY 46r24
+29i5 LEER_GIRO_VOLANTE_PRIORITY 50r24
 30i5 LEER_DISTANCIA_PRIORITY
-42t10 leerPosicionCabeza
-85a7 Current_H 94m31 95r38 96r13 96r34 104r13 104r34 111r23
-86a7 Previous_H 97r15 97r37 105r15 105r37 111m9
-87O7 Siguiente_Instante 91m7 112r21 113m9 113r31
-88O7 Intervalo 91r37 113r52
-121U15 Prueba_Dispositivos 123b15
-124i9 Current_V
-125a9 Current_H
-126i9 Current_D
-127a9 Current_O
-128a9 Current_E
-129i9 Current_S
+32O5 INTERVALO_LECTURA_POSICION_CABEZA 99r37 126r52
+33O5 INTERVALO_LECTURA_GIRO_VOLANTE 144r37 163r52
+45t10 leerPosicionCabeza
+49t10 leerGiroVolante
+93a7 Current_H 104m31 105r38 107r13 107r34 115r13 115r34 123r23
+94a7 Previous_H 108r15 108r37 116r15 116r37 123m9
+95O7 Siguiente_Instante 99m7 125r21 126m9 126r31
+137i7 Current_S 149m27 150r27 152r26 160r23
+138i7 Previous_S 152r38 160m9
+139i7 Actual_Offset 152m9 154r13 154r35
+140O7 Siguiente_Instante 144m7 162r21 163m9 163r31
+174U15 Prueba_Dispositivos 176b15
+177i9 Current_V
+178a9 Current_H
+179i9 Current_D
+180a9 Current_O
+181a9 Current_E
+182i9 Current_S
 X 11 devices.ads
-5U9*devices 10|7r6 7r19
-36A10*EEG_Samples_Type 10|128r20
-47A10*Eyes_Samples_Type 10|127r20
-56N41*x 10|96r23 96r44 97r26 97r48
-56N43*y 10|104r23 104r44 105r26 105r48
-58A10*HeadPosition_Samples_Type 10|85r28 86r28 125r20
-61U15*Reading_HeadPosition 10|94r9
-68I10*Distance_Samples_Type 10|126r20
-76I10*Speed_Samples_Type 10|124r20
-84I10*Steering_Samples_Type 10|129r20
-119U15*Display_HeadPosition_Sample 10|95r9
+5U9*devices 10|6r6 6r19
+36A10*EEG_Samples_Type 10|181r21
+47A10*Eyes_Samples_Type 10|180r21
+56N41*x 10|107r23 107r44 108r26 108r48
+56N43*y 10|115r23 115r44 116r26 116r48
+58A10*HeadPosition_Samples_Type 10|93r28 94r28 178r21
+61U15*Reading_HeadPosition 10|104r9
+68I10*Distance_Samples_Type 10|179r21
+76I10*Speed_Samples_Type 10|177r21
+84I10*Steering_Samples_Type 10|137r28 138r28 139r28 182r21
+86U15*Reading_Steering 10|149r9
+115U15*Display_Steering 10|150r9
+119U15*Display_HeadPosition_Sample 10|105r9
 X 12 kernel.ads
-36U9*Kernel 10|2r6 2r32
+36U9*Kernel 10|1r6 1r32
 X 17 kernel-serial_output.ads
-36U16*Serial_Output 10|2r13 2r39
-41U14*Put 10|99r13 107r13
-43U14*New_Line 10|100r13 108r13
+36U16*Serial_Output 10|1r13 1r39
+41U14*Put 10|110r13 118r13 156r11
+43U14*New_Line 10|111r13 119r13 157r11
 X 20 system.ads
-46U9*System 10|4r6 4r18
+46U9*System 10|3r6 3r18
 X 39 tools.ads
-6U9*tools 10|6r6 6r17
-13U15*Starting_Notice 10|92r7
-14U15*Finishing_Notice 10|115r7
+6U9*tools 10|5r6 5r17
+13U15*Starting_Notice 10|100r7 145r7
+14U15*Finishing_Notice 10|130r7 167r7
 

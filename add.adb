@@ -25,13 +25,31 @@ package body add is
     -----------------------------------------------------------------------
     ------------- constants 
     -----------------------------------------------------------------------
+    
     LEER_POSICION_CABEZA_PRIORITY : Integer := 1;
     LEER_GIRO_VOLANTE_PRIORITY 	  : Integer := 2;
     LEER_DISTANCIA_PRIORITY 	  : Integer := 3;
     
     INTERVALO_LECTURA_POSICION_CABEZA : Time_Span := Milliseconds (400);
     INTERVALO_LECTURA_GIRO_VOLANTE    : Time_Span := Milliseconds (350);
+    
+    
+    -----------------------------------------------------------------------
+    ------------- declaration of protected objects 
+    -----------------------------------------------------------------------
 
+    --Protected Sintomas is
+      
+    --private
+      
+    --end Sintomas;
+    
+    Protected Medidas is
+      function LeerSensorCabeza return HeadPosition_Samples_Type;
+      function LeerSensorVolante return Steering_Samples_Type;
+    private
+    end Medidas;
+    
     -----------------------------------------------------------------------
     ------------- declaration of tasks 
     -----------------------------------------------------------------------
@@ -49,6 +67,7 @@ package body add is
     task leerGiroVolante is
       pragma priority (LEER_GIRO_VOLANTE_PRIORITY);
     end leerGiroVolante;
+
 
     -----------------------------------------------------------------------
     ------------- body of tasks 
@@ -105,12 +124,13 @@ package body add is
       
       loop
       
-        Reading_HeadPosition (Current_H);
-        Display_HeadPosition_Sample (Current_H);
+        Current_H := Medidas.LeerSensorCabeza;
         
         if (Current_H(x) > 30 OR Current_H(x) < -30) then 
           if (Previous_H(x) > 30 OR Previous_H(x) < -30) then
             --Sintoma de somnolencia o distraccion
+            Beep (2);
+            Display_HeadPosition_Sample (Current_H);
             Put (" --> DISTRACCION");
             New_Line;
           end if;
@@ -119,6 +139,8 @@ package body add is
         if (Current_H(y) > 30 OR Current_H(y) < -30) then 
           if (Previous_H(y) > 30 OR Previous_H(y) < -30) then
             --Sintoma de somnolencia o distraccion
+            Beep (2);
+            Display_HeadPosition_Sample (Current_H);
             Put (" --> DISTRACCION");
             New_Line;
           end if;
@@ -154,13 +176,13 @@ package body add is
       
       loop
         
-        Reading_Steering (Current_S);
-        Display_Steering (Current_S);
+        Current_S := Medidas.LeerSensorVolante;
         
         Actual_Offset := Current_S - Previous_S;
         
         if (Actual_Offset > 20 OR Actual_Offset < -20) then 
           --Sintoma de volantazo
+          Display_Steering (Current_S);
           Put (" --> VOLANTAZO");
           New_Line;
         end if;
@@ -175,6 +197,31 @@ package body add is
       Finishing_Notice ("Prueba sensor giro volante");
       
     end leerGiroVolante;
+    
+    
+    -----------------------------------------------------------------------
+    ------------- body of protected objects 
+    -----------------------------------------------------------------------
+    
+    protected body Medidas is
+    
+      function LeerSensorCabeza return HeadPosition_Samples_Type is
+        h : HeadPosition_Samples_Type;
+      begin
+        Reading_HeadPosition(h);
+        return h;
+      end LeerSensorCabeza;
+      
+      
+      function LeerSensorVolante return Steering_Samples_Type is
+        s : Steering_Samples_Type;
+      begin
+        Reading_Steering (s);
+        return s;
+      end LeerSensorVolante;
+      
+    end Medidas;
+    
    
     ----------------------------------------------------------------------
     ------------- procedure para probar los dispositivos 

@@ -26,27 +26,31 @@ package body add is
     ------------- constants 
     -----------------------------------------------------------------------
     
-    LEER_POSICION_CABEZA_PRIORITY : Integer := 1;
-    LEER_GIRO_VOLANTE_PRIORITY 	  : Integer := 2;
-    LEER_DISTANCIA_PRIORITY 	  : Integer := 3;
-    
-    INTERVALO_LECTURA_POSICION_CABEZA : Time_Span := Milliseconds (400);
-    INTERVALO_LECTURA_GIRO_VOLANTE    : Time_Span := Milliseconds (350);
+    LEER_POSICION_CABEZA_PRIORITY 	  : Integer   := 1;
+    LEER_DISTANCIA_PRIORITY 	  	  : Integer   := 2;
+    MOSTRAR_INFO_DISPLAY_PRIORITY  	  : Integer   := 3;
+    CALCULAR_RIESGOS_PRIORITY	  	  : Integer   := 4;
+    LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 5;
+    INTERVALO_LECTURA_POSICION_CABEZA     : Time_Span := Milliseconds (400);
+    INTERVALO_LECTURA_DISTANCIA_SEGURIDAD : Time_Span := Milliseconds (300);
+    INTERVALO_LECTURA_GIRO_VOLANTE        : Time_Span := Milliseconds (350);
+    INTERVALO_DETECCION_RIESGOS		  : Time_Span := Milliseconds (150);
+    INTERVALO_REFRESCO_DISPLAY		  : Time_Span := Milliseconds (1000);
     
     
     -----------------------------------------------------------------------
     ------------- declaration of protected objects 
     -----------------------------------------------------------------------
 
-    --Protected Sintomas is
-      
-    --private
-      
-    --end Sintomas;
+    Protected Sintomas is
+      procedure Distraccion (distraccionDetectada : out Boolean);
+      procedure Volantazo;
+    private
+      Previous_H : HeadPosition_Samples_Type := (0, 0);
+    end Sintomas;
     
     Protected Medidas is
       function LeerSensorCabeza return HeadPosition_Samples_Type;
-      function LeerSensorVolante return Steering_Samples_Type;
     private
     end Medidas;
     
@@ -56,15 +60,19 @@ package body add is
 
     -- Aqui se declaran las tareas que forman el STR
 
-    --task leerDistancia20_200ms is 
+    --task LeerDistancia20_200ms is 
       --pragma priority (LEER_DISTANCIA_PRIORITY);
     --end leerDistancia20_200ms;
     
-    task leerPosicionCabeza is 
+    task LeerPosicionCabeza is 
       pragma priority (LEER_POSICION_CABEZA_PRIORITY);
     end leerPosicionCabeza;
     
-    task leerGiroVolante is
+    task mostrarInfoDisplay is
+      pragma priority (MOSTRAR_INFO_DISPLAY_PRIORITY);
+    end; 
+    
+    task LeerGiroVolante is
       pragma priority (LEER_GIRO_VOLANTE_PRIORITY);
     end leerGiroVolante;
 
@@ -75,7 +83,7 @@ package body add is
 
     -- Aqui se escriben los cuerpos de las tareas 
 
-    --task body leerDistancia20_200ms is
+    --task body LeerDistancia20_200ms is
       --Current_D : Distance_Samples_Type := 0;
       --Current_V : Speed_Samples_Type := 0;
     
@@ -111,11 +119,9 @@ package body add is
     ------------- TAREA POSICION CABEZA 
     -----------------------------------------------------------------------
     
-    task body leerPosicionCabeza is 
-    
-      Current_H   	 : HeadPosition_Samples_Type;
-      Previous_H	 : HeadPosition_Samples_Type := (0, 0);
-      Siguiente_Instante : Time;
+    task body LeerPosicionCabeza is 
+      DistraccionDetectada : Boolean;
+      Siguiente_Instante   : Time;
       
     begin
     
@@ -124,29 +130,12 @@ package body add is
       
       loop
       
-        Current_H := Medidas.LeerSensorCabeza;
+        Sintomas.Distraccion(DistraccionDetectada);
         
-        if (Current_H(x) > 30 OR Current_H(x) < -30) then 
-          if (Previous_H(x) > 30 OR Previous_H(x) < -30) then
-            --Sintoma de somnolencia o distraccion
-            Beep (2);
-            Display_HeadPosition_Sample (Current_H);
-            Put (" --> DISTRACCION");
-            New_Line;
-          end if;
+        if (DistraccionDetectada = True) then 
+          Beep(2);
+          New_Line;
         end if;
-        
-        if (Current_H(y) > 30 OR Current_H(y) < -30) then 
-          if (Previous_H(y) > 30 OR Previous_H(y) < -30) then
-            --Sintoma de somnolencia o distraccion
-            Beep (2);
-            Display_HeadPosition_Sample (Current_H);
-            Put (" --> DISTRACCION");
-            New_Line;
-          end if;
-        end if;
-        
-        Previous_H := Current_H;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -157,12 +146,44 @@ package body add is
       
     end leerPosicionCabeza;
     
+ 
+    -----------------------------------------------------------------------
+    ------------- TAREA MOSTRAR INFO DISPLAY 
+    -----------------------------------------------------------------------
+        
+    task body mostrarInfoDisplay is
+      DistraccionDetectada : Boolean;
+      Siguiente_Instante   : Time;
+      
+    begin
+      
+      Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
+      Starting_Notice ("Prueba display");
+      
+      loop
+        
+        Sintomas.Distraccion(DistraccionDetectada);
+        
+        if (DistraccionDetectada = True) then
+          Current_Time (Big_Bang);
+   	  Put ("............%");
+          Put_Line ("¡¡¡ DISTRACCION DETECTADA !!!");
+        end if;
+        
+        delay until Siguiente_Instante;
+        Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
+        
+      end loop;
+      
+      Finishing_Notice ("Prueba display");
+      
+    end;
     
     -----------------------------------------------------------------------
     ------------- TAREA GIRO VOLANTE 
     -----------------------------------------------------------------------
     
-    task body leerGiroVolante is
+    task body LeerGiroVolante is
     
       Current_S     	 : Steering_Samples_Type;
       Previous_S    	 : Steering_Samples_Type := 0;
@@ -176,16 +197,15 @@ package body add is
       
       loop
         
-        Current_S := Medidas.LeerSensorVolante;
+        Reading_Steering (Current_S);
         
         Actual_Offset := Current_S - Previous_S;
         
-        if (Actual_Offset > 20 OR Actual_Offset < -20) then 
+        --if (Actual_Offset > 20 OR Actual_Offset < -20) then 
           --Sintoma de volantazo
-          Display_Steering (Current_S);
-          Put (" --> VOLANTAZO");
-          New_Line;
-        end if;
+          --Display_Steering (Current_S);
+          --Put_Line (" --> VOLANTAZO");
+        --end if;
         
         Previous_S := Current_S;
         
@@ -203,6 +223,47 @@ package body add is
     ------------- body of protected objects 
     -----------------------------------------------------------------------
     
+    protected body Sintomas is
+      
+      procedure Distraccion (distraccionDetectada : out Boolean) is
+        Current_H  : HeadPosition_Samples_Type;
+        
+      begin
+      
+        distraccionDetectada := False;
+      
+        Reading_HeadPosition(Current_H);
+        
+        if (Current_H(x) > 30 AND Previous_H(x) > 30) then 
+          distraccionDetectada := True;
+        end if;
+        
+        if (Current_H(x) < -30 AND Previous_H(x) < -30) then
+          distraccionDetectada := True;
+        end if;
+        
+        if (Current_H(y) > 30 AND Previous_H(y) > 30) then 
+          distraccionDetectada := True;
+        end if;
+        
+        if (Current_H(y) < -30 AND Previous_H(y) < -30) then
+          distraccionDetectada := True;
+        end if;
+        
+        Previous_H := Current_H;
+        
+      end Distraccion;
+      
+      
+      procedure Volantazo is
+        s : Steering_Samples_Type;
+      begin
+        Reading_Steering (s);
+      end Volantazo;
+      
+    end Sintomas;
+    
+    
     protected body Medidas is
     
       function LeerSensorCabeza return HeadPosition_Samples_Type is
@@ -211,14 +272,6 @@ package body add is
         Reading_HeadPosition(h);
         return h;
       end LeerSensorCabeza;
-      
-      
-      function LeerSensorVolante return Steering_Samples_Type is
-        s : Steering_Samples_Type;
-      begin
-        Reading_Steering (s);
-        return s;
-      end LeerSensorVolante;
       
     end Medidas;
     

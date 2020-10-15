@@ -39,38 +39,51 @@ package body add is
     
     
     -----------------------------------------------------------------------
+    ------------- custom types 
+    -----------------------------------------------------------------------
+    
+    type Distraccion_Estado_Type is (ESTADO_DISTRACCION, ESTADO_NO_DISTRACCION);
+    
+    
+    -----------------------------------------------------------------------
     ------------- declaration of protected objects 
     -----------------------------------------------------------------------
 
     Protected Sintomas is
-      procedure Distraccion (distraccionDetectada : out Boolean);
+      procedure Guardar_Estado_Distraccion (actual_Distraccion: in Distraccion_Estado_Type);
       procedure Volantazo;
+      function Obtener_Estado_Distraccion return Distraccion_Estado_Type;
     private
-      Previous_H : HeadPosition_Samples_Type := (0, 0);
+      Distraccion : Distraccion_Estado_Type;
+      
     end Sintomas;
     
-    Protected Medidas is
-      function LeerSensorCabeza return HeadPosition_Samples_Type;
-    private
-    end Medidas;
+    --Protected Medidas is
+      --function LeerSensorCabeza return HeadPosition_Samples_Type;
+    --private
+    --end Medidas;
     
     -----------------------------------------------------------------------
     ------------- declaration of tasks 
     -----------------------------------------------------------------------
 
     -- Aqui se declaran las tareas que forman el STR
-
-    task LeerDistancia is 
-      pragma priority (LEER_DISTANCIA_PRIORITY);
-    end LeerDistancia;
     
     task LeerPosicionCabeza is 
       pragma priority (LEER_POSICION_CABEZA_PRIORITY);
     end leerPosicionCabeza;
     
-    task mostrarInfoDisplay is
+    task LeerDistancia is 
+      pragma priority (LEER_DISTANCIA_PRIORITY);
+    end LeerDistancia;
+    
+    task MostrarInfoDisplay is
       pragma priority (MOSTRAR_INFO_DISPLAY_PRIORITY);
     end; 
+    
+    task CalcularRiesgos is
+      pragma priority (CALCULAR_RIESGOS_PRIORITY);
+    end;
     
     task LeerGiroVolante is
       pragma priority (LEER_GIRO_VOLANTE_PRIORITY);
@@ -80,59 +93,16 @@ package body add is
     -----------------------------------------------------------------------
     ------------- body of tasks 
     -----------------------------------------------------------------------
-
-
-    -----------------------------------------------------------------------
-    ------------- TAREA DISTANCIA DE SEGURIDAD 
-    -----------------------------------------------------------------------
-
-   task body LeerDistancia is
-      	Current_D : Distance_Samples_Type := 0;
-      	Current_V : Speed_Samples_Type := 0;
-      	Siguiente_Instante   : Time;
-	DS: Float:= 0.0;
- 
-   begin
-	Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
-      	Starting_Notice ("Prueba sensor distancia");
-	
-	loop
-      
-        	Reading_Distance (Current_D);
-        	Display_Distance (Current_D);
-      
-        	Reading_Speed (Current_V);
-        	Display_Speed (Current_V);
-		DS:= (Float(Current_V)/10.0)**2;
-        
-        	if (Float(Current_D) > DS) then
-          		Light(On);
-
-            	elsif(Float(Current_D) > DS/2.0) then
-			Beep (4);
-			Light(On);
-		elsif(Float(Current_D) > DS/3.0 ) then
-			Beep(5);
-		end if;
-		
-		delay until Siguiente_Instante;
-        	Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
-        
-        end loop;
-        
-      
-    	Finishing_Notice ("Prueba sensor distancia");
-      
-    end leerDistancia;
-    
     
     -----------------------------------------------------------------------
     ------------- TAREA POSICION CABEZA 
     -----------------------------------------------------------------------
     
     task body LeerPosicionCabeza is 
-      DistraccionDetectada : Boolean;
-      Siguiente_Instante   : Time;
+      Current_H  	 : HeadPosition_Samples_Type;
+      Previous_H 	 : HeadPosition_Samples_Type := (0, 0);
+      Distraccion 	 : Distraccion_Estado_Type;
+      Siguiente_Instante : Time;
       
     begin
     
@@ -141,12 +111,29 @@ package body add is
       
       loop
       
-        Sintomas.Distraccion(DistraccionDetectada);
+        Distraccion := ESTADO_NO_DISTRACCION;
+      
+        Reading_HeadPosition(Current_H);
         
-        if (DistraccionDetectada = True) then 
-          Beep(2);
-          New_Line;
+        if (Current_H(x) > 30 AND Previous_H(x) > 30) then 
+          Distraccion := ESTADO_DISTRACCION;
         end if;
+        
+        if (Current_H(x) < -30 AND Previous_H(x) < -30) then
+          Distraccion := ESTADO_DISTRACCION;
+        end if;
+        
+        if (Current_H(y) > 30 AND Previous_H(y) > 30) then 
+          Distraccion := ESTADO_DISTRACCION;
+        end if;
+        
+        if (Current_H(y) < -30 AND Previous_H(y) < -30) then
+          Distraccion := ESTADO_DISTRACCION;
+        end if;
+        
+        Previous_H := Current_H;
+        Sintomas.Guardar_Estado_Distraccion(Distraccion);
+        Distraccion := ESTADO_NO_DISTRACCION;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -157,14 +144,58 @@ package body add is
       
     end leerPosicionCabeza;
     
+    
+    
+    -----------------------------------------------------------------------
+    ------------- TAREA DISTANCIA DE SEGURIDAD 
+    -----------------------------------------------------------------------
+
+     task body LeerDistancia is
+       Current_D 	   : Distance_Samples_Type := 0;
+       Current_V 	   : Speed_Samples_Type    := 0;
+       Distancia_Seguridad : Float		   := 0.0;
+       Siguiente_Instante  : Time;
+ 
+     begin
+     
+       Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
+       Starting_Notice ("Prueba sensor distancia");
+	
+       loop
+      
+         Reading_Distance (Current_D);
+         --Display_Distance (Current_D);
+      
+         Reading_Speed (Current_V);
+         Display_Speed (Current_V);
+	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
+        
+         if (Float(Current_D) > Distancia_Seguridad) then
+           Light(On);
+         elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
+	   Beep (4);
+	   Light(On);
+	 elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
+	   Beep(5);
+	 end if;
+		
+	 delay until Siguiente_Instante;
+         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
+        
+        end loop;
+      
+    	Finishing_Notice ("Prueba sensor distancia");
+      
+    end leerDistancia;
+    
  
     -----------------------------------------------------------------------
     ------------- TAREA MOSTRAR INFO DISPLAY 
     -----------------------------------------------------------------------
         
-    task body mostrarInfoDisplay is
-      DistraccionDetectada : Boolean;
-      Siguiente_Instante   : Time;
+    task body MostrarInfoDisplay is
+      Distraccion 	 : Distraccion_Estado_Type;
+      Siguiente_Instante : Time;
       
     begin
       
@@ -173,9 +204,9 @@ package body add is
       
       loop
         
-        Sintomas.Distraccion(DistraccionDetectada);
+        Distraccion := Sintomas.Obtener_Estado_Distraccion;
         
-        if (DistraccionDetectada = True) then
+        if (Distraccion = ESTADO_DISTRACCION) then
           Current_Time (Big_Bang);
    	  Put ("............%");
           Put_Line ("¡¡¡ DISTRACCION DETECTADA !!!");
@@ -189,6 +220,38 @@ package body add is
       Finishing_Notice ("Prueba display");
       
     end;
+    
+    
+    -----------------------------------------------------------------------
+    ------------- TAREA DETECCION DE RIESGOS 
+    -----------------------------------------------------------------------
+        
+    task body CalcularRiesgos is
+      Distraccion 	 : Distraccion_Estado_Type;
+      Siguiente_Instante : Time;
+      
+    begin
+      
+      Siguiente_instante := Clock + INTERVALO_DETECCION_RIESGOS;
+      Starting_Notice ("Prueba deteccion de riesgos");
+      
+      loop
+        
+        Distraccion := Sintomas.Obtener_Estado_Distraccion;
+        if (Distraccion = ESTADO_DISTRACCION) then 
+          Beep(2);
+          New_Line;
+        end if;
+        
+        delay until Siguiente_Instante;
+        Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
+        
+      end loop;
+      
+      Finishing_Notice ("Prueba deteccion de riesgos");
+      
+    end;
+    
     
     -----------------------------------------------------------------------
     ------------- TAREA GIRO VOLANTE 
@@ -236,35 +299,15 @@ package body add is
     
     protected body Sintomas is
       
-      procedure Distraccion (distraccionDetectada : out Boolean) is
-        Current_H  : HeadPosition_Samples_Type;
-        
+      procedure Guardar_Estado_Distraccion(actual_Distraccion: in Distraccion_Estado_Type) is
       begin
+        Distraccion := actual_Distraccion;
+      end Guardar_Estado_Distraccion;
       
-        distraccionDetectada := False;
-      
-        Reading_HeadPosition(Current_H);
-        
-        if (Current_H(x) > 30 AND Previous_H(x) > 30) then 
-          distraccionDetectada := True;
-        end if;
-        
-        if (Current_H(x) < -30 AND Previous_H(x) < -30) then
-          distraccionDetectada := True;
-        end if;
-        
-        if (Current_H(y) > 30 AND Previous_H(y) > 30) then 
-          distraccionDetectada := True;
-        end if;
-        
-        if (Current_H(y) < -30 AND Previous_H(y) < -30) then
-          distraccionDetectada := True;
-        end if;
-        
-        Previous_H := Current_H;
-        
-      end Distraccion;
-      
+      function Obtener_Estado_Distraccion return Distraccion_Estado_Type is
+      begin 
+        return Distraccion;
+      end Obtener_Estado_Distraccion;
       
       procedure Volantazo is
         s : Steering_Samples_Type;
@@ -275,16 +318,16 @@ package body add is
     end Sintomas;
     
     
-    protected body Medidas is
+    --protected body Medidas is
     
-      function LeerSensorCabeza return HeadPosition_Samples_Type is
-        h : HeadPosition_Samples_Type;
-      begin
-        Reading_HeadPosition(h);
-        return h;
-      end LeerSensorCabeza;
+      --function LeerSensorCabeza return HeadPosition_Samples_Type is
+        --h : HeadPosition_Samples_Type;
+      --begin
+        --Reading_HeadPosition(h);
+        --return h;
+      --end LeerSensorCabeza;
       
-    end Medidas;
+    --end Medidas;
     
    
     ----------------------------------------------------------------------

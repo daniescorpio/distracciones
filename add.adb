@@ -42,19 +42,21 @@ package body add is
     ------------- custom types 
     -----------------------------------------------------------------------
     
-    type Distraccion_Estado_Type is (ESTADO_DISTRACCION, ESTADO_NO_DISTRACCION);
-    
+    type Cabeza_Inclinada_Estado_Type is (CABEZA_INCLINADA, CABEZA_NO_INCLINADA);
+    type Volantazo_Estado_Type is (ESTADO_VOLANTAZO, ESTADO_NO_VOLANTAZO);
     
     -----------------------------------------------------------------------
     ------------- declaration of protected objects 
     -----------------------------------------------------------------------
 
     Protected Sintomas is
-      procedure Guardar_Estado_Distraccion (actual_Distraccion: in Distraccion_Estado_Type);
-      procedure Volantazo;
-      function Obtener_Estado_Distraccion return Distraccion_Estado_Type;
+      procedure Guardar_Estado_Distraccion (actual_Distraccion : in Cabeza_Inclinada_Estado_Type);
+      procedure Guardar_Estado_Volantazo (actual_Volantazo : in Volantazo_Estado_Type);
+      function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
+      function Obtener_Estado_Volantazo return Volantazo_Estado_Type;
     private
-      Distraccion : Distraccion_Estado_Type;
+      CABEZA_INCLINADA : Cabeza_Inclinada_Estado_Type;
+      VOLANTAZO	       : Volantazo_Estado_Type;
       
     end Sintomas;
     
@@ -101,7 +103,8 @@ package body add is
     task body LeerPosicionCabeza is 
       Current_H  	 : HeadPosition_Samples_Type;
       Previous_H 	 : HeadPosition_Samples_Type := (0, 0);
-      Distraccion 	 : Distraccion_Estado_Type;
+      Current_S     	 : Steering_Samples_Type;
+      Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
       
     begin
@@ -111,29 +114,30 @@ package body add is
       
       loop
       
-        Distraccion := ESTADO_NO_DISTRACCION;
+        Distraccion := CABEZA_NO_INCLINADA;
       
         Reading_HeadPosition(Current_H);
+        Reading_Steering (Current_S);
         
         if (Current_H(x) > 30 AND Previous_H(x) > 30) then 
-          Distraccion := ESTADO_DISTRACCION;
+          Distraccion := CABEZA_INCLINADA;
         end if;
         
         if (Current_H(x) < -30 AND Previous_H(x) < -30) then
-          Distraccion := ESTADO_DISTRACCION;
+          Distraccion := CABEZA_INCLINADA;
         end if;
         
-        if (Current_H(y) > 30 AND Previous_H(y) > 30) then 
-          Distraccion := ESTADO_DISTRACCION;
+        if (Current_H(y) > 30 AND Previous_H(y) > 30 AND Current_S <= 0) then 
+          Distraccion := CABEZA_INCLINADA;
         end if;
         
-        if (Current_H(y) < -30 AND Previous_H(y) < -30) then
-          Distraccion := ESTADO_DISTRACCION;
+        if (Current_H(y) < -30 AND Previous_H(y) < -30 AND Current_S >= 0) then
+          Distraccion := CABEZA_INCLINADA;
         end if;
         
         Previous_H := Current_H;
         Sintomas.Guardar_Estado_Distraccion(Distraccion);
-        Distraccion := ESTADO_NO_DISTRACCION;
+        Distraccion := CABEZA_NO_INCLINADA;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -167,17 +171,17 @@ package body add is
          --Display_Distance (Current_D);
       
          Reading_Speed (Current_V);
-         Display_Speed (Current_V);
+         --Display_Speed (Current_V);
 	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
         
-         if (Float(Current_D) > Distancia_Seguridad) then
-           Light(On);
-         elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
-	   Beep (4);
-	   Light(On);
-	 elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
-	   Beep(5);
-	 end if;
+         --if (Float(Current_D) > Distancia_Seguridad) then
+           --Light(On);
+         --elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
+	   --Beep (4);
+	   --Light(On);
+	 --elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
+	   --Beep(5);
+	 --end if;
 		
 	 delay until Siguiente_Instante;
          Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
@@ -194,7 +198,7 @@ package body add is
     -----------------------------------------------------------------------
         
     task body MostrarInfoDisplay is
-      Distraccion 	 : Distraccion_Estado_Type;
+      Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
       
     begin
@@ -206,10 +210,10 @@ package body add is
         
         Distraccion := Sintomas.Obtener_Estado_Distraccion;
         
-        if (Distraccion = ESTADO_DISTRACCION) then
+        if (Distraccion = CABEZA_INCLINADA) then
           Current_Time (Big_Bang);
    	  Put ("............%");
-          Put_Line ("¡¡¡ DISTRACCION DETECTADA !!!");
+          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
         end if;
         
         delay until Siguiente_Instante;
@@ -227,7 +231,9 @@ package body add is
     -----------------------------------------------------------------------
         
     task body CalcularRiesgos is
-      Distraccion 	 : Distraccion_Estado_Type;
+      Distraccion 	 : Cabeza_Inclinada_Estado_Type;
+      Volantazo 	 : Volantazo_Estado_Type;
+      Current_V 	 : Speed_Samples_Type    := 0;
       Siguiente_Instante : Time;
       
     begin
@@ -236,11 +242,20 @@ package body add is
       Starting_Notice ("Prueba deteccion de riesgos");
       
       loop
-        
+      
+        Reading_Speed (Current_V);
         Distraccion := Sintomas.Obtener_Estado_Distraccion;
-        if (Distraccion = ESTADO_DISTRACCION) then 
-          Beep(2);
-          New_Line;
+        if (Distraccion = CABEZA_INCLINADA) then
+          if (Current_V > 70) then
+            Beep(3);
+          else 
+            Beep(2);
+          end if; 
+        end if;
+        
+        Volantazo := Sintomas.Obtener_Estado_Volantazo;
+        if (Volantazo = ESTADO_VOLANTAZO) then
+          Beep(1);
         end if;
         
         delay until Siguiente_Instante;
@@ -261,8 +276,10 @@ package body add is
     
       Current_S     	 : Steering_Samples_Type;
       Previous_S    	 : Steering_Samples_Type := 0;
+      Current_V 	 : Speed_Samples_Type    := 0;
       Actual_Offset 	 : Steering_Samples_Type;
       Siguiente_Instante : Time;
+      Volantazo   	 : Volantazo_Estado_Type;
       
     begin
       
@@ -271,17 +288,20 @@ package body add is
       
       loop
         
+        Volantazo := ESTADO_NO_VOLANTAZO;
+        
         Reading_Steering (Current_S);
+        Reading_Speed (Current_V);
         
         Actual_Offset := Current_S - Previous_S;
         
-        --if (Actual_Offset > 20 OR Actual_Offset < -20) then 
-          --Sintoma de volantazo
-          --Display_Steering (Current_S);
-          --Put_Line (" --> VOLANTAZO");
-        --end if;
+        if ((Actual_Offset > 20 OR Actual_Offset < -20) AND Current_V > 40) then 
+          Volantazo := ESTADO_VOLANTAZO;
+        end if;
         
         Previous_S := Current_S;
+        Sintomas.Guardar_Estado_Volantazo(Volantazo);
+        Volantazo := ESTADO_NO_VOLANTAZO;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
@@ -299,21 +319,25 @@ package body add is
     
     protected body Sintomas is
       
-      procedure Guardar_Estado_Distraccion(actual_Distraccion: in Distraccion_Estado_Type) is
+      procedure Guardar_Estado_Distraccion(actual_Distraccion: in Cabeza_Inclinada_Estado_Type) is
       begin
-        Distraccion := actual_Distraccion;
+        CABEZA_INCLINADA := actual_Distraccion;
       end Guardar_Estado_Distraccion;
       
-      function Obtener_Estado_Distraccion return Distraccion_Estado_Type is
+      procedure Guardar_Estado_Volantazo (actual_Volantazo : in Volantazo_Estado_Type) is 
+      begin
+        VOLANTAZO := actual_Volantazo;
+      end Guardar_Estado_Volantazo;
+      
+      function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type is
       begin 
-        return Distraccion;
+        return CABEZA_INCLINADA;
       end Obtener_Estado_Distraccion;
       
-      procedure Volantazo is
-        s : Steering_Samples_Type;
+      function Obtener_Estado_Volantazo return Volantazo_Estado_Type is
       begin
-        Reading_Steering (s);
-      end Volantazo;
+        return VOLANTAZO;
+      end Obtener_Estado_Volantazo;
       
     end Sintomas;
     

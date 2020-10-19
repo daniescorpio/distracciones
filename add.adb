@@ -44,6 +44,7 @@ package body add is
     
     type Cabeza_Inclinada_Estado_Type is (CABEZA_INCLINADA, CABEZA_NO_INCLINADA);
     type Volantazo_Estado_Type is (ESTADO_VOLANTAZO, ESTADO_NO_VOLANTAZO);
+    type Distancia_Estado_Type is (DISTANCIA_PELIGROSA, DISTANCIA_INSEGURA, DISTANCIA_IMPRUDENTE, DISTANCIA_SEGURA);
     
     -----------------------------------------------------------------------
     ------------- declaration of protected objects 
@@ -52,11 +53,14 @@ package body add is
     Protected Sintomas is
       procedure Guardar_Estado_Distraccion (actual_Distraccion : in Cabeza_Inclinada_Estado_Type);
       procedure Guardar_Estado_Volantazo (actual_Volantazo : in Volantazo_Estado_Type);
+      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type);
       function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
       function Obtener_Estado_Volantazo return Volantazo_Estado_Type;
+      function Obtener_Estado_Distancia return Distancia_Estado_Type;
     private
       CABEZA_INCLINADA : Cabeza_Inclinada_Estado_Type;
       VOLANTAZO	       : Volantazo_Estado_Type;
+      DISTANCIA: Distancia_Estado_Type;
       
     end Sintomas;
     
@@ -158,6 +162,7 @@ package body add is
        Current_D 	   : Distance_Samples_Type := 0;
        Current_V 	   : Speed_Samples_Type    := 0;
        Distancia_Seguridad : Float		   := 0.0;
+       Distancia 	   : Distancia_Estado_Type;
        Siguiente_Instante  : Time;
  
      begin
@@ -167,24 +172,28 @@ package body add is
 	
        loop
       
+	Distancia := DISTANCIA_SEGURA;
+
          Reading_Distance (Current_D);
-         --Display_Distance (Current_D);
+         Display_Distance (Current_D);
       
          Reading_Speed (Current_V);
-         --Display_Speed (Current_V);
+         Display_Speed (Current_V);
 	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
         
-         --if (Float(Current_D) > Distancia_Seguridad) then
-           --Light(On);
-         --elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
-	   --Beep (4);
-	   --Light(On);
-	 --elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
-	   --Beep(5);
-	 --end if;
-		
-	 delay until Siguiente_Instante;
-         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
+         if (Float(Current_D) > Distancia_Seguridad) then
+           Distancia := DISTANCIA_IMPRUDENTE;
+         elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
+	   Distancia := DISTANCIA_INSEGURA;
+	 elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
+	   Distancia := DISTANCIA_PELIGROSA;
+	 end if;
+
+	Sintomas.Guardar_Estado_Distancia(Distancia);
+	Distancia := DISTANCIA_SEGURA;	
+
+	delay until Siguiente_Instante;
+        Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
         
         end loop;
       
@@ -200,6 +209,7 @@ package body add is
     task body MostrarInfoDisplay is
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
+      Distancia 	 : Distancia_Estado_Type;
       
     begin
       
@@ -214,6 +224,22 @@ package body add is
           Current_Time (Big_Bang);
    	  Put ("............%");
           Put ("¡¡¡ DISTRACCION DETECTADA !!!");
+
+	elsif (Distancia = DISTANCIA_IMPRUDENTE) then
+          Current_Time (Big_Bang);
+   	  Put ("............%");
+          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
+	
+	elsif (Distancia = DISTANCIA_INSEGURA) then
+          Current_Time (Big_Bang);
+   	  Put ("............%");
+          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
+        
+	
+	elsif (Distancia = DISTANCIA_PELIGROSA) then
+          Current_Time (Big_Bang);
+   	  Put ("............%");
+          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
         end if;
         
         delay until Siguiente_Instante;
@@ -234,6 +260,7 @@ package body add is
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Volantazo 	 : Volantazo_Estado_Type;
       Current_V 	 : Speed_Samples_Type    := 0;
+      Distancia		 : Distancia_Estado_Type;
       Siguiente_Instante : Time;
       
     begin
@@ -257,7 +284,17 @@ package body add is
         if (Volantazo = ESTADO_VOLANTAZO) then
           Beep(1);
         end if;
-        
+	
+	Distancia:=Sintomas.Obtener_Estado_Distancia;
+	if (Distancia = DISTANCIA_IMPRUDENTE) then
+	  Light(On);
+	elsif (Distancia = DISTANCIA_INSEGURA) then
+	  Light(On);
+	  Beep(4);
+	elsif (Distancia = DISTANCIA_PELIGROSA) then
+	  Beep(5);
+        end if;
+
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
         
@@ -328,6 +365,11 @@ package body add is
       begin
         VOLANTAZO := actual_Volantazo;
       end Guardar_Estado_Volantazo;
+
+      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type) is 
+      begin
+        DISTANCIA := actual_Distancia;
+      end Guardar_Estado_Distancia;
       
       function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type is
       begin 
@@ -338,6 +380,11 @@ package body add is
       begin
         return VOLANTAZO;
       end Obtener_Estado_Volantazo;
+
+      function Obtener_Estado_Distancia return Distancia_Estado_Type is
+      begin
+        return DISTANCIA;
+      end Obtener_Estado_Distancia;
       
     end Sintomas;
     

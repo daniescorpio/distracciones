@@ -65,7 +65,6 @@ package body add is
     end Sintomas;
     
     --Protected Medidas is
-      --function LeerSensorCabeza return HeadPosition_Samples_Type;
     --private
     --end Medidas;
     
@@ -179,9 +178,9 @@ package body add is
 	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
         
          if (Float(Current_D) > Distancia_Seguridad) then
-           Distancia := DISTANCIA_IMPRUDENTE;
+           Distancia := DISTANCIA_INSEGURA;
          elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
-	   Distancia := DISTANCIA_INSEGURA;
+	   Distancia := DISTANCIA_IMPRUDENTE;
 	 elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
 	   Distancia := DISTANCIA_PELIGROSA;
 	 end if;
@@ -207,7 +206,9 @@ package body add is
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
       Distancia 	 : Distancia_Estado_Type;
-      
+      Volantazo   	 : Volantazo_Estado_Type;
+      Current_V : Speed_Samples_Type := 0;
+
     begin
       
       Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
@@ -217,28 +218,34 @@ package body add is
         
         Distraccion := Sintomas.Obtener_Estado_Distraccion;
 	Distancia:= Sintomas.Obtener_Estado_Distancia;
+	Volantazo:= Sintomas.Obtener_Estado_Volantazo;
         
-        if (Distraccion = CABEZA_INCLINADA) then
-          Current_Time (Big_Bang);
-   	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
 
-	elsif (Distancia = DISTANCIA_IMPRUDENTE) then
-          Current_Time (Big_Bang);
-   	  Put ("............%");
+	if (Distraccion /= CABEZA_NO_INCLINADA OR Distancia/=DISTANCIA_SEGURA OR Volantazo/=ESTADO_NO_VOLANTAZO) then
+	  Put ("............%");
           Put ("¡¡¡ DISTRACCION DETECTADA !!!");
+	  New_line;
+	  
+	  Reading_Speed (Current_V);
+	  Display_Speed (Current_V);
+	  New_line;
+	  
+	  if (Distraccion /= CABEZA_NO_INCLINADA) then
+		Put (" Se han detectado movimientos inusuales en su cabeza ");
+		New_line;
+	  end if;
+
+          if (Distancia /= DISTANCIA_SEGURA) then
+		Put (" La distancia respecto al coche de alante es inapropiada");
+		New_line;
+	  end if;
+
+	  if(Volantazo /= ESTADO_NO_VOLANTAZO) then
+		Put(" Se han detectado movimientos inusuales en el volante ");
+		New_line;
+	  end if;
 	
-	elsif (Distancia = DISTANCIA_INSEGURA) then
-          Current_Time (Big_Bang);
-   	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
-        
-	
-	elsif (Distancia = DISTANCIA_PELIGROSA) then
-          Current_Time (Big_Bang);
-   	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
-        end if;
+	end if;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
@@ -284,9 +291,9 @@ package body add is
         end if;
 	
 	Distancia:=Sintomas.Obtener_Estado_Distancia;
-	if (Distancia = DISTANCIA_IMPRUDENTE) then
+	if (Distancia = DISTANCIA_INSEGURA) then
 	  Light(On);
-	elsif (Distancia = DISTANCIA_INSEGURA) then
+	elsif (Distancia = DISTANCIA_IMPRUDENTE) then
 	  Light(On);
 	  Beep(4);
 	elsif (Distancia = DISTANCIA_PELIGROSA) then

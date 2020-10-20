@@ -174,11 +174,8 @@ package body add is
       
 	Distancia := DISTANCIA_SEGURA;
 
-         Reading_Distance (Current_D);
-         Display_Distance (Current_D);
-      
+         Reading_Distance (Current_D);      
          Reading_Speed (Current_V);
-         Display_Speed (Current_V);
 	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
         
          if (Float(Current_D) > Distancia_Seguridad) then
@@ -219,6 +216,7 @@ package body add is
       loop
         
         Distraccion := Sintomas.Obtener_Estado_Distraccion;
+	Distancia:= Sintomas.Obtener_Estado_Distancia;
         
         if (Distraccion = CABEZA_INCLINADA) then
           Current_Time (Big_Bang);
@@ -228,18 +226,18 @@ package body add is
 	elsif (Distancia = DISTANCIA_IMPRUDENTE) then
           Current_Time (Big_Bang);
    	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
+          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
 	
 	elsif (Distancia = DISTANCIA_INSEGURA) then
           Current_Time (Big_Bang);
    	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
+          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
         
 	
 	elsif (Distancia = DISTANCIA_PELIGROSA) then
           Current_Time (Big_Bang);
    	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DE DISTANCIA DETECTADA !!!");
+          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
         end if;
         
         delay until Siguiente_Instante;

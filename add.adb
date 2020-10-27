@@ -28,13 +28,13 @@ package body add is
     
     LEER_POSICION_CABEZA_PRIORITY 	  : Integer   := 1;
     LEER_DISTANCIA_PRIORITY 	  	  : Integer   := 2;
-    MOSTRAR_INFO_DISPLAY_PRIORITY  	  : Integer   := 3;
+    LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 3;
     CALCULAR_RIESGOS_PRIORITY	  	  : Integer   := 4;
-    LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 5;
-    INTERVALO_LECTURA_POSICION_CABEZA     : Time_Span := Milliseconds (400);
+    MOSTRAR_INFO_DISPLAY_PRIORITY  	  : Integer   := 5;
+    INTERVALO_DETECCION_RIESGOS		  : Time_Span := Milliseconds (150);
     INTERVALO_LECTURA_DISTANCIA_SEGURIDAD : Time_Span := Milliseconds (300);
     INTERVALO_LECTURA_GIRO_VOLANTE        : Time_Span := Milliseconds (350);
-    INTERVALO_DETECCION_RIESGOS		  : Time_Span := Milliseconds (150);
+    INTERVALO_LECTURA_POSICION_CABEZA     : Time_Span := Milliseconds (400);
     INTERVALO_REFRESCO_DISPLAY		  : Time_Span := Milliseconds (1000);
     
     
@@ -60,18 +60,18 @@ package body add is
     private
       CABEZA_INCLINADA : Cabeza_Inclinada_Estado_Type;
       VOLANTAZO	       : Volantazo_Estado_Type;
-      DISTANCIA: Distancia_Estado_Type;
+      DISTANCIA	       : Distancia_Estado_Type;
       
     end Sintomas;
     
     Protected Medidas is
-      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type);
-      procedure Guardar_Estado_Velocidad (actual_Velocidad : in Speed_Samples_Type);
-      function Obtener_Estado_Distancia return Distancia_Estado_Type;
-      function Obtener_Estado_Velocidad return Speed_Samples_Type;
+      procedure Guardar_Distancia_Actual (actual_Distancia : in Distance_Samples_Type);
+      procedure Guardar_Velocidad_Actual (actual_Velocidad : in Speed_Samples_Type);
+      function Obtener_Distancia_Actual return Distance_Samples_Type;
+      function Obtener_Velocidad_Actual return Speed_Samples_Type;
     private
-     DISTANCIA	       : Distancia_Estado_Type;
-     VELOCIDAD	       : Speed_Samples_Type;
+     DISTANCIA : Distance_Samples_Type;
+     VELOCIDAD : Speed_Samples_Type;
     end Medidas;
     
     -----------------------------------------------------------------------
@@ -119,7 +119,7 @@ package body add is
     begin
     
       Siguiente_instante := Clock + INTERVALO_LECTURA_POSICION_CABEZA;
-      Starting_Notice ("Prueba sensor cabeza");
+      Starting_Notice ("Tarea lectura de cabeceo preparada.");
       
       loop
       
@@ -167,34 +167,34 @@ package body add is
        Current_D 	   : Distance_Samples_Type := 0;
        Current_V 	   : Speed_Samples_Type    := 0;
        Distancia_Seguridad : Float		   := 0.0;
-       Distancia 	   : Distancia_Estado_Type;
+       Distancia_Sintoma   : Distancia_Estado_Type;
        Siguiente_Instante  : Time;
  
      begin
      
        Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
-       Starting_Notice ("Prueba sensor distancia");
+       Starting_Notice ("Tarea lectura distancia de seguridad preparada.");
 	
        loop
       
-	Distancia := DISTANCIA_SEGURA;
+	Distancia_Sintoma := DISTANCIA_SEGURA;
 
          Reading_Distance (Current_D);      
          Reading_Speed (Current_V);
-	 Distancia_Seguridad:= (Float(Current_V) / 10.0) ** 2;
+	 Distancia_Seguridad := (Float(Current_V) / 10.0) ** 2;
         
-         if (Float(Current_D) > Distancia_Seguridad) then
-           Distancia := DISTANCIA_INSEGURA;
-         elsif(Float(Current_D) > Distancia_Seguridad / 2.0) then
-	   Distancia := DISTANCIA_IMPRUDENTE;
-	 elsif(Float(Current_D) > Distancia_Seguridad / 3.0 ) then
-	   Distancia := DISTANCIA_PELIGROSA;
+         if (Float(Current_D) < Distancia_Seguridad) then
+           Distancia_Sintoma := DISTANCIA_INSEGURA;
+         elsif(Float(Current_D) < Distancia_Seguridad / 2.0) then
+	   Distancia_Sintoma := DISTANCIA_IMPRUDENTE;
+	 elsif(Float(Current_D) < Distancia_Seguridad / 3.0 ) then
+	   Distancia_Sintoma := DISTANCIA_PELIGROSA;
 	 end if;
 
-	Sintomas.Guardar_Estado_Distancia(Distancia);
-	Medidas.Guardar_Estado_Distancia(Distancia);
-	Medidas.Guardar_Estado_Velocidad(Current_V);
-	Distancia := DISTANCIA_SEGURA;	
+	Medidas.Guardar_Distancia_Actual(Current_D);
+	Medidas.Guardar_Velocidad_Actual(Current_V);
+	Sintomas.Guardar_Estado_Distancia(Distancia_Sintoma);
+	Distancia_Sintoma := DISTANCIA_SEGURA;	
 
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
@@ -212,48 +212,62 @@ package body add is
         
     task body MostrarInfoDisplay is
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
-      Siguiente_Instante : Time;
-      Distancia 	 : Distancia_Estado_Type;
+      Distancia_Sintoma	 : Distancia_Estado_Type;
       Volantazo   	 : Volantazo_Estado_Type;
       Velocidad		 : Speed_Samples_Type;
+      Distancia 	 : Distance_Samples_Type;
+      Siguiente_Instante : Time;
 
     begin
       
       Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
-      Starting_Notice ("Prueba display");
+      Starting_Notice ("Tarea mostrar informacion en display preparada.");
+      
+      delay until Siguiente_Instante;
+      Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
       
       loop
         
-        Distraccion 	:= Sintomas.Obtener_Estado_Distraccion;
-	Distancia	:= Sintomas.Obtener_Estado_Distancia;
-	Volantazo	:= Sintomas.Obtener_Estado_Volantazo;
-	Velocidad	:= Medidas.Obtener_Estado_Velocidad;
-        
+	Distancia   	  := Medidas.Obtener_Distancia_Actual;
+	Velocidad   	  := Medidas.Obtener_Velocidad_Actual;
+	
+	New_Line;
+	New_Line;
+	put ("-----------------------------------------------------");
+	Display_Distance (Distancia);
+	Display_Speed (Velocidad);
+	New_Line;
 
-	if (Distraccion /= CABEZA_NO_INCLINADA OR Distancia/=DISTANCIA_SEGURA OR Volantazo/=ESTADO_NO_VOLANTAZO) then
-	  Put ("............%");
-          Put ("¡¡¡ DISTRACCION DETECTADA !!!");
-	  New_line;
-	  
-	  Display_Speed (Velocidad);
-	  New_line;
-	  
+
+        Distraccion 	  := Sintomas.Obtener_Estado_Distraccion;
+	Distancia_Sintoma := Sintomas.Obtener_Estado_Distancia;
+	Volantazo   	  := Sintomas.Obtener_Estado_Volantazo;
+	
+	if (Distraccion	      /= CABEZA_NO_INCLINADA OR 
+	    Distancia_Sintoma /= DISTANCIA_SEGURA    OR 
+	    Volantazo         /= ESTADO_NO_VOLANTAZO) 
+	then
+	
 	  if (Distraccion /= CABEZA_NO_INCLINADA) then
-		Put (" Se han detectado movimientos inusuales en su cabeza ");
-		New_line;
+	    Put (" Se han detectado movimientos inusuales en su cabeza ");
+	    New_line;
 	  end if;
 
-          if (Distancia /= DISTANCIA_SEGURA) then
-		Put (" La distancia respecto al coche de alante es inapropiada");
-		New_line;
+          if (Distancia_Sintoma /= DISTANCIA_SEGURA) then
+	    Put (" La distancia respecto al coche de alante es inapropiada");
+	    New_line;
 	  end if;
 
 	  if(Volantazo /= ESTADO_NO_VOLANTAZO) then
-		Put(" Se han detectado movimientos inusuales en el volante ");
-		New_line;
+	    Put(" Se han detectado movimientos inusuales en el volante ");
+	    New_line;
 	  end if;
 	
 	end if;
+	
+	put ("-----------------------------------------------------");
+	New_Line;
+	New_Line;
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
@@ -272,46 +286,44 @@ package body add is
     task body CalcularRiesgos is
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Volantazo 	 : Volantazo_Estado_Type;
-      Current_V 	 : Speed_Samples_Type    := 0;
-      Distancia		 : Distancia_Estado_Type;
+      Distancia_Sintoma  : Distancia_Estado_Type;
       Velocidad		 : Speed_Samples_Type;      
       Siguiente_Instante : Time;
       
     begin
       
       Siguiente_instante := Clock + INTERVALO_DETECCION_RIESGOS;
-      Starting_Notice ("Prueba deteccion de riesgos");
+      Starting_Notice ("Tarea deteccion de riesgos preparada.");
+      
+      delay until Siguiente_Instante;
+      Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
       
       loop
-        Distraccion 	:= Sintomas.Obtener_Estado_Distraccion;
-	Distancia	:= Sintomas.Obtener_Estado_Distancia;
-	Volantazo	:= Sintomas.Obtener_Estado_Volantazo;
-	Velocidad	:= Medidas.Obtener_Estado_Velocidad;
-
 
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
         if (Volantazo = ESTADO_VOLANTAZO) then
           Beep(1);
         end if;
 
+	Distraccion := Sintomas.Obtener_Estado_Distraccion;
+	Velocidad   := Medidas.Obtener_Velocidad_Actual;
         if (Distraccion = CABEZA_INCLINADA) then
-          if (Velocidad> 70) then
+          if (Velocidad > 70) then
             Beep(3);
           else 
             Beep(2);
           end if; 
         end if;
         
-	Distancia:=Sintomas.Obtener_Estado_Distancia;
-	if (Distancia = DISTANCIA_INSEGURA) then
+        Distancia_Sintoma := Sintomas.Obtener_Estado_Distancia;
+	if (Distancia_Sintoma = DISTANCIA_INSEGURA) then
 	  Light(On);
-	elsif (Distancia = DISTANCIA_IMPRUDENTE) then
+	elsif (Distancia_Sintoma = DISTANCIA_IMPRUDENTE) then
 	  Light(On);
 	  Beep(4);
-	
         end if;
 
-	if (Distancia = DISTANCIA_PELIGROSA AND Distraccion = CABEZA_INCLINADA) then
+	if (Distancia_Sintoma = DISTANCIA_PELIGROSA AND Distraccion = CABEZA_INCLINADA) then
 	  Beep(5);
 	  Activate_Brake;
 	end if;
@@ -342,14 +354,14 @@ package body add is
     begin
       
       Siguiente_instante := Clock + INTERVALO_LECTURA_GIRO_VOLANTE;
-      Starting_Notice ("Prueba sensor giro volante");
+      Starting_Notice ("Tarea lectura datos volante preparada.");
       
       loop
         
         Volantazo := ESTADO_NO_VOLANTAZO;
         
         Reading_Steering (Current_S);
-        Reading_Speed (Current_V);
+        Current_V := Medidas.Obtener_Velocidad_Actual;
         
         Actual_Offset := Current_S - Previous_S;
         
@@ -386,10 +398,10 @@ package body add is
       begin
         VOLANTAZO := actual_Volantazo;
       end Guardar_Estado_Volantazo;
-
-      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type) is 
+      
+      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type) is
       begin
-        DISTANCIA := actual_Distancia;
+      	DISTANCIA := actual_Distancia;
       end Guardar_Estado_Distancia;
       
       function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type is
@@ -401,36 +413,35 @@ package body add is
       begin
         return VOLANTAZO;
       end Obtener_Estado_Volantazo;
-
+      
       function Obtener_Estado_Distancia return Distancia_Estado_Type is
       begin
         return DISTANCIA;
       end Obtener_Estado_Distancia;
-      
     end Sintomas;
     
     
     protected body Medidas is
     
-      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type) is 
+      procedure Guardar_Distancia_Actual (actual_Distancia : in Distance_Samples_Type) is 
       begin
         DISTANCIA := actual_Distancia;
-      end Guardar_Estado_Distancia;
+      end Guardar_Distancia_Actual;
 
-      procedure Guardar_Estado_Velocidad (actual_Velocidad : in Speed_Samples_Type) is 
+      procedure Guardar_Velocidad_Actual (actual_Velocidad : in Speed_Samples_Type) is 
       begin
         VELOCIDAD := actual_Velocidad;
-      end Guardar_Estado_Velocidad;
+      end Guardar_Velocidad_Actual;
       
-      function Obtener_Estado_Distancia return Distancia_Estado_Type is
+      function Obtener_Distancia_Actual return Distance_Samples_Type is
       begin
         return DISTANCIA;
-      end Obtener_Estado_Distancia;
+      end Obtener_Distancia_Actual;
       
-      function Obtener_Estado_Velocidad return Speed_Samples_Type is
+      function Obtener_Velocidad_Actual return Speed_Samples_Type is
       begin
         return VELOCIDAD;
-      end Obtener_Estado_Velocidad;
+      end Obtener_Velocidad_Actual;
       
       
     end Medidas;

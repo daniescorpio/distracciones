@@ -534,7 +534,7 @@ Linker script and memory map
                 0x02000000                RAM_START=0x2000000
                 0x02400000                RAM_END=(RAM_START+RAM_SIZE)
 
-.text           0x02000000    0x32b00
+.text           0x02000000    0x32b50
  CREATE_OBJECT_SYMBOLS
                 0x02000000                text_start=.
  *(.text)
@@ -1717,894 +1717,894 @@ Linker script and memory map
  *fill*         0x0202f81c        0x4
  .rodata        0x0202f820       0x52 ./tools.o
  *fill*         0x0202f872        0x6
- .rodata        0x0202f878      0x3e7 ./add.o
- *fill*         0x0202fc5f        0x1
- .rodata        0x0202fc60        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
- .rodata        0x0202fc68        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-retide.o)
- .rodata        0x0202fc70       0x24 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
- *fill*         0x0202fc94        0x4
- .rodata        0x0202fc98       0xd0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
- .rodata        0x0202fd68       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
- .rodata        0x0202fdb8      0x14a /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
- *fill*         0x0202ff02        0x2
- .rodata        0x0202ff04      0x300 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
- .rodata        0x02030204        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
- .rodata        0x0203020c        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
- .rodata        0x02030210       0x7c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
- *fill*         0x0203028c        0x4
- .rodata        0x02030290      0x184 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
- *fill*         0x02030414        0x4
- .rodata        0x02030418        0xd /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
- *fill*         0x02030425        0x3
- .rodata        0x02030428      0x82c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-nuelfu.o)
- *fill*         0x02030c54        0x4
- .rodata        0x02030c58       0x42 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
- *fill*         0x02030c9a        0x6
- .rodata        0x02030ca0        0xd /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
- *fill*         0x02030cad        0x3
- .rodata        0x02030cb0       0xab /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
- *fill*         0x02030d5b        0x5
- .rodata        0x02030d60       0x24 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-arit64.o)
- *fill*         0x02030d84        0x4
- .rodata        0x02030d88        0x5 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
- *fill*         0x02030d8d        0x3
- .rodata        0x02030d90       0x40 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exnflt.o)
- .rodata        0x02030dd0       0xd0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
-                0x02030e08                system__fat_flt__fat_float__r_neg_power
-                0x02030dd0                system__fat_flt__fat_float__log_power
-                0x02030dec                system__fat_flt__fat_float__r_power
- .rodata        0x02030ea0       0x68 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
- .rodata        0x02030f08       0x47 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
- *fill*         0x02030f4f        0x1
- .rodata        0x02030f50        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgint.o)
- .rodata        0x02030f58       0x58 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgrea.o)
- .rodata        0x02030fb0        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imguns.o)
- .rodata        0x02030fb8       0xb8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-powtab.o)
-                0x02030fb8                system__powten_table__powten
- .rodata        0x02031070       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
- .rodata        0x020310c0       0x70 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
-                0x020310c0                system__standard_library__constraint_error_name
- .rodata        0x02031130      0x158 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stratt.o)
- .rodata        0x02031288        0xb /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-cio.o)
- *fill*         0x02031293        0x5
- .rodata        0x02031298       0x77 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-raise.o)
- *fill*         0x0203130f        0x1
- .rodata        0x02031310       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
- .rodata        0x02031360      0x188 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
-                0x02031360                system__fat_llf__fat_long_long_float__log_power
-                0x02031380                system__fat_llf__fat_long_long_float__r_power
-                0x020313b8                system__fat_llf__fat_long_long_float__r_neg_power
- .rodata        0x020314e8        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgllu.o)
- .rodata        0x020314f0       0x35 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
- *fill*         0x02031525        0x3
- .rodata        0x02031528       0xd0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_atan.o)
- .rodata        0x020315f8       0x30 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_tanh.o)
- .rodata        0x02031628       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_acos.o)
- .rodata        0x02031638       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_asin.o)
- .rodata        0x02031648       0x28 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_exp.o)
- .rodata        0x02031670       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_log.o)
- .rodata        0x02031680       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_pow.o)
- .rodata        0x02031698       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_sqrt.o)
- .rodata        0x020316a8       0xf0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_acos.o)
- .rodata        0x02031798       0xf8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_asin.o)
- .rodata        0x02031890       0xf8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_exp.o)
- .rodata        0x02031988       0xd8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_log.o)
- .rodata        0x02031a60      0x208 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_pow.o)
- .rodata        0x02031c68      0x228 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_rem_pio2.o)
- .rodata        0x02031e90       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_sqrt.o)
- .rodata        0x02031ea0       0x80 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_cos.o)
- .rodata        0x02031f20       0xa0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_rem_pio2.o)
- .rodata        0x02031fc0       0x70 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_sin.o)
- .rodata        0x02032030       0xa8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_tan.o)
- .rodata        0x020320d8      0x110 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_expm1.o)
- .rodata        0x020321e8       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_floor.o)
- .rodata        0x02032200        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_infconst.o)
-                0x02032200                __infinity
- .rodata        0x02032208        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_lib_ver.o)
-                0x02032208                __fdlib_version
- *fill*         0x0203220c        0x4
- .rodata        0x02032210       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_rint.o)
- .rodata        0x02032220       0x38 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_scalbn.o)
- .rodata        0x02032258      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_divdi3.o)
- .rodata        0x02032358        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixsfdi.o)
- *fill*         0x0203235c        0x4
- .rodata        0x02032360       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunsdfdi.o)
- .rodata        0x02032378       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunssfdi.o)
- .rodata        0x02032390       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdidf.o)
- .rodata        0x020323a0       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdisf.o)
- .rodata        0x020323b0      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_udivdi3.o)
- .rodata        0x020324b0      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_umoddi3.o)
- .rodata        0x020325b0        0xb /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
- *fill*         0x020325bb        0x5
- .rodata        0x020325c0        0x2 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(impure.o)
- *fill*         0x020325c2        0x2
- .rodata        0x020325c4       0x68 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(lcltime_r.o)
- *fill*         0x0203262c        0x4
- .rodata        0x02032630       0xa8 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(vfprintf.o)
- .rodata        0x020326d8       0x22 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(vfscanf.o)
- *fill*         0x020326fa        0x6
- .rodata        0x02032700      0x101 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(ctype_.o)
-                0x02032700                _ctype_
- *fill*         0x02032801        0x7
- .rodata        0x02032808       0x78 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(dtoa.o)
- .rodata        0x02032880       0x42 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(locale.o)
- *fill*         0x020328c2        0x6
- .rodata        0x020328c8      0x138 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(mprec.o)
-                0x020329c8                __mprec_tinytens
-                0x020328d8                __mprec_tens
-                0x020329a0                __mprec_bigtens
- .rodata        0x02032a00       0x48 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(strtod.o)
- .rodata        0x02032a48       0xb1 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(ada_exceptions.o)
- *fill*         0x02032af9        0x7
-                0x02032b00                .=ALIGN(0x10)
-                0x02032b00                text_end=.
+ .rodata        0x0202f878      0x42f ./add.o
+ *fill*         0x0202fca7        0x1
+ .rodata        0x0202fca8        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
+ .rodata        0x0202fcb0        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-retide.o)
+ .rodata        0x0202fcb8       0x24 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
+ *fill*         0x0202fcdc        0x4
+ .rodata        0x0202fce0       0xd0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
+ .rodata        0x0202fdb0       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
+ .rodata        0x0202fe00      0x14a /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
+ *fill*         0x0202ff4a        0x2
+ .rodata        0x0202ff4c      0x300 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
+ .rodata        0x0203024c        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
+ .rodata        0x02030254        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
+ .rodata        0x02030258       0x7c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
+ *fill*         0x020302d4        0x4
+ .rodata        0x020302d8      0x184 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
+ *fill*         0x0203045c        0x4
+ .rodata        0x02030460        0xd /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
+ *fill*         0x0203046d        0x3
+ .rodata        0x02030470      0x82c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-nuelfu.o)
+ *fill*         0x02030c9c        0x4
+ .rodata        0x02030ca0       0x42 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
+ *fill*         0x02030ce2        0x6
+ .rodata        0x02030ce8        0xd /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
+ *fill*         0x02030cf5        0x3
+ .rodata        0x02030cf8       0xab /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
+ *fill*         0x02030da3        0x5
+ .rodata        0x02030da8       0x24 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-arit64.o)
+ *fill*         0x02030dcc        0x4
+ .rodata        0x02030dd0        0x5 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
+ *fill*         0x02030dd5        0x3
+ .rodata        0x02030dd8       0x40 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exnflt.o)
+ .rodata        0x02030e18       0xd0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
+                0x02030e50                system__fat_flt__fat_float__r_neg_power
+                0x02030e18                system__fat_flt__fat_float__log_power
+                0x02030e34                system__fat_flt__fat_float__r_power
+ .rodata        0x02030ee8       0x68 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
+ .rodata        0x02030f50       0x47 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
+ *fill*         0x02030f97        0x1
+ .rodata        0x02030f98        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgint.o)
+ .rodata        0x02030fa0       0x58 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgrea.o)
+ .rodata        0x02030ff8        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imguns.o)
+ .rodata        0x02031000       0xb8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-powtab.o)
+                0x02031000                system__powten_table__powten
+ .rodata        0x020310b8       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
+ .rodata        0x02031108       0x70 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
+                0x02031108                system__standard_library__constraint_error_name
+ .rodata        0x02031178      0x158 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stratt.o)
+ .rodata        0x020312d0        0xb /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-cio.o)
+ *fill*         0x020312db        0x5
+ .rodata        0x020312e0       0x77 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-raise.o)
+ *fill*         0x02031357        0x1
+ .rodata        0x02031358       0x50 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
+ .rodata        0x020313a8      0x188 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
+                0x020313a8                system__fat_llf__fat_long_long_float__log_power
+                0x020313c8                system__fat_llf__fat_long_long_float__r_power
+                0x02031400                system__fat_llf__fat_long_long_float__r_neg_power
+ .rodata        0x02031530        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgllu.o)
+ .rodata        0x02031538       0x35 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
+ *fill*         0x0203156d        0x3
+ .rodata        0x02031570       0xd0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_atan.o)
+ .rodata        0x02031640       0x30 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_tanh.o)
+ .rodata        0x02031670       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_acos.o)
+ .rodata        0x02031680       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_asin.o)
+ .rodata        0x02031690       0x28 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_exp.o)
+ .rodata        0x020316b8       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_log.o)
+ .rodata        0x020316c8       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_pow.o)
+ .rodata        0x020316e0       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(w_sqrt.o)
+ .rodata        0x020316f0       0xf0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_acos.o)
+ .rodata        0x020317e0       0xf8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_asin.o)
+ .rodata        0x020318d8       0xf8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_exp.o)
+ .rodata        0x020319d0       0xd8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_log.o)
+ .rodata        0x02031aa8      0x208 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_pow.o)
+ .rodata        0x02031cb0      0x228 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_rem_pio2.o)
+ .rodata        0x02031ed8       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(e_sqrt.o)
+ .rodata        0x02031ee8       0x80 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_cos.o)
+ .rodata        0x02031f68       0xa0 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_rem_pio2.o)
+ .rodata        0x02032008       0x70 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_sin.o)
+ .rodata        0x02032078       0xa8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(k_tan.o)
+ .rodata        0x02032120      0x110 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_expm1.o)
+ .rodata        0x02032230       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_floor.o)
+ .rodata        0x02032248        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_infconst.o)
+                0x02032248                __infinity
+ .rodata        0x02032250        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_lib_ver.o)
+                0x02032250                __fdlib_version
+ *fill*         0x02032254        0x4
+ .rodata        0x02032258       0x10 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_rint.o)
+ .rodata        0x02032268       0x38 /usr/local/openravenscar/sparc-ork-elf/lib/libm.a(s_scalbn.o)
+ .rodata        0x020322a0      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_divdi3.o)
+ .rodata        0x020323a0        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixsfdi.o)
+ *fill*         0x020323a4        0x4
+ .rodata        0x020323a8       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunsdfdi.o)
+ .rodata        0x020323c0       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunssfdi.o)
+ .rodata        0x020323d8       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdidf.o)
+ .rodata        0x020323e8       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdisf.o)
+ .rodata        0x020323f8      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_udivdi3.o)
+ .rodata        0x020324f8      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_umoddi3.o)
+ .rodata        0x020325f8        0xb /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
+ *fill*         0x02032603        0x5
+ .rodata        0x02032608        0x2 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(impure.o)
+ *fill*         0x0203260a        0x2
+ .rodata        0x0203260c       0x68 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(lcltime_r.o)
+ *fill*         0x02032674        0x4
+ .rodata        0x02032678       0xa8 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(vfprintf.o)
+ .rodata        0x02032720       0x22 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(vfscanf.o)
+ *fill*         0x02032742        0x6
+ .rodata        0x02032748      0x101 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(ctype_.o)
+                0x02032748                _ctype_
+ *fill*         0x02032849        0x7
+ .rodata        0x02032850       0x78 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(dtoa.o)
+ .rodata        0x020328c8       0x42 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(locale.o)
+ *fill*         0x0203290a        0x6
+ .rodata        0x02032910      0x138 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(mprec.o)
+                0x02032a10                __mprec_tinytens
+                0x02032920                __mprec_tens
+                0x020329e8                __mprec_bigtens
+ .rodata        0x02032a48       0x48 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(strtod.o)
+ .rodata        0x02032a90       0xb1 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(ada_exceptions.o)
+ *fill*         0x02032b41        0xf
+                0x02032b50                .=ALIGN(0x10)
+                0x02032b50                text_end=.
 
-.data           0x02032b00     0x31ec
-                0x02032b00                data_start=.
+.data           0x02032b50     0x31ec
+                0x02032b50                data_start=.
  *(.data)
- .data          0x02032b00        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/ada_crt0.o
- .data          0x02032b08      0x204 b~main.o
-                0x02032b28                ada__exceptionsS
-                0x02032b68                system__secondary_stackB
-                0x02032c8c                devicesS
-                0x02032c70                system__tasking__debugB
-                0x02032b9c                system__arith_64B
-                0x02032ca8                system__img_realB
-                0x02032b1c                addS
-                0x02032b70                system__parametersB
-                0x02032ba4                gnat__exceptionsS
-                0x02032bc0                system__finalization_rootS
-                0x02032b58                system__machine_state_operationsB
-                0x02032c1c                kernel__interruptsS
-                0x02032c74                system__tasking__debugS
-                0x02032bf8                kernel__threads__protectionS
-                0x02032cf0                system__exn_fltS
-                0x02032c80                ada__real_time__delaysB
-                0x02032c34                system__finalization_implementationS
-                0x02032ba0                system__arith_64S
-                0x02032bd0                system__unsigned_typesS
-                0x02032d04                system__tasking__restricted__stagesS
-                0x02032bfc                kernel__cpu_primitivesB
-                0x02032c60                system__taskingB
-                0x02032b40                kernel__parametersS
-                0x02032c78                interfaces__cB
-                0x02032c9c                ada__characters__latin_1S
-                0x02032c58                system__os_primitivesB
-                0x02032d08                system__tasking__restrictedS
-                0x02032cd4                toolsS
-                0x02032c40                system__task_primitives__operationsB
-                0x02032b0c                mainB
-                0x02032b88                system__tracebackB
-                0x02032ca0                system__img_intB
-                0x02032b10                system__standard_libraryB
-                0x02032bd4                system__task_primitivesS
-                0x02032b50                gnat__htableS
-                0x02032cb0                system__fat_llfS
-                0x02032c98                ada__charactersS
-                0x02032c00                kernel__cpu_primitivesS
-                0x02032c18                kernel__interruptsB
-                0x02032ce8                ada__numerics__elementary_functionsS
-                0x02032b14                system__standard_libraryS
-                0x02032b74                system__parametersS
-                0x02032cdc                workloadS
-                0x02032b60                system__storage_elementsB
-                0x02032c48                kernel__threads__atcbB
-                0x02032b64                system__storage_elementsS
-                0x02032c10                kernel__timeB
-                0x02032b2c                gnatS
-                0x02032c04                system__machine_codeS
-                0x02032c84                ada__real_time__delaysS
-                0x02032c50                system__os_interfaceB
-                0x02032ca4                system__img_intS
-                0x02032bec                kernel__peripheralsS
-                0x02032cb4                system__img_lluB
-                0x02032c68                system__task_infoB
-                0x02032b30                gnat__heap_sort_aB
-                0x02032ce0                ada__numericsS
-                0x02032c44                system__task_primitives__operationsS
-                0x02032c6c                system__task_infoS
-                0x02032cfc                system__fat_fltS
-                0x02032cc4                system__powten_tableS
-                0x02032b94                ada__real_timeS
-                0x02032c0c                kernel__threads__queuesS
-                0x02032ccc                system__tasking__protected_objectsS
-                0x02032b38                systemS
-                0x02032bc8                system__stream_attributesS
-                0x02032c14                kernel__timeS
-                0x02032c38                system__string_ops_concat_3B
-                0x02032c08                kernel__threads__queuesB
-                0x02032c7c                interfaces(char, signed)
-                0x02032b54                system__exceptionsS
-                0x02032be4                kernel__memoryS
-                0x02032b3c                kernelS
-                0x02032b90                ada__real_timeB
-                0x02032bb8                system__string_opsS
-                0x02032c28                ada__finalizationB
-                0x02032c90                kernel__serial_outputB
-                0x02032bd8                kernel__threadsB
-                0x02032b80                system__stack_checkingB
-                0x02032b5c                system__machine_state_operationsS
-                0x02032be0                kernel__memoryB
-                0x02032bbc                system__finalization_rootB
-                0x02032c4c                kernel__threads__atcbS
-                0x02032bf4                kernel__threads__protectionB
-                0x02032c2c                ada__finalizationS
-                0x02032be8                kernel__peripheralsB
-                0x02032b34                gnat__heap_sort_aS
-                0x02032cec                ada__numerics__auxS
-                0x02032cd8                workloadB
-                0x02032b48                system__exception_tableS
-                0x02032bb0                ada__tagsS
-                0x02032c5c                system__os_primitivesS
-                0x02032cac                system__img_realS
-                0x02032ce4                ada__numerics__elementary_functionsB
-                0x02032bc4                system__stream_attributesB
-                0x02032ba8                ada__streamsS
-                0x02032bac                ada__tagsB
-                0x02032bb4                system__string_opsB
-                0x02032cb8                system__img_lluS
-                0x02032c88                devicesB
-                0x02032cc0                system__img_unsS
-                0x02032c24                ada__finalization__list_controllerS
-                0x02032bdc                kernel__threadsS
-                0x02032cbc                system__img_unsB
-                0x02032b4c                gnat__htableB
-                0x02032c3c                system__string_ops_concat_3S
-                0x02032b8c                system__tracebackS
-                0x02032c94                kernel__serial_outputS
-                0x02032b78                system__soft_linksB
-                0x02032c20                ada__finalization__list_controllerB
-                0x02032b84                system__stack_checkingS
-                0x02032bcc                ada__io_exceptionsS
-                0x02032b20                adaS
-                0x02032c64                system__taskingS
-                0x02032bf0                kernel__peripherals__registersS
-                0x02032b24                ada__exceptionsB
-                0x02032b08                ada_main_E
-                0x02032d00                system__tasking__restricted__stagesB
-                0x02032cc8                system__tasking__protected_objectsB
-                0x02032b6c                system__secondary_stackS
-                0x02032c30                system__finalization_implementationB
-                0x02032c54                system__os_interfaceS
-                0x02032b7c                system__soft_linksS
-                0x02032b44                system__exception_tableB
-                0x02032b18                addB
-                0x02032b98                interfacesS
-                0x02032cd0                toolsB
-                0x02032cf4                system__exn_genB
-                0x02032cf8                system__exn_genS
- .data          0x02032d0c     0x1ab0 ./devices.o
-                0x02032d10                devices__number_electrodes
-                0x02032d0c                devices_E
-                0x02033814                devices__eeg_simulation
-                0x020334ec                devices__eyes_samples_indexT
-                0x02033034                devices__headposition_samples_indexT
-                0x0203303c                devices__headposition_simulation
-                0x020334f4                devices__eyes_simulation
-                0x020347b4                devices__light_statesT
-                0x0203335c                devices__steering_simulation
-                0x02032ea4                devices__distance_simulation
-                0x02032d14                devices__speed_simulation
- *fill*         0x020347bc        0x4
- .data          0x020347c0       0x38 ./workload.o
-                0x020347e4                workload__workload_failure
-                0x020347c0                workload_E
-                0x020347c8                workload__workload_failureE
- .data          0x020347f8        0x1 ./tools.o
-                0x020347f8                tools_E
- *fill*         0x020347f9        0x3
- .data          0x020347fc       0x60 ./add.o
-                0x02034814                add__cabeza_inclinada_estado_typeT
-                0x0203481c                add__volantazo_estado_typeT
-                0x02034824                add__distancia_estado_typeT
-                0x020347fc                add_E
- *fill*         0x0203485c        0x4
- .data          0x02034860       0x38 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
-                0x02034890                ada__real_time__tick
-                0x02034878                ada__real_time__time_span_last
-                0x02034868                ada__real_time__time_last
-                0x02034870                ada__real_time__time_span_first
-                0x02034880                ada__real_time__time_span_zero
-                0x02034860                ada__real_time__time_first
-                0x02034888                ada__real_time__time_span_unit
- .data          0x02034898        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
-                0x02034898                system__tasking__protected_objects__null_po
- *fill*         0x0203489c        0x4
- .data          0x020348a0       0x34 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
-                0x020348a0                system__task_primitives__operations__lock_levelT
-                0x020348c0                system__task_primitives__operations__dummy_task_id
-                0x020348bc                system__task_primitives__operations__environment_task_id
-                0x020348c8                system__task_primitives__operations__next_serial_number
-                0x020348b8                system__task_primitives__operations__atcb_index
-                0x020348d0                system__task_primitives__operations__exit_task_procedure
- .data          0x020348d4       0xb8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
-                0x02034958                system__tasking__call_modesT
-                0x02034954                system__tasking__null_task
-                0x020348d4                system__tasking__environment_task_level
-                0x020348dc                system__tasking__library_task_level
-                0x020348f4                system__tasking__entry_call_stateT
-                0x0203494c                system__tasking__interrupt_manager_id
-                0x020348e0                system__tasking__unspecified_priority
-                0x020348e4                system__tasking__priority_not_boosted
-                0x0203490c                system__tasking__task_statesT
-                0x020348e8                system__tasking__max_atc_nesting
-                0x020348ec                system__tasking__atc_level_infinity
-                0x020348f0                system__tasking__max_select
-                0x02034950                system__tasking__all_tasks_list
-                0x020348d8                system__tasking__independent_task_level
-                0x02034968                system__tasking__select_modesT
- .data          0x0203498c        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
-                0x0203498c                current_interrupt_priority
- .data          0x02034990        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
-                0x02034994                kernel__threads__null_thread_id
-                0x02034990                kernel__threads_E
- .data          0x02034998        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-atcb.o)
-                0x02034998                kernel__threads__atcb_E
- *fill*         0x02034999        0x3
- .data          0x0203499c       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
-                0x020349a8                kernel__threads__queues__environment_thread
-                0x020349b0                kernel__threads__queues__head_alarm_id
-                0x020349a0                kernel__threads__queues__last_thread_pos
-                0x020349a4                kernel__threads__queues__dummy_thread
-                0x0203499c                running_thread
-                0x020349ac                kernel__threads__queues__head
- .data          0x020349b4        0x2 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-protection.o)
-                0x020349b4                kernel__threads__protection_E
-                0x020349b5                kernel__threads__protection__pending_context_switch
- *fill*         0x020349b6        0x2
- .data          0x020349b8       0x19 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-time.o)
-                0x020349c0                ork_tick
-                0x020349b8                kernel__time_E
- *fill*         0x020349d1        0x3
- .data          0x020349d4       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
-                0x020349dc                interrupt_stack
-                0x020349d4                kernel__memory_E
-                0x020349e0                environment_stack
- .data          0x020349e4       0x1c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-cpu_primitives.o)
-                0x020349e4                kernel__cpu_primitives_E
-                0x020349f4                kernel__cpu_primitives__psr
-                0x020349e8                kernel__cpu_primitives__pc
-                0x020349ec                kernel__cpu_primitives__npc
-                0x020349fc                kernel__cpu_primitives__protection_end
-                0x020349f0                kernel__cpu_primitives__sp
-                0x020349f8                kernel__cpu_primitives__protection_begin
- .data          0x02034a00       0x78 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
-                0x02034a68                kernel__peripherals__registers__interrupt_force
-                0x02034a70                kernel__peripherals__registers__uart_channel_a
-                0x02034a38                kernel__peripherals__registers__uart_channel_a_rx_tx_register_address
-                0x02034a1c                kernel__peripherals__registers__watchdog_trap_door_set_register_address
-                0x02034a60                kernel__peripherals__registers__watchdog_trap_door_set
-                0x02034a14                kernel__peripherals__registers__general_purpose_timer_scaler_address
-                0x02034a6c                kernel__peripherals__registers__uart_status
-                0x02034a4c                kernel__peripherals__registers__real_time_clock_counter
-                0x02034a34                kernel__peripherals__registers__interrupt_force_register_address
-                0x02034a48                kernel__peripherals__registers__test_control
-                0x02034a30                kernel__peripherals__registers__interrupt_mask_register_address
-                0x02034a00                kernel__peripherals__registers__control_register_address
-                0x02034a20                Segment_1_Base
-                0x02034a40                kernel__peripherals__registers__uart_status_register_address
-                0x02034a0c                kernel__peripherals__registers__general_purpose_timer_counter_address
-                0x02034a64                kernel__peripherals__registers__interrupt_mask
-                0x02034a3c                kernel__peripherals__registers__uart_channel_b_rx_tx_register_address
-                0x02034a58                kernel__peripherals__registers__general_purpose_timer_scaler
-                0x02034a5c                kernel__peripherals__registers__timer_control
-                0x02034a24                Segment_2_Base
-                0x02034a54                kernel__peripherals__registers__real_time_clock_scaler
-                0x02034a18                kernel__peripherals__registers__timer_control_register_address
-                0x02034a50                kernel__peripherals__registers__general_purpose_timer_counter
-                0x02034a28                Segment_1_End
-                0x02034a2c                Segment_2_End
-                0x02034a04                kernel__peripherals__registers__test_control_register_address
-                0x02034a74                kernel__peripherals__registers__uart_channel_b
-                0x02034a08                kernel__peripherals__registers__real_time_clock_counter_address
-                0x02034a10                kernel__peripherals__registers__real_time_clock_scaler_address
-                0x02034a44                kernel__peripherals__registers__control
- .data          0x02034a78       0x70 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
-                0x02034ab8                kernel__peripherals__masked_hardware_errors
-                0x02034a78                kernel__peripherals_E
-                0x02034a94                kernel__peripherals__external_interrupt_2
-                0x02034a7c                kernel__peripherals__clock_freq_hz
-                0x02034ad0                kernel__peripherals__uart_stop_bitsT
-                0x02034abc                kernel__peripherals__access_protection_segment_idT
-                0x02034ab4                kernel__peripherals__external_interrupt_0
-                0x02034aa8                kernel__peripherals__uart_b_ready
-                0x02034ae0                kernel__peripherals__periodic_scaler
-                0x02034ab0                kernel__peripherals__external_interrupt_1
-                0x02034ae4                kernel__peripherals__periodic_count
-                0x02034a98                kernel__peripherals__dma_time_out
-                0x02034aac                kernel__peripherals__uart_a_ready
-                0x02034a80                kernel__peripherals__watch_dog_time_out
-                0x02034a8c                kernel__peripherals__general_purpose_timer
-                0x02034ac4                kernel__peripherals__uart_parityT
-                0x02034ad8                kernel__peripherals__uart_channelT
-                0x02034a88                kernel__peripherals__real_time_clock
-                0x02034a84                kernel__peripherals__external_interrupt_4
-                0x02034a90                kernel__peripherals__external_interrupt_3
-                0x02034a9c                kernel__peripherals__dma_access_error
-                0x02034aa0                kernel__peripherals__uart_error
-                0x02034aa4                kernel__peripherals__correctable_error_in_memory
- .data          0x02034ae8        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-serial_output.o)
-                0x02034ae8                kernel__serial_output_E
- *fill*         0x02034ae9        0x3
- .data          0x02034aec      0x428 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(install_handler.o)
-                0x02034f0c                Coming_Task_Buffer
-                0x02034f00                Context_Switch_Necessary
-                0x02034f04                Current_Task_Buffer
-                0x02034f08                Coming_Task_Id
-                0x02034efc                ISR_Nest_Level
-                0x02034f10                FP_Save_Pending
- *fill*         0x02034f14        0x4
- .data          0x02034f18       0x15 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
-                0x02034f28                ada__exceptions__counter
-                0x02034f18                ada__exceptions__null_loc
-                0x02034f1c                ada__exceptions__null_id
-                0x02034f20                ada__exceptions__subprogram_descriptors
- *fill*         0x02034f2d        0x3
- .data          0x02034f30       0x79 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
-                0x02034f74                ada__finalization__list_controller__list_controllerF
-                0x02034f78                ada__finalization__list_controller__list_controllerE
-                0x02034f38                ada__finalization__list_controller__simple_list_controllerE
-                0x02034f30                ada__finalization__list_controller__simple_list_controllerP
-                0x02034f34                ada__finalization__list_controller__simple_list_controllerF
-                0x02034f70                ada__finalization__list_controller__list_controllerP
- *fill*         0x02034fa9        0x7
- .data          0x02034fb0       0x54 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
-                0x02034fd8                ada__finalization__limited_controlledF
-                0x02034fd4                ada__finalization__limited_controlledP
-                0x02034fe0                ada__finalization__limited_controlledE
-                0x02034fb4                ada__finalization__controlledF
-                0x02034fb0                ada__finalization__controlledP
-                0x02034fb8                ada__finalization__controlledE
- *fill*         0x02035004        0x4
- .data          0x02035008      0x1ac /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-ioexce.o)
-                0x02035134                ada__io_exceptions__end_error
-                0x02035148                ada__io_exceptions__data_errorE
-                0x02035168                ada__io_exceptions__data_error
-                0x020350e0                ada__io_exceptions__device_errorE
-                0x02035028                ada__io_exceptions__status_error
-                0x02035100                ada__io_exceptions__device_error
-                0x02035040                ada__io_exceptions__mode_errorE
-                0x020350b0                ada__io_exceptions__use_errorE
-                0x02035180                ada__io_exceptions__layout_errorE
-                0x02035060                ada__io_exceptions__mode_error
-                0x02035078                ada__io_exceptions__name_errorE
-                0x02035118                ada__io_exceptions__end_errorE
-                0x020350cc                ada__io_exceptions__use_error
-                0x02035098                ada__io_exceptions__name_error
-                0x020351a0                ada__io_exceptions__layout_error
-                0x02035008                ada__io_exceptions__status_errorE
- *fill*         0x020351b4        0x4
- .data          0x020351b8       0x30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-numeri.o)
-                0x020351b8                ada__numerics__argument_errorE
-                0x020351d4                ada__numerics__argument_error
- .data          0x020351e8       0x25 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
-                0x020351ec                ada__streams__root_stream_typeF
-                0x020351f0                ada__streams__root_stream_typeE
-                0x020351e8                ada__streams__root_stream_typeP
- *fill*         0x0203520d        0x3
- .data          0x02035210       0x49 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
-                0x0203523c                ada__tags__dt_entry_size
-                0x02035254                ada__tags__external_tag_htable__iterator_ptrXn
-                0x02035240                ada__tags__tsd_prologue_size
-                0x02035224                ada__tags__tag_error
-                0x02035238                ada__tags__dt_prologue_size
-                0x02035248                ada__tags__external_tag_htable__null_ptrXn
-                0x02035258                ada__tags__external_tag_htable__iterator_startedXn
-                0x02035244                ada__tags__tsd_entry_size
-                0x0203524c                ada__tags__wide_booleanT
-                0x02035210                ada__tags__tag_errorE
- *fill*         0x02035259        0x7
- .data          0x02035260       0x27 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
-                0x02035268                gnat__exceptions__exception_typeE
-                0x02035260                gnat__exceptions__exception_typeP
-                0x02035264                gnat__exceptions__exception_typeF
- *fill*         0x02035287        0x1
- .data          0x02035288       0x3c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
-                0x02035288                interfaces__c__nul
-                0x020352b0                interfaces__c__terminator_error
-                0x0203528a                interfaces__c__wide_nul
-                0x02035290                interfaces__c__terminator_errorE
- .data          0x020352c4        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
-                0x020352c4                system__exceptions__others_id
-                0x020352c8                system__exceptions__all_others_id
-                0x020352cc                system__exceptions__no_info
- .data          0x020352d0        0x9 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
-                0x020352d4                system__exception_table__exception_htable__iterator_ptrXn
-                0x020352d0                system__exception_table__exception_htable__null_ptrXn
-                0x020352d8                system__exception_table__exception_htable__iterator_startedXn
- *fill*         0x020352d9        0x3
- .data          0x020352dc       0x14 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
-                0x020352dc                system__fat_flt__fat_float__float_radix
-                0x020352ec                system__fat_flt__fat_float__invrad
-                0x020352e4                system__fat_flt__fat_float__radix_to_m_minus_1
-                0x020352e8                system__fat_flt__fat_float__rad
-                0x020352e0                system__fat_flt__fat_float__float_radix_inv
- .data          0x020352f0       0x8d /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
-                0x02035348                system__finalization_implementation__record_controllerE
-                0x020352f4                system__finalization_implementation__limited_record_controllerP
-                0x020352f8                system__finalization_implementation__limited_record_controllerF
-                0x02035344                system__finalization_implementation__record_controllerF
-                0x02035300                system__finalization_implementation__limited_record_controllerE
-                0x020352f0                system__finalization_implementation__global_final_list
-                0x02035340                system__finalization_implementation__record_controllerP
- *fill*         0x0203537d        0x3
- .data          0x02035380       0x69 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
-                0x02035388                system__finalization_root__empty_root_controlledE
-                0x02035380                system__finalization_root__empty_root_controlledP
-                0x02035384                system__finalization_root__empty_root_controlledF
-                0x020353b8                system__finalization_root__root_controlledP
-                0x020353c0                system__finalization_root__root_controlledE
-                0x020353bc                system__finalization_root__root_controlledF
- *fill*         0x020353e9        0x3
- .data          0x020353ec        0xf /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-parame.o)
-                0x020353ec                system__parameters__unspecified_size
-                0x020353f9                system__parameters__stack_grows_down
-                0x020353f8                system__parameters__sec_stack_dynamic
-                0x020353fa                system__parameters__garbage_collected
-                0x020353f0                system__parameters__dynamic
-                0x020353f4                system__parameters__sec_stack_ratio
- .data          0x020353fb        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
-                0x020353fb                system__secondary_stack__ss_ratio_dynamic
- .data          0x020353fc        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
-                0x02035400                system__stack_checking__null_stack
-                0x020353fc                system__stack_checking__multi_processor
-                0x02035404                _gnat_stack_cache
- .data          0x02035408       0xcc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
-                0x02035408                system__standard_library__program_error_name
-                0x02035448                system__standard_library__numeric_error_name
-                0x02035480                program_error
-                0x020354d0                system__standard_library__local_partition_id
-                0x020354a8                tasking_error
-                0x020354bc                _abort_signal
-                0x02035438                system__standard_library__abort_signal_name
-                0x0203546c                numeric_error
-                0x02035418                system__standard_library__storage_error_name
-                0x02035428                system__standard_library__tasking_error_name
-                0x02035458                constraint_error
-                0x02035494                storage_error
- .data          0x020354d4       0x5c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
-                0x020354e0                system__soft_links__update_exception
-                0x0203551c                system__soft_links__enter_master
-                0x020354d4                system__soft_links__abort_defer
-                0x02035504                system__soft_links__set_machine_state_addr
-                0x020354f0                system__soft_links__get_jmpbuf_address
-                0x020354f4                system__soft_links__set_jmpbuf_address
-                0x0203552c                system__soft_links__task_wrapper_address
-                0x020354e4                system__soft_links__check_abort_status
-                0x02035510                system__soft_links__get_current_excep
-                0x02035528                system__soft_links__timed_delay
-                0x020354dc                system__soft_links__abort_handler
-                0x020354f8                system__soft_links__get_sec_stack_addr
-                0x020354d8                system__soft_links__abort_undefer
-                0x02035500                system__soft_links__get_machine_state_addr
-                0x02035514                system__soft_links__get_stack_info
-                0x020354ec                system__soft_links__unlock_task
-                0x020354fc                system__soft_links__set_sec_stack_addr
-                0x02035524                system__soft_links__clock
-                0x02035518                system__soft_links__current_master
-                0x02035520                system__soft_links__complete_master
-                0x02035508                system__soft_links__get_exc_stack_addr
-                0x020354e8                system__soft_links__lock_task
-                0x0203550c                system__soft_links__set_exc_stack_addr
- .data          0x02035530        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-argv.o)
-                0x02035530                gnat_argc
-                0x02035538                gnat_envp
-                0x02035534                gnat_argv
- .data          0x0203553c        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-exit.o)
-                0x0203553c                gnat_exit_status
- .data          0x02035540       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
-                0x02035548                __gl_wc_encoding
-                0x02035550                __gl_unreserve_all_interrupts
-                0x02035554                __gl_exception_tracebacks
-                0x02035540                __gl_main_priority
-                0x0203554c                __gl_adafinal_ptr
-                0x02035549                __gl_locking_policy
-                0x0203554b                __gl_task_dispatching_policy
-                0x0203554a                __gl_queuing_policy
-                0x02035544                __gl_time_slice_val
- .data          0x02035558       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
-                0x02035568                system__fat_llf__fat_long_long_float__radix_to_m_minus_1
-                0x02035558                system__fat_llf__fat_long_long_float__float_radix
-                0x02035560                system__fat_llf__fat_long_long_float__float_radix_inv
-                0x02035578                system__fat_llf__fat_long_long_float__invrad
-                0x02035570                system__fat_llf__fat_long_long_float__rad
- .data          0x02035580        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
-                0x02035580                Dir_Separator
-                0x02035584                _gnat_library_template
- .data          0x02035588      0x2f0 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(impure.o)
-                0x02035874                _impure_ptr
- .data          0x02035878      0x444 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(mallocr.o)
-                0x02035c84                __malloc_top_pad
-                0x02035c8c                __malloc_max_sbrked_mem
-                0x02035c88                __malloc_sbrk_base
-                0x02035c94                __malloc_current_mallinfo
-                0x02035878                __malloc_av_
-                0x02035c90                __malloc_max_total_mem
-                0x02035c80                __malloc_trim_threshold
- .data          0x02035cbc        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(environ.o)
-                0x02035cc0                environ
- *fill*         0x02035cc4        0x4
- .data          0x02035cc8       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(locale.o)
-                0x02035cc8                __mb_cur_max
- .data          0x02035ce0        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(sbrk.o)
- .data          0x02035ce4        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(uart.o)
-                0x02035ce4                uart_status
-                0x02035ce8                uart_channel_a
-                0x02035cec                data_end=.
+ .data          0x02032b50        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/ada_crt0.o
+ .data          0x02032b58      0x204 b~main.o
+                0x02032b78                ada__exceptionsS
+                0x02032bb8                system__secondary_stackB
+                0x02032cdc                devicesS
+                0x02032cc0                system__tasking__debugB
+                0x02032bec                system__arith_64B
+                0x02032cf8                system__img_realB
+                0x02032b6c                addS
+                0x02032bc0                system__parametersB
+                0x02032bf4                gnat__exceptionsS
+                0x02032c10                system__finalization_rootS
+                0x02032ba8                system__machine_state_operationsB
+                0x02032c6c                kernel__interruptsS
+                0x02032cc4                system__tasking__debugS
+                0x02032c48                kernel__threads__protectionS
+                0x02032d40                system__exn_fltS
+                0x02032cd0                ada__real_time__delaysB
+                0x02032c84                system__finalization_implementationS
+                0x02032bf0                system__arith_64S
+                0x02032c20                system__unsigned_typesS
+                0x02032d54                system__tasking__restricted__stagesS
+                0x02032c4c                kernel__cpu_primitivesB
+                0x02032cb0                system__taskingB
+                0x02032b90                kernel__parametersS
+                0x02032cc8                interfaces__cB
+                0x02032cec                ada__characters__latin_1S
+                0x02032ca8                system__os_primitivesB
+                0x02032d58                system__tasking__restrictedS
+                0x02032d24                toolsS
+                0x02032c90                system__task_primitives__operationsB
+                0x02032b5c                mainB
+                0x02032bd8                system__tracebackB
+                0x02032cf0                system__img_intB
+                0x02032b60                system__standard_libraryB
+                0x02032c24                system__task_primitivesS
+                0x02032ba0                gnat__htableS
+                0x02032d00                system__fat_llfS
+                0x02032ce8                ada__charactersS
+                0x02032c50                kernel__cpu_primitivesS
+                0x02032c68                kernel__interruptsB
+                0x02032d38                ada__numerics__elementary_functionsS
+                0x02032b64                system__standard_libraryS
+                0x02032bc4                system__parametersS
+                0x02032d2c                workloadS
+                0x02032bb0                system__storage_elementsB
+                0x02032c98                kernel__threads__atcbB
+                0x02032bb4                system__storage_elementsS
+                0x02032c60                kernel__timeB
+                0x02032b7c                gnatS
+                0x02032c54                system__machine_codeS
+                0x02032cd4                ada__real_time__delaysS
+                0x02032ca0                system__os_interfaceB
+                0x02032cf4                system__img_intS
+                0x02032c3c                kernel__peripheralsS
+                0x02032d04                system__img_lluB
+                0x02032cb8                system__task_infoB
+                0x02032b80                gnat__heap_sort_aB
+                0x02032d30                ada__numericsS
+                0x02032c94                system__task_primitives__operationsS
+                0x02032cbc                system__task_infoS
+                0x02032d4c                system__fat_fltS
+                0x02032d14                system__powten_tableS
+                0x02032be4                ada__real_timeS
+                0x02032c5c                kernel__threads__queuesS
+                0x02032d1c                system__tasking__protected_objectsS
+                0x02032b88                systemS
+                0x02032c18                system__stream_attributesS
+                0x02032c64                kernel__timeS
+                0x02032c88                system__string_ops_concat_3B
+                0x02032c58                kernel__threads__queuesB
+                0x02032ccc                interfaces(char, signed)
+                0x02032ba4                system__exceptionsS
+                0x02032c34                kernel__memoryS
+                0x02032b8c                kernelS
+                0x02032be0                ada__real_timeB
+                0x02032c08                system__string_opsS
+                0x02032c78                ada__finalizationB
+                0x02032ce0                kernel__serial_outputB
+                0x02032c28                kernel__threadsB
+                0x02032bd0                system__stack_checkingB
+                0x02032bac                system__machine_state_operationsS
+                0x02032c30                kernel__memoryB
+                0x02032c0c                system__finalization_rootB
+                0x02032c9c                kernel__threads__atcbS
+                0x02032c44                kernel__threads__protectionB
+                0x02032c7c                ada__finalizationS
+                0x02032c38                kernel__peripheralsB
+                0x02032b84                gnat__heap_sort_aS
+                0x02032d3c                ada__numerics__auxS
+                0x02032d28                workloadB
+                0x02032b98                system__exception_tableS
+                0x02032c00                ada__tagsS
+                0x02032cac                system__os_primitivesS
+                0x02032cfc                system__img_realS
+                0x02032d34                ada__numerics__elementary_functionsB
+                0x02032c14                system__stream_attributesB
+                0x02032bf8                ada__streamsS
+                0x02032bfc                ada__tagsB
+                0x02032c04                system__string_opsB
+                0x02032d08                system__img_lluS
+                0x02032cd8                devicesB
+                0x02032d10                system__img_unsS
+                0x02032c74                ada__finalization__list_controllerS
+                0x02032c2c                kernel__threadsS
+                0x02032d0c                system__img_unsB
+                0x02032b9c                gnat__htableB
+                0x02032c8c                system__string_ops_concat_3S
+                0x02032bdc                system__tracebackS
+                0x02032ce4                kernel__serial_outputS
+                0x02032bc8                system__soft_linksB
+                0x02032c70                ada__finalization__list_controllerB
+                0x02032bd4                system__stack_checkingS
+                0x02032c1c                ada__io_exceptionsS
+                0x02032b70                adaS
+                0x02032cb4                system__taskingS
+                0x02032c40                kernel__peripherals__registersS
+                0x02032b74                ada__exceptionsB
+                0x02032b58                ada_main_E
+                0x02032d50                system__tasking__restricted__stagesB
+                0x02032d18                system__tasking__protected_objectsB
+                0x02032bbc                system__secondary_stackS
+                0x02032c80                system__finalization_implementationB
+                0x02032ca4                system__os_interfaceS
+                0x02032bcc                system__soft_linksS
+                0x02032b94                system__exception_tableB
+                0x02032b68                addB
+                0x02032be8                interfacesS
+                0x02032d20                toolsB
+                0x02032d44                system__exn_genB
+                0x02032d48                system__exn_genS
+ .data          0x02032d5c     0x1ab0 ./devices.o
+                0x02032d60                devices__number_electrodes
+                0x02032d5c                devices_E
+                0x02033864                devices__eeg_simulation
+                0x0203353c                devices__eyes_samples_indexT
+                0x02033084                devices__headposition_samples_indexT
+                0x0203308c                devices__headposition_simulation
+                0x02033544                devices__eyes_simulation
+                0x02034804                devices__light_statesT
+                0x020333ac                devices__steering_simulation
+                0x02032ef4                devices__distance_simulation
+                0x02032d64                devices__speed_simulation
+ *fill*         0x0203480c        0x4
+ .data          0x02034810       0x38 ./workload.o
+                0x02034834                workload__workload_failure
+                0x02034810                workload_E
+                0x02034818                workload__workload_failureE
+ .data          0x02034848        0x1 ./tools.o
+                0x02034848                tools_E
+ *fill*         0x02034849        0x3
+ .data          0x0203484c       0x60 ./add.o
+                0x02034864                add__cabeza_inclinada_estado_typeT
+                0x0203486c                add__volantazo_estado_typeT
+                0x02034874                add__distancia_estado_typeT
+                0x0203484c                add_E
+ *fill*         0x020348ac        0x4
+ .data          0x020348b0       0x38 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
+                0x020348e0                ada__real_time__tick
+                0x020348c8                ada__real_time__time_span_last
+                0x020348b8                ada__real_time__time_last
+                0x020348c0                ada__real_time__time_span_first
+                0x020348d0                ada__real_time__time_span_zero
+                0x020348b0                ada__real_time__time_first
+                0x020348d8                ada__real_time__time_span_unit
+ .data          0x020348e8        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
+                0x020348e8                system__tasking__protected_objects__null_po
+ *fill*         0x020348ec        0x4
+ .data          0x020348f0       0x34 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
+                0x020348f0                system__task_primitives__operations__lock_levelT
+                0x02034910                system__task_primitives__operations__dummy_task_id
+                0x0203490c                system__task_primitives__operations__environment_task_id
+                0x02034918                system__task_primitives__operations__next_serial_number
+                0x02034908                system__task_primitives__operations__atcb_index
+                0x02034920                system__task_primitives__operations__exit_task_procedure
+ .data          0x02034924       0xb8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
+                0x020349a8                system__tasking__call_modesT
+                0x020349a4                system__tasking__null_task
+                0x02034924                system__tasking__environment_task_level
+                0x0203492c                system__tasking__library_task_level
+                0x02034944                system__tasking__entry_call_stateT
+                0x0203499c                system__tasking__interrupt_manager_id
+                0x02034930                system__tasking__unspecified_priority
+                0x02034934                system__tasking__priority_not_boosted
+                0x0203495c                system__tasking__task_statesT
+                0x02034938                system__tasking__max_atc_nesting
+                0x0203493c                system__tasking__atc_level_infinity
+                0x02034940                system__tasking__max_select
+                0x020349a0                system__tasking__all_tasks_list
+                0x02034928                system__tasking__independent_task_level
+                0x020349b8                system__tasking__select_modesT
+ .data          0x020349dc        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
+                0x020349dc                current_interrupt_priority
+ .data          0x020349e0        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
+                0x020349e4                kernel__threads__null_thread_id
+                0x020349e0                kernel__threads_E
+ .data          0x020349e8        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-atcb.o)
+                0x020349e8                kernel__threads__atcb_E
+ *fill*         0x020349e9        0x3
+ .data          0x020349ec       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
+                0x020349f8                kernel__threads__queues__environment_thread
+                0x02034a00                kernel__threads__queues__head_alarm_id
+                0x020349f0                kernel__threads__queues__last_thread_pos
+                0x020349f4                kernel__threads__queues__dummy_thread
+                0x020349ec                running_thread
+                0x020349fc                kernel__threads__queues__head
+ .data          0x02034a04        0x2 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-protection.o)
+                0x02034a04                kernel__threads__protection_E
+                0x02034a05                kernel__threads__protection__pending_context_switch
+ *fill*         0x02034a06        0x2
+ .data          0x02034a08       0x19 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-time.o)
+                0x02034a10                ork_tick
+                0x02034a08                kernel__time_E
+ *fill*         0x02034a21        0x3
+ .data          0x02034a24       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
+                0x02034a2c                interrupt_stack
+                0x02034a24                kernel__memory_E
+                0x02034a30                environment_stack
+ .data          0x02034a34       0x1c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-cpu_primitives.o)
+                0x02034a34                kernel__cpu_primitives_E
+                0x02034a44                kernel__cpu_primitives__psr
+                0x02034a38                kernel__cpu_primitives__pc
+                0x02034a3c                kernel__cpu_primitives__npc
+                0x02034a4c                kernel__cpu_primitives__protection_end
+                0x02034a40                kernel__cpu_primitives__sp
+                0x02034a48                kernel__cpu_primitives__protection_begin
+ .data          0x02034a50       0x78 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
+                0x02034ab8                kernel__peripherals__registers__interrupt_force
+                0x02034ac0                kernel__peripherals__registers__uart_channel_a
+                0x02034a88                kernel__peripherals__registers__uart_channel_a_rx_tx_register_address
+                0x02034a6c                kernel__peripherals__registers__watchdog_trap_door_set_register_address
+                0x02034ab0                kernel__peripherals__registers__watchdog_trap_door_set
+                0x02034a64                kernel__peripherals__registers__general_purpose_timer_scaler_address
+                0x02034abc                kernel__peripherals__registers__uart_status
+                0x02034a9c                kernel__peripherals__registers__real_time_clock_counter
+                0x02034a84                kernel__peripherals__registers__interrupt_force_register_address
+                0x02034a98                kernel__peripherals__registers__test_control
+                0x02034a80                kernel__peripherals__registers__interrupt_mask_register_address
+                0x02034a50                kernel__peripherals__registers__control_register_address
+                0x02034a70                Segment_1_Base
+                0x02034a90                kernel__peripherals__registers__uart_status_register_address
+                0x02034a5c                kernel__peripherals__registers__general_purpose_timer_counter_address
+                0x02034ab4                kernel__peripherals__registers__interrupt_mask
+                0x02034a8c                kernel__peripherals__registers__uart_channel_b_rx_tx_register_address
+                0x02034aa8                kernel__peripherals__registers__general_purpose_timer_scaler
+                0x02034aac                kernel__peripherals__registers__timer_control
+                0x02034a74                Segment_2_Base
+                0x02034aa4                kernel__peripherals__registers__real_time_clock_scaler
+                0x02034a68                kernel__peripherals__registers__timer_control_register_address
+                0x02034aa0                kernel__peripherals__registers__general_purpose_timer_counter
+                0x02034a78                Segment_1_End
+                0x02034a7c                Segment_2_End
+                0x02034a54                kernel__peripherals__registers__test_control_register_address
+                0x02034ac4                kernel__peripherals__registers__uart_channel_b
+                0x02034a58                kernel__peripherals__registers__real_time_clock_counter_address
+                0x02034a60                kernel__peripherals__registers__real_time_clock_scaler_address
+                0x02034a94                kernel__peripherals__registers__control
+ .data          0x02034ac8       0x70 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
+                0x02034b08                kernel__peripherals__masked_hardware_errors
+                0x02034ac8                kernel__peripherals_E
+                0x02034ae4                kernel__peripherals__external_interrupt_2
+                0x02034acc                kernel__peripherals__clock_freq_hz
+                0x02034b20                kernel__peripherals__uart_stop_bitsT
+                0x02034b0c                kernel__peripherals__access_protection_segment_idT
+                0x02034b04                kernel__peripherals__external_interrupt_0
+                0x02034af8                kernel__peripherals__uart_b_ready
+                0x02034b30                kernel__peripherals__periodic_scaler
+                0x02034b00                kernel__peripherals__external_interrupt_1
+                0x02034b34                kernel__peripherals__periodic_count
+                0x02034ae8                kernel__peripherals__dma_time_out
+                0x02034afc                kernel__peripherals__uart_a_ready
+                0x02034ad0                kernel__peripherals__watch_dog_time_out
+                0x02034adc                kernel__peripherals__general_purpose_timer
+                0x02034b14                kernel__peripherals__uart_parityT
+                0x02034b28                kernel__peripherals__uart_channelT
+                0x02034ad8                kernel__peripherals__real_time_clock
+                0x02034ad4                kernel__peripherals__external_interrupt_4
+                0x02034ae0                kernel__peripherals__external_interrupt_3
+                0x02034aec                kernel__peripherals__dma_access_error
+                0x02034af0                kernel__peripherals__uart_error
+                0x02034af4                kernel__peripherals__correctable_error_in_memory
+ .data          0x02034b38        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-serial_output.o)
+                0x02034b38                kernel__serial_output_E
+ *fill*         0x02034b39        0x3
+ .data          0x02034b3c      0x428 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(install_handler.o)
+                0x02034f5c                Coming_Task_Buffer
+                0x02034f50                Context_Switch_Necessary
+                0x02034f54                Current_Task_Buffer
+                0x02034f58                Coming_Task_Id
+                0x02034f4c                ISR_Nest_Level
+                0x02034f60                FP_Save_Pending
+ *fill*         0x02034f64        0x4
+ .data          0x02034f68       0x15 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
+                0x02034f78                ada__exceptions__counter
+                0x02034f68                ada__exceptions__null_loc
+                0x02034f6c                ada__exceptions__null_id
+                0x02034f70                ada__exceptions__subprogram_descriptors
+ *fill*         0x02034f7d        0x3
+ .data          0x02034f80       0x79 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
+                0x02034fc4                ada__finalization__list_controller__list_controllerF
+                0x02034fc8                ada__finalization__list_controller__list_controllerE
+                0x02034f88                ada__finalization__list_controller__simple_list_controllerE
+                0x02034f80                ada__finalization__list_controller__simple_list_controllerP
+                0x02034f84                ada__finalization__list_controller__simple_list_controllerF
+                0x02034fc0                ada__finalization__list_controller__list_controllerP
+ *fill*         0x02034ff9        0x7
+ .data          0x02035000       0x54 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
+                0x02035028                ada__finalization__limited_controlledF
+                0x02035024                ada__finalization__limited_controlledP
+                0x02035030                ada__finalization__limited_controlledE
+                0x02035004                ada__finalization__controlledF
+                0x02035000                ada__finalization__controlledP
+                0x02035008                ada__finalization__controlledE
+ *fill*         0x02035054        0x4
+ .data          0x02035058      0x1ac /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-ioexce.o)
+                0x02035184                ada__io_exceptions__end_error
+                0x02035198                ada__io_exceptions__data_errorE
+                0x020351b8                ada__io_exceptions__data_error
+                0x02035130                ada__io_exceptions__device_errorE
+                0x02035078                ada__io_exceptions__status_error
+                0x02035150                ada__io_exceptions__device_error
+                0x02035090                ada__io_exceptions__mode_errorE
+                0x02035100                ada__io_exceptions__use_errorE
+                0x020351d0                ada__io_exceptions__layout_errorE
+                0x020350b0                ada__io_exceptions__mode_error
+                0x020350c8                ada__io_exceptions__name_errorE
+                0x02035168                ada__io_exceptions__end_errorE
+                0x0203511c                ada__io_exceptions__use_error
+                0x020350e8                ada__io_exceptions__name_error
+                0x020351f0                ada__io_exceptions__layout_error
+                0x02035058                ada__io_exceptions__status_errorE
+ *fill*         0x02035204        0x4
+ .data          0x02035208       0x30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-numeri.o)
+                0x02035208                ada__numerics__argument_errorE
+                0x02035224                ada__numerics__argument_error
+ .data          0x02035238       0x25 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
+                0x0203523c                ada__streams__root_stream_typeF
+                0x02035240                ada__streams__root_stream_typeE
+                0x02035238                ada__streams__root_stream_typeP
+ *fill*         0x0203525d        0x3
+ .data          0x02035260       0x49 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
+                0x0203528c                ada__tags__dt_entry_size
+                0x020352a4                ada__tags__external_tag_htable__iterator_ptrXn
+                0x02035290                ada__tags__tsd_prologue_size
+                0x02035274                ada__tags__tag_error
+                0x02035288                ada__tags__dt_prologue_size
+                0x02035298                ada__tags__external_tag_htable__null_ptrXn
+                0x020352a8                ada__tags__external_tag_htable__iterator_startedXn
+                0x02035294                ada__tags__tsd_entry_size
+                0x0203529c                ada__tags__wide_booleanT
+                0x02035260                ada__tags__tag_errorE
+ *fill*         0x020352a9        0x7
+ .data          0x020352b0       0x27 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
+                0x020352b8                gnat__exceptions__exception_typeE
+                0x020352b0                gnat__exceptions__exception_typeP
+                0x020352b4                gnat__exceptions__exception_typeF
+ *fill*         0x020352d7        0x1
+ .data          0x020352d8       0x3c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
+                0x020352d8                interfaces__c__nul
+                0x02035300                interfaces__c__terminator_error
+                0x020352da                interfaces__c__wide_nul
+                0x020352e0                interfaces__c__terminator_errorE
+ .data          0x02035314        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
+                0x02035314                system__exceptions__others_id
+                0x02035318                system__exceptions__all_others_id
+                0x0203531c                system__exceptions__no_info
+ .data          0x02035320        0x9 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
+                0x02035324                system__exception_table__exception_htable__iterator_ptrXn
+                0x02035320                system__exception_table__exception_htable__null_ptrXn
+                0x02035328                system__exception_table__exception_htable__iterator_startedXn
+ *fill*         0x02035329        0x3
+ .data          0x0203532c       0x14 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
+                0x0203532c                system__fat_flt__fat_float__float_radix
+                0x0203533c                system__fat_flt__fat_float__invrad
+                0x02035334                system__fat_flt__fat_float__radix_to_m_minus_1
+                0x02035338                system__fat_flt__fat_float__rad
+                0x02035330                system__fat_flt__fat_float__float_radix_inv
+ .data          0x02035340       0x8d /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
+                0x02035398                system__finalization_implementation__record_controllerE
+                0x02035344                system__finalization_implementation__limited_record_controllerP
+                0x02035348                system__finalization_implementation__limited_record_controllerF
+                0x02035394                system__finalization_implementation__record_controllerF
+                0x02035350                system__finalization_implementation__limited_record_controllerE
+                0x02035340                system__finalization_implementation__global_final_list
+                0x02035390                system__finalization_implementation__record_controllerP
+ *fill*         0x020353cd        0x3
+ .data          0x020353d0       0x69 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
+                0x020353d8                system__finalization_root__empty_root_controlledE
+                0x020353d0                system__finalization_root__empty_root_controlledP
+                0x020353d4                system__finalization_root__empty_root_controlledF
+                0x02035408                system__finalization_root__root_controlledP
+                0x02035410                system__finalization_root__root_controlledE
+                0x0203540c                system__finalization_root__root_controlledF
+ *fill*         0x02035439        0x3
+ .data          0x0203543c        0xf /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-parame.o)
+                0x0203543c                system__parameters__unspecified_size
+                0x02035449                system__parameters__stack_grows_down
+                0x02035448                system__parameters__sec_stack_dynamic
+                0x0203544a                system__parameters__garbage_collected
+                0x02035440                system__parameters__dynamic
+                0x02035444                system__parameters__sec_stack_ratio
+ .data          0x0203544b        0x1 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
+                0x0203544b                system__secondary_stack__ss_ratio_dynamic
+ .data          0x0203544c        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
+                0x02035450                system__stack_checking__null_stack
+                0x0203544c                system__stack_checking__multi_processor
+                0x02035454                _gnat_stack_cache
+ .data          0x02035458       0xcc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
+                0x02035458                system__standard_library__program_error_name
+                0x02035498                system__standard_library__numeric_error_name
+                0x020354d0                program_error
+                0x02035520                system__standard_library__local_partition_id
+                0x020354f8                tasking_error
+                0x0203550c                _abort_signal
+                0x02035488                system__standard_library__abort_signal_name
+                0x020354bc                numeric_error
+                0x02035468                system__standard_library__storage_error_name
+                0x02035478                system__standard_library__tasking_error_name
+                0x020354a8                constraint_error
+                0x020354e4                storage_error
+ .data          0x02035524       0x5c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
+                0x02035530                system__soft_links__update_exception
+                0x0203556c                system__soft_links__enter_master
+                0x02035524                system__soft_links__abort_defer
+                0x02035554                system__soft_links__set_machine_state_addr
+                0x02035540                system__soft_links__get_jmpbuf_address
+                0x02035544                system__soft_links__set_jmpbuf_address
+                0x0203557c                system__soft_links__task_wrapper_address
+                0x02035534                system__soft_links__check_abort_status
+                0x02035560                system__soft_links__get_current_excep
+                0x02035578                system__soft_links__timed_delay
+                0x0203552c                system__soft_links__abort_handler
+                0x02035548                system__soft_links__get_sec_stack_addr
+                0x02035528                system__soft_links__abort_undefer
+                0x02035550                system__soft_links__get_machine_state_addr
+                0x02035564                system__soft_links__get_stack_info
+                0x0203553c                system__soft_links__unlock_task
+                0x0203554c                system__soft_links__set_sec_stack_addr
+                0x02035574                system__soft_links__clock
+                0x02035568                system__soft_links__current_master
+                0x02035570                system__soft_links__complete_master
+                0x02035558                system__soft_links__get_exc_stack_addr
+                0x02035538                system__soft_links__lock_task
+                0x0203555c                system__soft_links__set_exc_stack_addr
+ .data          0x02035580        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-argv.o)
+                0x02035580                gnat_argc
+                0x02035588                gnat_envp
+                0x02035584                gnat_argv
+ .data          0x0203558c        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-exit.o)
+                0x0203558c                gnat_exit_status
+ .data          0x02035590       0x18 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
+                0x02035598                __gl_wc_encoding
+                0x020355a0                __gl_unreserve_all_interrupts
+                0x020355a4                __gl_exception_tracebacks
+                0x02035590                __gl_main_priority
+                0x0203559c                __gl_adafinal_ptr
+                0x02035599                __gl_locking_policy
+                0x0203559b                __gl_task_dispatching_policy
+                0x0203559a                __gl_queuing_policy
+                0x02035594                __gl_time_slice_val
+ .data          0x020355a8       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
+                0x020355b8                system__fat_llf__fat_long_long_float__radix_to_m_minus_1
+                0x020355a8                system__fat_llf__fat_long_long_float__float_radix
+                0x020355b0                system__fat_llf__fat_long_long_float__float_radix_inv
+                0x020355c8                system__fat_llf__fat_long_long_float__invrad
+                0x020355c0                system__fat_llf__fat_long_long_float__rad
+ .data          0x020355d0        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
+                0x020355d0                Dir_Separator
+                0x020355d4                _gnat_library_template
+ .data          0x020355d8      0x2f0 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(impure.o)
+                0x020358c4                _impure_ptr
+ .data          0x020358c8      0x444 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(mallocr.o)
+                0x02035cd4                __malloc_top_pad
+                0x02035cdc                __malloc_max_sbrked_mem
+                0x02035cd8                __malloc_sbrk_base
+                0x02035ce4                __malloc_current_mallinfo
+                0x020358c8                __malloc_av_
+                0x02035ce0                __malloc_max_total_mem
+                0x02035cd0                __malloc_trim_threshold
+ .data          0x02035d0c        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(environ.o)
+                0x02035d10                environ
+ *fill*         0x02035d14        0x4
+ .data          0x02035d18       0x18 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(locale.o)
+                0x02035d18                __mb_cur_max
+ .data          0x02035d30        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(sbrk.o)
+ .data          0x02035d34        0x8 /usr/local/openravenscar/sparc-ork-elf/lib/libork.a(uart.o)
+                0x02035d34                uart_status
+                0x02035d38                uart_channel_a
+                0x02035d3c                data_end=.
 
-.bss            0x02035cf0   0x1d7f2c
-                0x02035cf0                bss_start=.
+.bss            0x02035d40   0x1d7fdc
+                0x02035d40                bss_start=.
  *(.bss)
- .bss           0x02035cf0     0x1af0 ./devices.o
- *fill*         0x020377e0       0x20
- .bss           0x02037800        0x8 ./tools.o
- *fill*         0x02037808       0xf8
- .bss           0x02037900      0xa08 ./add.o
- *fill*         0x02038308        0x8
- .bss           0x02038310        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
- .bss           0x02038318      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
- *fill*         0x02038418       0xe8
- .bss           0x02038500      0x6a0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
- *fill*         0x02038ba0       0x60
- .bss           0x02038c00   0x153b08 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
- *fill*         0x0218c708        0x8
- .bss           0x0218c710      0x1a4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
- *fill*         0x0218c8b4       0x4c
- .bss           0x0218c900     0x2914 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
- *fill*         0x0218f214        0xc
- .bss           0x0218f220        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
+ .bss           0x02035d40     0x1af0 ./devices.o
+ *fill*         0x02037830       0xd0
+ .bss           0x02037900        0x8 ./tools.o
+ *fill*         0x02037908       0xf8
+ .bss           0x02037a00      0xa08 ./add.o
+ *fill*         0x02038408        0x8
+ .bss           0x02038410        0x8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
+ .bss           0x02038418      0x100 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
+ *fill*         0x02038518       0xe8
+ .bss           0x02038600      0x6a0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
+ *fill*         0x02038ca0       0x60
+ .bss           0x02038d00   0x153b08 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
+ *fill*         0x0218c808        0x8
+ .bss           0x0218c810      0x1a4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
+ *fill*         0x0218c9b4       0x4c
+ .bss           0x0218ca00     0x2914 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
+ *fill*         0x0218f314        0xc
+ .bss           0x0218f320        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
  *(COMMON)
- *fill*         0x0218f224        0x4
- COMMON         0x0218f228       0x58 ./devices.o
-                0x0218f228                devices__wcet_speed
-                0x0218f230                devices__wcet_eeg
-                0x0218f238                devices__wcet_distance
-                0x0218f240                devices__wcet_automatic_driving
-                0x0218f248                devices__wcet_alarm
-                0x0218f250                devices__wcet_steering
-                0x0218f258                devices__wcet_display
-                0x0218f260                devices__wcet_light
-                0x0218f268                devices__wcet_headposition
-                0x0218f270                devices__wcet_eyes_image
-                0x0218f278                devices__wcet_brake
- COMMON         0x0218f280        0x8 ./tools.o
-                0x0218f280                tools__big_bang
- COMMON         0x0218f288    0x6a6a8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
-                0x0218f288                system__task_primitives__operations__all_tasks_l
-                0x0218f290                system__task_primitives__operations__atcb_array
- COMMON         0x021f9930      0xfa0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
-                0x021f9930                system__tasking__debug__known_tasks
- COMMON         0x021fa8d0       0xb4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
-                0x021fa8d0                kernel__interrupts__handlers_table
- COMMON         0x021fa984       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
-                0x021fa984                kernel__threads__thread_idL
- *fill*         0x021fa9ac        0x4
- COMMON         0x021fa9b0    0x10a10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
-                0x021fa9b0                kernel__threads__queues__thread_list
- COMMON         0x0220b3c0       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
-                0x0220b3c0                kernel__peripherals__registers__protected_segment_2_base_register
-                0x0220b3c4                kernel__peripherals__registers__protected_segment_2_end_register
-                0x0220b3c8                kernel__peripherals__registers__protected_segment_1_base_register
-                0x0220b3cc                kernel__peripherals__registers__protected_segment_1_end_register
- COMMON         0x0220b3d0        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
-                0x0220b3d0                kernel__peripherals__timer_control_mirror
- COMMON         0x0220b3d4      0x1a8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
-                0x0220b3d4                ada__exceptions__num_subprogram_descriptors
-                0x0220b3d8                ada__exceptions__null_occurrence
- COMMON         0x0220b57c       0xb0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
-                0x0220b57c                ada__finalization__list_controller__list_controllerT
-                0x0220b5ac                ada__finalization__list_controller__simple_list_controllerT
-                0x0220b5dc                ada__finalization__list_controller__list_controllerB
-                0x0220b604                ada__finalization__list_controller__simple_list_controllerB
- COMMON         0x0220b62c       0xac /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
-                0x0220b62c                ada__finalization__controlledB
-                0x0220b650                ada__finalization__limited_controlledT
-                0x0220b680                ada__finalization__controlledT
-                0x0220b6b4                ada__finalization__limited_controlledB
- COMMON         0x0220b6d8       0x30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
-                0x0220b6d8                ada__streams__root_stream_typeB
-                0x0220b6f4                ada__streams__root_stream_typeT
- COMMON         0x0220b708      0x101 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
-                0x0220b708                ada__tags__external_tag_htable__tableXn
-                0x0220b808                ada__tags__external_tag_htable__iterator_indexXn
- *fill*         0x0220b809        0x3
- COMMON         0x0220b80c       0x48 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
-                0x0220b80c                gnat__exceptions__exception_typeB
-                0x0220b828                gnat__exceptions__exception_typeT
- COMMON         0x0220b854       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
-                0x0220b854                system__exceptions__all_others_dummy_exception
-                0x0220b868                system__exceptions__others_dummy_exception
- COMMON         0x0220b87c       0x98 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
-                0x0220b87c                system__exception_table__exception_htable__iterator_indexXn
-                0x0220b880                system__exception_table__exception_htable__tableXn
- COMMON         0x0220b914       0xa4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
-                0x0220b914                system__finalization_implementation__record_controllerT
-                0x0220b940                system__finalization_implementation__record_controllerB
-                0x0220b968                system__finalization_implementation__limited_record_controllerT
-                0x0220b994                system__finalization_implementation__limited_record_controllerB
- COMMON         0x0220b9b8       0x88 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
-                0x0220b9b8                system__finalization_root__root_controlledT
-                0x0220b9e4                system__finalization_root__root_controlledB
-                0x0220ba04                system__finalization_root__empty_root_controlledB
-                0x0220ba20                system__finalization_root__empty_root_controlledT
- COMMON         0x0220ba40        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
-                0x0220ba40                system__secondary_stack__ss_pool
- COMMON         0x0220ba44        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
-                0x0220ba44                system__stack_checking__null_stack_info
- COMMON         0x0220ba50     0x21c8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
-                0x0220ba50                system__soft_links__nt_exc_stack
-                0x0220da58                system__soft_links__nt_tsd
- COMMON         0x0220dc18        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(sbrkr.o)
-                0x0220dc18                errno
-                0x0220dc1c                bss_end=.
+ *fill*         0x0218f324        0x4
+ COMMON         0x0218f328       0x58 ./devices.o
+                0x0218f328                devices__wcet_speed
+                0x0218f330                devices__wcet_eeg
+                0x0218f338                devices__wcet_distance
+                0x0218f340                devices__wcet_automatic_driving
+                0x0218f348                devices__wcet_alarm
+                0x0218f350                devices__wcet_steering
+                0x0218f358                devices__wcet_display
+                0x0218f360                devices__wcet_light
+                0x0218f368                devices__wcet_headposition
+                0x0218f370                devices__wcet_eyes_image
+                0x0218f378                devices__wcet_brake
+ COMMON         0x0218f380        0x8 ./tools.o
+                0x0218f380                tools__big_bang
+ COMMON         0x0218f388    0x6a6a8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
+                0x0218f388                system__task_primitives__operations__all_tasks_l
+                0x0218f390                system__task_primitives__operations__atcb_array
+ COMMON         0x021f9a30      0xfa0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
+                0x021f9a30                system__tasking__debug__known_tasks
+ COMMON         0x021fa9d0       0xb4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
+                0x021fa9d0                kernel__interrupts__handlers_table
+ COMMON         0x021faa84       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
+                0x021faa84                kernel__threads__thread_idL
+ *fill*         0x021faaac        0x4
+ COMMON         0x021faab0    0x10a10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
+                0x021faab0                kernel__threads__queues__thread_list
+ COMMON         0x0220b4c0       0x10 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
+                0x0220b4c0                kernel__peripherals__registers__protected_segment_2_base_register
+                0x0220b4c4                kernel__peripherals__registers__protected_segment_2_end_register
+                0x0220b4c8                kernel__peripherals__registers__protected_segment_1_base_register
+                0x0220b4cc                kernel__peripherals__registers__protected_segment_1_end_register
+ COMMON         0x0220b4d0        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
+                0x0220b4d0                kernel__peripherals__timer_control_mirror
+ COMMON         0x0220b4d4      0x1a8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
+                0x0220b4d4                ada__exceptions__num_subprogram_descriptors
+                0x0220b4d8                ada__exceptions__null_occurrence
+ COMMON         0x0220b67c       0xb0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
+                0x0220b67c                ada__finalization__list_controller__list_controllerT
+                0x0220b6ac                ada__finalization__list_controller__simple_list_controllerT
+                0x0220b6dc                ada__finalization__list_controller__list_controllerB
+                0x0220b704                ada__finalization__list_controller__simple_list_controllerB
+ COMMON         0x0220b72c       0xac /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
+                0x0220b72c                ada__finalization__controlledB
+                0x0220b750                ada__finalization__limited_controlledT
+                0x0220b780                ada__finalization__controlledT
+                0x0220b7b4                ada__finalization__limited_controlledB
+ COMMON         0x0220b7d8       0x30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
+                0x0220b7d8                ada__streams__root_stream_typeB
+                0x0220b7f4                ada__streams__root_stream_typeT
+ COMMON         0x0220b808      0x101 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
+                0x0220b808                ada__tags__external_tag_htable__tableXn
+                0x0220b908                ada__tags__external_tag_htable__iterator_indexXn
+ *fill*         0x0220b909        0x3
+ COMMON         0x0220b90c       0x48 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
+                0x0220b90c                gnat__exceptions__exception_typeB
+                0x0220b928                gnat__exceptions__exception_typeT
+ COMMON         0x0220b954       0x28 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
+                0x0220b954                system__exceptions__all_others_dummy_exception
+                0x0220b968                system__exceptions__others_dummy_exception
+ COMMON         0x0220b97c       0x98 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
+                0x0220b97c                system__exception_table__exception_htable__iterator_indexXn
+                0x0220b980                system__exception_table__exception_htable__tableXn
+ COMMON         0x0220ba14       0xa4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
+                0x0220ba14                system__finalization_implementation__record_controllerT
+                0x0220ba40                system__finalization_implementation__record_controllerB
+                0x0220ba68                system__finalization_implementation__limited_record_controllerT
+                0x0220ba94                system__finalization_implementation__limited_record_controllerB
+ COMMON         0x0220bab8       0x88 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
+                0x0220bab8                system__finalization_root__root_controlledT
+                0x0220bae4                system__finalization_root__root_controlledB
+                0x0220bb04                system__finalization_root__empty_root_controlledB
+                0x0220bb20                system__finalization_root__empty_root_controlledT
+ COMMON         0x0220bb40        0x4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
+                0x0220bb40                system__secondary_stack__ss_pool
+ COMMON         0x0220bb44        0xc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
+                0x0220bb44                system__stack_checking__null_stack_info
+ COMMON         0x0220bb50     0x21c8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
+                0x0220bb50                system__soft_links__nt_exc_stack
+                0x0220db58                system__soft_links__nt_tsd
+ COMMON         0x0220dd18        0x4 /usr/local/openravenscar/sparc-ork-elf/lib/libc.a(sbrkr.o)
+                0x0220dd18                errno
+                0x0220dd1c                bss_end=.
 
-.stab           0x0220dc1c    0x3e37c
+.stab           0x0220dd1c    0x3e364
  [.stab](*)
- .stab          0x0220dc1c       0xf0 ./main.o
- .stab          0x0220dd0c     0x3c24 ./devices.o
+ .stab          0x0220dd1c       0xf0 ./main.o
+ .stab          0x0220de0c     0x3c24 ./devices.o
                                0x3c30 (size before relaxing)
- .stab          0x02211930      0x7b0 ./workload.o
+ .stab          0x02211a30      0x7b0 ./workload.o
                                 0x7bc (size before relaxing)
- .stab          0x022120e0      0xb4c ./tools.o
+ .stab          0x022121e0      0xb4c ./tools.o
                                 0xb58 (size before relaxing)
- .stab          0x02212c2c     0x37c8 ./add.o
-                               0x37d4 (size before relaxing)
- .stab          0x022163f4     0x10e0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
+ .stab          0x02212d2c     0x37b0 ./add.o
+                               0x37bc (size before relaxing)
+ .stab          0x022164dc     0x10e0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-reatim.o)
                                0x10ec (size before relaxing)
- .stab          0x022174d4      0xb40 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-retide.o)
+ .stab          0x022175bc      0xb40 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(a-retide.o)
                                 0xb4c (size before relaxing)
- .stab          0x02218014      0xdbc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
+ .stab          0x022180fc      0xdbc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprob.o)
                                 0xdc8 (size before relaxing)
- .stab          0x02218dd0     0x2a00 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
+ .stab          0x02218eb8     0x2a00 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taprop.o)
                                0x2a0c (size before relaxing)
- .stab          0x0221b7d0     0x1b60 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
+ .stab          0x0221b8b8     0x1b60 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tarest.o)
                                0x1b6c (size before relaxing)
- .stab          0x0221d330     0x264c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
+ .stab          0x0221d418     0x264c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-tasdeb.o)
                                0x2658 (size before relaxing)
- .stab          0x0221f97c     0x21d8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
+ .stab          0x0221fa64     0x21d8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taskin.o)
                                0x21e4 (size before relaxing)
- .stab          0x02221b54      0x4f8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taspri.o)
+ .stab          0x02221c3c      0x4f8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(s-taspri.o)
                                 0x504 (size before relaxing)
- .stab          0x0222204c      0x84c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
+ .stab          0x02222134      0x84c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-interrupts.o)
                                 0x858 (size before relaxing)
- .stab          0x02222898      0xff0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
+ .stab          0x02222980      0xff0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads.o)
                                 0xffc (size before relaxing)
- .stab          0x02223888      0x4b0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-atcb.o)
+ .stab          0x02223970      0x4b0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-atcb.o)
                                 0x4bc (size before relaxing)
- .stab          0x02223d38      0xdc8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
+ .stab          0x02223e20      0xdc8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-queues.o)
                                 0xdd4 (size before relaxing)
- .stab          0x02224b00      0x5dc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-protection.o)
+ .stab          0x02224be8      0x5dc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-threads-protection.o)
                                 0x5e8 (size before relaxing)
- .stab          0x022250dc      0x8b8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-time.o)
+ .stab          0x022251c4      0x8b8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-time.o)
                                 0x8c4 (size before relaxing)
- .stab          0x02225994      0x2dc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
+ .stab          0x02225a7c      0x2dc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-memory.o)
                                 0x2e8 (size before relaxing)
- .stab          0x02225c70      0x480 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-cpu_primitives.o)
+ .stab          0x02225d58      0x480 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-cpu_primitives.o)
                                 0x48c (size before relaxing)
- .stab          0x022260f0      0xcd8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
+ .stab          0x022261d8      0xcd8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals-registers.o)
                                 0xce4 (size before relaxing)
- .stab          0x02226dc8     0x1590 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
+ .stab          0x02226eb0     0x1590 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-peripherals.o)
                                0x159c (size before relaxing)
- .stab          0x02228358      0x3b4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-serial_output.o)
+ .stab          0x02228440      0x3b4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnarl.a(kernel-serial_output.o)
                                 0x3c0 (size before relaxing)
- .stab          0x0222870c     0x32b8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
+ .stab          0x022287f4     0x32b8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-except.o)
                                0x32c4 (size before relaxing)
- .stab          0x0222b9c4      0x804 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
+ .stab          0x0222baac      0x804 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-filico.o)
                                 0x810 (size before relaxing)
- .stab          0x0222c1c8      0xba0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
+ .stab          0x0222c2b0      0xba0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-finali.o)
                                 0xbac (size before relaxing)
- .stab          0x0222cd68      0x2e8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-ioexce.o)
+ .stab          0x0222ce50      0x2e8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-ioexce.o)
                                 0x2f4 (size before relaxing)
- .stab          0x0222d050     0x1e30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-nuelfu.o)
+ .stab          0x0222d138     0x1e30 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-nuelfu.o)
                                0x1e3c (size before relaxing)
- .stab          0x0222ee80      0x1ec /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-numeri.o)
+ .stab          0x0222ef68      0x1ec /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-numeri.o)
                                 0x1f8 (size before relaxing)
- .stab          0x0222f06c      0x834 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
+ .stab          0x0222f154      0x834 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-stream.o)
                                 0x840 (size before relaxing)
- .stab          0x0222f8a0     0x198c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
+ .stab          0x0222f988     0x198c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-tags.o)
                                0x1998 (size before relaxing)
- .stab          0x0223122c      0xc54 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
+ .stab          0x02231314      0xc54 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-except.o)
                                 0xc60 (size before relaxing)
- .stab          0x02231e80      0x354 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-hesora.o)
+ .stab          0x02231f68      0x354 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(g-hesora.o)
                                 0x360 (size before relaxing)
- .stab          0x022321d4     0x1908 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
+ .stab          0x022322bc     0x1908 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(i-c.o)
                                0x1914 (size before relaxing)
- .stab          0x02233adc     0x1548 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-arit64.o)
+ .stab          0x02233bc4     0x1548 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-arit64.o)
                                0x1554 (size before relaxing)
- .stab          0x02235024      0x840 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
+ .stab          0x0223510c      0x840 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-except.o)
                                 0x84c (size before relaxing)
- .stab          0x02235864      0xba0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
+ .stab          0x0223594c      0xba0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exctab.o)
                                 0xbac (size before relaxing)
- .stab          0x02236404      0x414 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exnflt.o)
+ .stab          0x022364ec      0x414 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-exnflt.o)
                                 0x420 (size before relaxing)
- .stab          0x02236818     0x1644 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
+ .stab          0x02236900     0x1644 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatflt.o)
                                0x1650 (size before relaxing)
- .stab          0x02237e5c     0x25a4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
+ .stab          0x02237f44     0x25a4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finimp.o)
                                0x25b0 (size before relaxing)
- .stab          0x0223a400      0xb7c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
+ .stab          0x0223a4e8      0xb7c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-finroo.o)
                                 0xb88 (size before relaxing)
- .stab          0x0223af7c      0x45c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgint.o)
+ .stab          0x0223b064      0x45c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgint.o)
                                 0x468 (size before relaxing)
- .stab          0x0223b3d8     0x12cc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgrea.o)
+ .stab          0x0223b4c0     0x12cc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgrea.o)
                                0x12d8 (size before relaxing)
- .stab          0x0223c6a4      0x408 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imguns.o)
+ .stab          0x0223c78c      0x408 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imguns.o)
                                 0x414 (size before relaxing)
- .stab          0x0223caac      0x30c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-mastop.o)
+ .stab          0x0223cb94      0x30c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-mastop.o)
                                 0x318 (size before relaxing)
- .stab          0x0223cdb8      0x1ec /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-parame.o)
+ .stab          0x0223cea0      0x1ec /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-parame.o)
                                 0x1f8 (size before relaxing)
- .stab          0x0223cfa4      0x15c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-powtab.o)
+ .stab          0x0223d08c      0x15c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-powtab.o)
                                 0x168 (size before relaxing)
- .stab          0x0223d100      0xaf8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
+ .stab          0x0223d1e8      0xaf8 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-secsta.o)
                                 0xb04 (size before relaxing)
- .stab          0x0223dbf8      0x36c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-sopco3.o)
+ .stab          0x0223dce0      0x36c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-sopco3.o)
                                 0x378 (size before relaxing)
- .stab          0x0223df64      0x810 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
+ .stab          0x0223e04c      0x810 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stache.o)
                                 0x81c (size before relaxing)
- .stab          0x0223e774      0xc60 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
+ .stab          0x0223e85c      0xc60 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stalib.o)
                                 0xc6c (size before relaxing)
- .stab          0x0223f3d4      0x384 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stoele.o)
+ .stab          0x0223f4bc      0x384 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stoele.o)
                                 0x390 (size before relaxing)
- .stab          0x0223f758     0x3384 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stratt.o)
+ .stab          0x0223f840     0x3384 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-stratt.o)
                                0x3390 (size before relaxing)
- .stab          0x02242adc      0x9fc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-strops.o)
+ .stab          0x02242bc4      0x9fc /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-strops.o)
                                 0xa08 (size before relaxing)
- .stab          0x022434d8      0xe34 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
+ .stab          0x022435c0      0xe34 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-soflin.o)
                                 0xe40 (size before relaxing)
- .stab          0x0224430c      0x27c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-traceb.o)
+ .stab          0x022443f4      0x27c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-traceb.o)
                                 0x288 (size before relaxing)
- .stab          0x02244588      0x390 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-argv.o)
+ .stab          0x02244670      0x390 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-argv.o)
                                 0x39c (size before relaxing)
- .stab          0x02244918      0x3f0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-cio.o)
+ .stab          0x02244a00      0x3f0 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-cio.o)
                                 0x444 (size before relaxing)
- .stab          0x02244d08      0x15c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-exit.o)
+ .stab          0x02244df0      0x15c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-exit.o)
                                 0x168 (size before relaxing)
- .stab          0x02244e64      0xa20 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-raise.o)
+ .stab          0x02244f4c      0xa20 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-raise.o)
                                 0xaf8 (size before relaxing)
- .stab          0x02245884      0xb1c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
+ .stab          0x0224596c      0xb1c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-init.o)
                                0x1080 (size before relaxing)
- .stab          0x022463a0      0x144 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-final.o)
+ .stab          0x02246488      0x144 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-final.o)
                                 0x150 (size before relaxing)
- .stab          0x022464e4     0x1698 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
+ .stab          0x022465cc     0x1698 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-fatllf.o)
                                0x16a4 (size before relaxing)
- .stab          0x02247b7c      0x408 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgllu.o)
+ .stab          0x02247c64      0x408 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(s-imgllu.o)
                                 0x414 (size before relaxing)
- .stab          0x02247f84     0x1af4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
+ .stab          0x0224806c     0x1af4 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/adalib/libgnat.a(a-adaint.o)
                                0x1cd4 (size before relaxing)
- .stab          0x02249a78      0x348 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(__dummy.o)
+ .stab          0x02249b60      0x348 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(__dummy.o)
                                 0x354 (size before relaxing)
- .stab          0x02249dc0      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_ashldi3.o)
+ .stab          0x02249ea8      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_ashldi3.o)
                                 0x36c (size before relaxing)
- .stab          0x0224a00c      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_cmpdi2.o)
+ .stab          0x0224a0f4      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_cmpdi2.o)
                                 0x36c (size before relaxing)
- .stab          0x0224a258      0x270 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_divdi3.o)
+ .stab          0x0224a340      0x270 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_divdi3.o)
                                 0x390 (size before relaxing)
- .stab          0x0224a4c8      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixsfdi.o)
+ .stab          0x0224a5b0      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixsfdi.o)
                                 0x360 (size before relaxing)
- .stab          0x0224a708      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunsdfdi.o)
+ .stab          0x0224a7f0      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunsdfdi.o)
                                 0x360 (size before relaxing)
- .stab          0x0224a948      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunssfdi.o)
+ .stab          0x0224aa30      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_fixunssfdi.o)
                                 0x360 (size before relaxing)
- .stab          0x0224ab88      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdidf.o)
+ .stab          0x0224ac70      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdidf.o)
                                 0x360 (size before relaxing)
- .stab          0x0224adc8      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdisf.o)
+ .stab          0x0224aeb0      0x240 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_floatdisf.o)
                                 0x360 (size before relaxing)
- .stab          0x0224b008      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_lshrdi3.o)
+ .stab          0x0224b0f0      0x24c /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_lshrdi3.o)
                                 0x36c (size before relaxing)
- .stab          0x0224b254      0x258 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_muldi3.o)
+ .stab          0x0224b33c      0x258 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_muldi3.o)
                                 0x384 (size before relaxing)
- .stab          0x0224b4ac      0x264 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_udivdi3.o)
+ .stab          0x0224b594      0x264 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_udivdi3.o)
                                 0x390 (size before relaxing)
- .stab          0x0224b710      0x264 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_umoddi3.o)
+ .stab          0x0224b7f8      0x264 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(_umoddi3.o)
                                 0x390 (size before relaxing)
- .stab          0x0224b974      0x624 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
+ .stab          0x0224ba5c      0x624 /usr/local/openravenscar/lib/gcc-lib/sparc-ork-elf/2.8.1/libgcc.a(frame.o)
                                 0x714 (size before relaxing)
 
-.stabstr        0x0224bf98    0x7fb8f
+.stabstr        0x0224c080    0x7fb8f
  [.stabstr](*)
- .stabstr       0x0224bf98    0x7fb8f ./main.o
+ .stabstr       0x0224c080    0x7fb8f ./main.o
                                   0x0 (size before relaxing)
-                0x0220dc1c                heap_start=bss_end
+                0x0220dd1c                heap_start=bss_end
                 0x02400000                heap_end=RAM_END
 LOAD /usr/local/openravenscar/sparc-ork-elf/lib/ada_crt0.o
 LOAD b~main.o

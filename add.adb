@@ -43,8 +43,8 @@ package body add is
     -----------------------------------------------------------------------
     
     type Cabeza_Inclinada_Estado_Type is (CABEZA_INCLINADA, CABEZA_NO_INCLINADA);
-    type Volantazo_Estado_Type is (ESTADO_VOLANTAZO, ESTADO_NO_VOLANTAZO);
-    type Distancia_Estado_Type is (DISTANCIA_PELIGROSA, DISTANCIA_INSEGURA, DISTANCIA_IMPRUDENTE, DISTANCIA_SEGURA);
+    type Volantazo_Estado_Type 	      is (ESTADO_VOLANTAZO, ESTADO_NO_VOLANTAZO);
+    type Distancia_Estado_Type 	      is (DISTANCIA_PELIGROSA, DISTANCIA_INSEGURA, DISTANCIA_IMPRUDENTE, DISTANCIA_SEGURA);
     
     -----------------------------------------------------------------------
     ------------- declaration of protected objects 
@@ -52,11 +52,11 @@ package body add is
 
     Protected Sintomas is
       procedure Guardar_Estado_Distraccion (actual_Distraccion : in Cabeza_Inclinada_Estado_Type);
-      procedure Guardar_Estado_Volantazo (actual_Volantazo : in Volantazo_Estado_Type);
-      procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type);
-      function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
-      function Obtener_Estado_Volantazo return Volantazo_Estado_Type;
-      function Obtener_Estado_Distancia return Distancia_Estado_Type;
+      procedure Guardar_Estado_Volantazo   (actual_Volantazo   : in Volantazo_Estado_Type);
+      procedure Guardar_Estado_Distancia   (actual_Distancia   : in Distancia_Estado_Type);
+      function  Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
+      function  Obtener_Estado_Volantazo   return Volantazo_Estado_Type;
+      function  Obtener_Estado_Distancia   return Distancia_Estado_Type;
     private
       CABEZA_INCLINADA : Cabeza_Inclinada_Estado_Type;
       VOLANTAZO	       : Volantazo_Estado_Type;
@@ -67,8 +67,8 @@ package body add is
     Protected Medidas is
       procedure Guardar_Distancia_Actual (actual_Distancia : in Distance_Samples_Type);
       procedure Guardar_Velocidad_Actual (actual_Velocidad : in Speed_Samples_Type);
-      function Obtener_Distancia_Actual return Distance_Samples_Type;
-      function Obtener_Velocidad_Actual return Speed_Samples_Type;
+      function  Obtener_Distancia_Actual return Distance_Samples_Type;
+      function  Obtener_Velocidad_Actual return Speed_Samples_Type;
     private
      DISTANCIA : Distance_Samples_Type;
      VELOCIDAD : Speed_Samples_Type;
@@ -88,6 +88,10 @@ package body add is
       pragma priority (LEER_DISTANCIA_PRIORITY);
     end LeerDistancia;
     
+    task LeerGiroVolante is
+      pragma priority (LEER_GIRO_VOLANTE_PRIORITY);
+    end leerGiroVolante;
+    
     task MostrarInfoDisplay is
       pragma priority (MOSTRAR_INFO_DISPLAY_PRIORITY);
     end; 
@@ -95,10 +99,6 @@ package body add is
     task CalcularRiesgos is
       pragma priority (CALCULAR_RIESGOS_PRIORITY);
     end;
-    
-    task LeerGiroVolante is
-      pragma priority (LEER_GIRO_VOLANTE_PRIORITY);
-    end leerGiroVolante;
 
 
     -----------------------------------------------------------------------
@@ -110,8 +110,8 @@ package body add is
     -----------------------------------------------------------------------
     
     task body LeerPosicionCabeza is 
-      Current_H  	 : HeadPosition_Samples_Type;
       Previous_H 	 : HeadPosition_Samples_Type := (0, 0);
+      Current_H  	 : HeadPosition_Samples_Type;
       Current_S     	 : Steering_Samples_Type;
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
@@ -119,9 +119,10 @@ package body add is
     begin
     
       Siguiente_instante := Clock + INTERVALO_LECTURA_POSICION_CABEZA;
-      Starting_Notice ("Tarea lectura de cabeceo preparada.");
       
       loop
+        
+        Starting_Notice ("Tarea lectura de cabeceo iniciada.");
       
         Distraccion := CABEZA_NO_INCLINADA;
       
@@ -151,9 +152,9 @@ package body add is
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
         
+        Finishing_Notice ("Tarea lectura de cabeceo finalizada.");
+        
       end loop;
-      
-      Finishing_Notice ("Prueba sensor cabeza");
       
     end leerPosicionCabeza;
     
@@ -173,11 +174,12 @@ package body add is
      begin
      
        Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
-       Starting_Notice ("Tarea lectura distancia de seguridad preparada.");
 	
        loop
+       
+         Starting_Notice ("Tarea lectura distancia de seguridad iniciada.");
       
-	Distancia_Sintoma := DISTANCIA_SEGURA;
+	 Distancia_Sintoma := DISTANCIA_SEGURA;
 
          Reading_Distance (Current_D);      
          Reading_Speed (Current_V);
@@ -199,11 +201,58 @@ package body add is
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
         
+    	Finishing_Notice ("Tarea lectura distancia de seguridad finalizada.");
+    	
         end loop;
       
-    	Finishing_Notice ("Prueba sensor distancia");
-      
     end leerDistancia;
+    
+    
+    
+    -----------------------------------------------------------------------
+    ------------- TAREA GIRO VOLANTE 
+    -----------------------------------------------------------------------
+    
+    task body LeerGiroVolante is
+      Current_V 	 : Speed_Samples_Type    := 0;
+      Previous_S    	 : Steering_Samples_Type := 0;
+      Current_S     	 : Steering_Samples_Type;
+      Actual_Offset 	 : Steering_Samples_Type;
+      Volantazo   	 : Volantazo_Estado_Type;
+      Siguiente_Instante : Time;
+      
+    begin
+      
+      Siguiente_instante := Clock + INTERVALO_LECTURA_GIRO_VOLANTE;
+      
+      loop
+      
+        Starting_Notice ("Tarea lectura datos volante iniciada.");
+        
+        Volantazo := ESTADO_NO_VOLANTAZO;
+        
+        Reading_Steering (Current_S);
+        Current_V := Medidas.Obtener_Velocidad_Actual;
+        
+        Actual_Offset := Current_S - Previous_S;
+        
+        if ((Actual_Offset > 20 OR Actual_Offset < -20) AND Current_V > 40) then 
+          Volantazo := ESTADO_VOLANTAZO;
+        end if;
+        
+        Previous_S := Current_S;
+        Sintomas.Guardar_Estado_Volantazo(Volantazo);
+        Volantazo := ESTADO_NO_VOLANTAZO;
+        
+        delay until Siguiente_Instante;
+        Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
+              
+        Finishing_Notice ("Tarea lectura datos volante finalizada.");
+        
+      end loop;
+      
+    end leerGiroVolante;
+    
     
  
     -----------------------------------------------------------------------
@@ -221,15 +270,16 @@ package body add is
     begin
       
       Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
-      Starting_Notice ("Tarea mostrar informacion en display preparada.");
       
       delay until Siguiente_Instante;
       Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
       
       loop
         
-	Distancia   	  := Medidas.Obtener_Distancia_Actual;
-	Velocidad   	  := Medidas.Obtener_Velocidad_Actual;
+        Starting_Notice ("Tarea mostrar informacion en display iniciada.");
+        
+	Distancia := Medidas.Obtener_Distancia_Actual;
+	Velocidad := Medidas.Obtener_Velocidad_Actual;
 	
 	New_Line;
 	New_Line;
@@ -272,9 +322,9 @@ package body add is
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
         
+        Finishing_Notice ("Tarea mostrar informacion en display finalizada.");
+        
       end loop;
-      
-      Finishing_Notice ("Prueba display");
       
     end;
     
@@ -293,13 +343,15 @@ package body add is
     begin
       
       Siguiente_instante := Clock + INTERVALO_DETECCION_RIESGOS;
-      Starting_Notice ("Tarea deteccion de riesgos preparada.");
+      
       
       delay until Siguiente_Instante;
       Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
       
       loop
-
+	
+	Starting_Notice ("Tarea deteccion de riesgos iniciada.");
+	
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
         if (Volantazo = ESTADO_VOLANTAZO) then
           Beep(1);
@@ -331,56 +383,12 @@ package body add is
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
         
+        Finishing_Notice ("Tarea deteccion de riesgos finalizada.");
+        
       end loop;
-      
-      Finishing_Notice ("Prueba deteccion de riesgos");
       
     end;
     
-    
-    -----------------------------------------------------------------------
-    ------------- TAREA GIRO VOLANTE 
-    -----------------------------------------------------------------------
-    
-    task body LeerGiroVolante is
-    
-      Current_S     	 : Steering_Samples_Type;
-      Previous_S    	 : Steering_Samples_Type := 0;
-      Current_V 	 : Speed_Samples_Type    := 0;
-      Actual_Offset 	 : Steering_Samples_Type;
-      Siguiente_Instante : Time;
-      Volantazo   	 : Volantazo_Estado_Type;
-      
-    begin
-      
-      Siguiente_instante := Clock + INTERVALO_LECTURA_GIRO_VOLANTE;
-      Starting_Notice ("Tarea lectura datos volante preparada.");
-      
-      loop
-        
-        Volantazo := ESTADO_NO_VOLANTAZO;
-        
-        Reading_Steering (Current_S);
-        Current_V := Medidas.Obtener_Velocidad_Actual;
-        
-        Actual_Offset := Current_S - Previous_S;
-        
-        if ((Actual_Offset > 20 OR Actual_Offset < -20) AND Current_V > 40) then 
-          Volantazo := ESTADO_VOLANTAZO;
-        end if;
-        
-        Previous_S := Current_S;
-        Sintomas.Guardar_Estado_Volantazo(Volantazo);
-        Volantazo := ESTADO_NO_VOLANTAZO;
-        
-        delay until Siguiente_Instante;
-        Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
-        
-      end loop;
-      
-      Finishing_Notice ("Prueba sensor giro volante");
-      
-    end leerGiroVolante;
     
     
     -----------------------------------------------------------------------
@@ -389,7 +397,7 @@ package body add is
     
     protected body Sintomas is
       
-      procedure Guardar_Estado_Distraccion(actual_Distraccion: in Cabeza_Inclinada_Estado_Type) is
+      procedure Guardar_Estado_Distraccion (actual_Distraccion: in Cabeza_Inclinada_Estado_Type) is
       begin
         CABEZA_INCLINADA := actual_Distraccion;
       end Guardar_Estado_Distraccion;

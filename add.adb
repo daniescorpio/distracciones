@@ -123,7 +123,7 @@ package body add is
       
       loop
         
-        Starting_Notice ("Tarea lectura de cabeceo iniciada.");
+        --Starting_Notice ("Tarea lectura de cabeceo iniciada.");
       
         Distraccion := CABEZA_NO_INCLINADA;
       
@@ -150,12 +150,10 @@ package body add is
         Sintomas.Guardar_Estado_Distraccion(Distraccion);
         Distraccion := CABEZA_NO_INCLINADA;
         
-        Finishing_Notice ("Tarea lectura de cabeceo finalizada.");
+        --Finishing_Notice ("Tarea lectura de cabeceo finalizada.");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
-        
-        
         
       end loop;
       
@@ -180,7 +178,7 @@ package body add is
 	
        loop
        
-         Starting_Notice ("Tarea lectura distancia de seguridad iniciada.");
+         --Starting_Notice ("Tarea lectura distancia de seguridad iniciada.");
       
 	 Distancia_Sintoma := DISTANCIA_SEGURA;
 
@@ -201,13 +199,11 @@ package body add is
 	Sintomas.Guardar_Estado_Distancia(Distancia_Sintoma);
 	Distancia_Sintoma := DISTANCIA_SEGURA;	
 	
-        Finishing_Notice ("Tarea lectura distancia de seguridad finalizada.");
+        --Finishing_Notice ("Tarea lectura distancia de seguridad finalizada.");
 
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
         
-    	
-    	
         end loop;
       
     end leerDistancia;
@@ -232,7 +228,7 @@ package body add is
       
       loop
       
-        Starting_Notice ("Tarea lectura datos volante iniciada.");
+        --Starting_Notice ("Tarea lectura datos volante iniciada.");
         
         Volantazo := ESTADO_NO_VOLANTAZO;
         
@@ -249,13 +245,11 @@ package body add is
         Sintomas.Guardar_Estado_Volantazo(Volantazo);
         Volantazo := ESTADO_NO_VOLANTAZO;
         
-        Finishing_Notice ("Tarea lectura datos volante finalizada.");
+        --Finishing_Notice ("Tarea lectura datos volante finalizada.");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
               
-        
-        
       end loop;
       
     end leerGiroVolante;
@@ -283,18 +277,14 @@ package body add is
       
       loop
         
-        Starting_Notice ("Tarea mostrar informacion en display iniciada.");
+        --Starting_Notice ("Tarea mostrar informacion en display iniciada.");
         
 	Distancia := Medidas.Obtener_Distancia_Actual;
 	Velocidad := Medidas.Obtener_Velocidad_Actual;
 	
-	New_Line;
-	New_Line;
-	put ("-----------------------------------------------------");
 	Display_Distance (Distancia);
 	Display_Speed (Velocidad);
 	New_Line;
-
 
         Distraccion 	  := Sintomas.Obtener_Estado_Distraccion;
 	Distancia_Sintoma := Sintomas.Obtener_Estado_Distancia;
@@ -322,16 +312,10 @@ package body add is
 	
 	end if;
 	
-	put ("-----------------------------------------------------");
-	New_Line;
-	New_Line;
-	
-        Finishing_Notice ("Tarea mostrar informacion en display finalizada.");
+        --Finishing_Notice ("Tarea mostrar informacion en display finalizada.");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
-        
-        
         
       end loop;
       
@@ -353,13 +337,12 @@ package body add is
       
       Siguiente_instante := Clock + INTERVALO_DETECCION_RIESGOS;
       
-      
       delay until Siguiente_Instante;
       Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
       
       loop
 	
-	Starting_Notice ("Tarea deteccion de riesgos iniciada.");
+	--Starting_Notice ("Tarea deteccion de riesgos iniciada.");
 	
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
         if (Volantazo = ESTADO_VOLANTAZO) then
@@ -389,7 +372,7 @@ package body add is
 	  Activate_Brake;
 	end if;
 	
-	Finishing_Notice ("Tarea deteccion de riesgos finalizada.");
+	--Finishing_Notice ("Tarea deteccion de riesgos finalizada.");
 
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;

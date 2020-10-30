@@ -123,7 +123,7 @@ package body add is
       
       loop
         
-        --Starting_Notice ("Tarea lectura de cabeceo iniciada.");
+        Starting_Notice ("Head - ON");
       
         Distraccion := CABEZA_NO_INCLINADA;
       
@@ -150,7 +150,7 @@ package body add is
         Sintomas.Guardar_Estado_Distraccion(Distraccion);
         Distraccion := CABEZA_NO_INCLINADA;
         
-        --Finishing_Notice ("Tarea lectura de cabeceo finalizada.");
+        Finishing_Notice ("Head - OFF");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -178,7 +178,7 @@ package body add is
 	
        loop
        
-         --Starting_Notice ("Tarea lectura distancia de seguridad iniciada.");
+         Starting_Notice ("Distance - ON");
       
 	 Distancia_Sintoma := DISTANCIA_SEGURA;
 
@@ -199,7 +199,7 @@ package body add is
 	Sintomas.Guardar_Estado_Distancia(Distancia_Sintoma);
 	Distancia_Sintoma := DISTANCIA_SEGURA;	
 	
-        --Finishing_Notice ("Tarea lectura distancia de seguridad finalizada.");
+        Finishing_Notice ("Distance - OFF");
 
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
@@ -228,7 +228,7 @@ package body add is
       
       loop
       
-        --Starting_Notice ("Tarea lectura datos volante iniciada.");
+        Starting_Notice ("Steering - ON");
         
         Volantazo := ESTADO_NO_VOLANTAZO;
         
@@ -245,7 +245,7 @@ package body add is
         Sintomas.Guardar_Estado_Volantazo(Volantazo);
         Volantazo := ESTADO_NO_VOLANTAZO;
         
-        --Finishing_Notice ("Tarea lectura datos volante finalizada.");
+        Finishing_Notice ("Steering - OFF");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
@@ -277,7 +277,7 @@ package body add is
       
       loop
         
-        --Starting_Notice ("Tarea mostrar informacion en display iniciada.");
+        Starting_Notice ("Display - ON");
         
 	Distancia := Medidas.Obtener_Distancia_Actual;
 	Velocidad := Medidas.Obtener_Velocidad_Actual;
@@ -295,24 +295,25 @@ package body add is
 	    Volantazo         /= ESTADO_NO_VOLANTAZO) 
 	then
 	
+	  Put ("Sintomas detectados: ");
+	
 	  if (Distraccion /= CABEZA_NO_INCLINADA) then
-	    Put (" Se han detectado movimientos inusuales en su cabeza ");
-	    New_line;
+	    Put ("distraccion, ");
 	  end if;
 
           if (Distancia_Sintoma /= DISTANCIA_SEGURA) then
-	    Put (" La distancia respecto al coche de alante es inapropiada");
-	    New_line;
+	    Put ("distancia no segura, ");
 	  end if;
 
 	  if(Volantazo /= ESTADO_NO_VOLANTAZO) then
-	    Put(" Se han detectado movimientos inusuales en el volante ");
-	    New_line;
+	    Put("volantazo");
 	  end if;
+	  
+	  New_line;
 	
 	end if;
 	
-        --Finishing_Notice ("Tarea mostrar informacion en display finalizada.");
+        Finishing_Notice ("Display - OFF");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
@@ -342,7 +343,7 @@ package body add is
       
       loop
 	
-	--Starting_Notice ("Tarea deteccion de riesgos iniciada.");
+	Starting_Notice ("Risks - ON");
 	
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
         if (Volantazo = ESTADO_VOLANTAZO) then
@@ -372,7 +373,7 @@ package body add is
 	  Activate_Brake;
 	end if;
 	
-	--Finishing_Notice ("Tarea deteccion de riesgos finalizada.");
+	Finishing_Notice ("Risks - OFF");
 
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;

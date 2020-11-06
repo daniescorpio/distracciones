@@ -272,9 +272,6 @@ package body add is
       
       Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
       
-      delay until Siguiente_Instante;
-      Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
-      
       loop
         
         Starting_Notice ("Display - ON");
@@ -337,9 +334,6 @@ package body add is
     begin
       
       Siguiente_instante := Clock + INTERVALO_DETECCION_RIESGOS;
-      
-      delay until Siguiente_Instante;
-      Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
       
       loop
 	

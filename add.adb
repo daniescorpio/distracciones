@@ -188,9 +188,11 @@ package body add is
         
          if (Float(Current_D) < Distancia_Seguridad) then
            Distancia_Sintoma := DISTANCIA_INSEGURA;
-         elsif(Float(Current_D) < Distancia_Seguridad / 2.0) then
+	 end if;
+         if(Float(Current_D) < Distancia_Seguridad / 2.0) then
 	   Distancia_Sintoma := DISTANCIA_IMPRUDENTE;
-	 elsif(Float(Current_D) < Distancia_Seguridad / 3.0 ) then
+	 end if;
+	 if(Float(Current_D) < Distancia_Seguridad / 3.0 ) then
 	   Distancia_Sintoma := DISTANCIA_PELIGROSA;
 	 end if;
 

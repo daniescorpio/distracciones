@@ -1,17 +1,5 @@
-
- TSIM/ERC32 - remote SPARC simulator, version 1.0.10 (evaluation version)
-
- Copyright (C) 2001, Gaisler Research - all rights reserved.
- For latest updates, go to http://www.gaisler.com/
- Comments or bug-reports to tsim@gaisler.com
-
-libreadline.so.3: cannot open shared object file: No such file or directory
-serial port A on stdin/stdout
-allocated 4096 K RAM memory
-allocated 2048 K ROM memory
-section: .text at 0x2000000, size 206944 bytes
-section: .data at 0x2032860, size 12780 bytes
-tsim> resuming at 0x02000000
+tsim> go
+resuming at 0x02000000
 
 [ 0.004456900] >>> Risks - ON
 [ 0.019786500] ............%BEEP 1
@@ -88,38 +76,38 @@ tsim> resuming at 0x02000000
 [ 1.864992300] >>> Head - ON
 [ 1.882918300] --- Head - OFF
 [ 1.917676100] >>> Distance - ON
-[ 1.942425000] --- Dista
-[ 1.955194000] >>> Risks - ON
-[ 1.970554600] ............Light: ^ON^
-[ 1.991094500] --- Risks - OFFnce - OFF
-[ 2.011543400] >>> Steering - ON
-[ 2.029968600] --- Steering - OFF
-[ 2.104751600] >>> Risks - ON
-[ 2.120080600] ............Light: ^ON^
-[ 2.144810904] --- Risks - OFF
+[ 1.942434200] --- Dista
+[ 1.955202800] >>> Risks - ON
+[ 1.970562800] ............Light: ^ON^
+[ 1.991103200] --- Risks - OFFnce - OFF
+[ 2.011552700] >>> Steering - ON
+[ 2.029977200] --- Steering - OFF
+[ 2.104751800] >>> Risks - ON
+[ 2.120080800] ............Light: ^ON^
+[ 2.144811104] --- Risks - OFF
 [ 2.217676300] >>> Distance - ON
-[ 2.242425600] --- Dista
-[ 2.255194200] >>> Risks - ON
-[ 2.270554200] ............Light: ^ON^
-[ 2.291090200] --- Risks - OFFnce - OFF
-[ 2.311539300] >>> Head - ON
-[ 2.329672600] >>> Steering - ON
-[ 2.348065900] --- Steering - OFF
-[ 2.365442700] --- Head - OFF
-[ 2.380802800] >>> Display - ON
-[ 2.397186900] 
-[ 2.405378800] >>> Risks - ON
-[ 2.420738500] ............Light: ^ON^
-[ 2.441274500] --- Risks - OFF............# Distance:  60
-[ 2.473494900] ............# Speed:  90
+[ 2.242434800] --- Dista
+[ 2.255204100] >>> Risks - ON
+[ 2.270563700] ............Light: ^ON^
+[ 2.291099000] --- Risks - OFFnce - OFF
+[ 2.311547600] >>> Head - ON
+[ 2.329692100] >>> Steering - ON
+[ 2.348085800] --- Steering - OFF
+[ 2.365463300] --- Head - OFF
+[ 2.380822700] >>> Display - ON
+[ 2.397207200] 
+[ 2.405398500] >>> Risks - ON
+[ 2.420758600] ............Light: ^ON^
+[ 2.441294200] --- Risks - OFF............# Distance:  60
+[ 2.473515300] ............# Speed:  90
 Sintomas detectados: distancia no segura, 
 
 
-[ 2.518164900] >>> Distance - ON
-[ 2.542943000] --- Dist
-[ 2.555199600] >>> Risks - ON
-[ 2.570560500] ............Light: ^ON^
-[ 2.591095800] --- Risks - OFFance - OFF[ 2.611553900] --- Display - OFF
+[ 2.518185300] >>> Distance - ON
+[ 2.542973000] --- Dist
+[ 2.555230000] >>> Risks - ON
+[ 2.570590100] ............Light: ^ON^
+[ 2.591125800] --- Risks - OFFance - OFF[ 2.611584500] --- Display - OFF
 [ 2.664992300] >>> Head - ON
 [ 2.680778800] >>> Steering - ON
 [ 2.6991737
@@ -128,540 +116,378 @@ Sintomas detectados: distancia no segura,
 [ 2.741182500] --- Risks - OFF00] --- Steering - OFF
 [ 2.769883300] --- Head - OFF
 [ 2.817676100] >>> Distance - ON
-[ 2.842424000] --- Dista
-[ 2.855192900] >>> Risks - ON
-[ 2.870553400] ............Light: ^ON^
-[ 2.891088700] --- Risks - OFFnce - OFF
+[ 2.842433900] --- Dista
+[ 2.855202800] >>> Risks - ON
+[ 2.870562700] ............Light: ^ON^
+[ 2.891107200] ............%BEEEEEEEEP 4
+[ 2.912644600] --- Risks - OFFnce - OFF
 [ 3.004738200] >>> Risks - ON
-[ 3.020067100] ............Light: ^ON^
-[ 3.040607500] --- Risks - OFF
-[ 3.056448800] >>> Steering - ON
-[ 3.074874700] --- Steering - OFF
-[ 3.092251800] >>> Head - ON
-[ 3.110209200] 
-[ 3.118369900] >>> Distance - ON
-[ 3.143148800] --- Dist
-[ 3.155406200] >>> Risks - ON
-[ 3.170766300] ............Light: ^ON^
-[ 3.191300900] --- Risks - OFFance - OFF--- Head - OFF
+[ 3.020067700] ............Light: ^ON^
+[ 3.040615500] ............%BEEEEEEEEP 4
+[ 3.062152900] --- Risks - OFF
+[ 3.077993900] >>> Steering - ON
+[ 3.096419400] --- Steering - OFF
+[ 3.113
+[ 3.117892800] >>> Distance - ON
+[ 3.142681800] --- Dista
+[ 3.155450400] >>> Risks - ON
+[ 3.170811300] --- Risks - OFFnce - OFF796500] >>> Head - ON
+[ 3.205152100] --- Head - OFF
 [ 3.298276600
 [ 3.305413900] >>> Risks - ON
-[ 3.320773700] ............Light: ^ON^
-[ 3.341308700] --- Risks - OFF] >>> Display - ON
-[ 3.366365600] ..........
-[ 3.379678000] >>> Steering - ON
-[ 3.398103500] --- Steering - OFF..# D
-[ 3.418041000] >>> Distance - ON
-[ 3.442819800] --- Dist
-[ 3.455077400] >>> Risks - ON
-[ 3.470436700] ............Light: ^ON^
-[ 3.490972000] --- Risks - OFFance - OFF
-[ 3.511933300] >>> Head - ON
-[ 3.529888900] --- Head - OFFistance:  30
-[ 3.553918100] ............# Speed:  100
-Sintomas detectados: distancia no segura, 
+[ 3.320774100] --- Risks - OFF] >>> Display - ON
+[ 3.345861800] ............# Distance:  30
+[ 3.370433900] ..
+[ 3.379618900] >>> Steering - ON
+[ 3.398044800] --- Steering - OFF.....
+[ 3.417981800] >>> Distance - ON
+[ 3.442771900] --- Dist
+[ 3.455029200] >>> Risks - ON
+[ 3.470388500] --- Risks - OFFance - OFF
+[ 3.491380600] >>> Head - ON
+[ 3.509337300] --- Head - OFF.....# Speed:  100
+Sintomas detectados: distraccion, distancia no segura, 
 
-[ 3.59858830
-[ 3.605243902] >>> Risks - ON
-[ 3.620604000] ............Light: ^ON^
-[ 3.641140300] --- Risks - OFF0] --- Display - OFF
-[ 3.717676100] >>> Distance - ON
-[ 3.742429900] --- Dista
-[ 3.755198600] >>> Risks - ON
-[ 3.770559500] ............Light: ^ON^
-[ 3.791094900] --- Risks - OFFnce - OFF
-[ 3.811543500] >>> Steering - ON
-[ 3.829968900] --- Steering - OFF
-[ 3.864992500] >>> Head - ON
-[ 3.882919200] --- Head - OFF
-[ 3.904663000] >>> Risks - ON
-[ 3.919991900] ............%BEEEEEEP 3
-[ 3.940606500] ............Light: ^ON^
-[ 3.961110600] --- Risks - OFF
-[ 4.017675000] >>> Distance - ON
-[ 4.042422500] --- Dista
-[ 4.055191300] >>> Risks - ON
-[ 4.070551100] ............%BEEEEEEP 3
-[ 4.091165100] ............Light: ^ON^
-[ 4.111670000] --- Risks - OFFnce - OFF
-[ 4.132119000] >>> Steering - ON
-[ 4.150544200] --- Steering - OFF
+[ 3.564246600] --- Display - OFF
+[ 3.604751600] >>> Risks - ON
+[ 3.620080900] ............%BEEEEEEP 3
+[ 3.640710700] ............%BEEEEEEEEEEP 5
+[ 3.663266000] !!!! Brake activated !!!!
+[ 3.684791900] --- Risks - OFF
+[ 3.717676300] >>> Distance - ON
+[ 3.742441500] --- Dista
+[ 3.755210200] >>> Risks - ON
+[ 3.770570700] ............%BEEEEEEP 3
+[ 3.791201000] ............%BEEEEEEEEEEP 5
+[ 3.813755600] !!!! Brake activated !!!!
+[ 3.835282000] --- Risks - OFFnce - OFF
+[ 3.855731400] >>> Steering - ON
+[ 3.874155700] --- Steering - OFF
+[ 3.891532500] >>> Head - 
+[ 3.905356700] >>> Risks - ON
+[ 3.920716500] ............%BEEEEEEP 3
+[ 3.941347500] ............%BEEEEEEEEEEP 5
+[ 3.963902500] !!!! Brake activated !!!!
+[ 3.985428300] --- Risks - OFFON
+[ 4.005406200] --- Head 
+[ 4.018175400] >>> Distance - ON
+[ 4.042964200] --- Dist
+[ 4.055220900] >>> Risks - ON
+[ 4.070581700] ............%BEEEEEEP 3
+[ 4.091211800] ............%BEEEEEEEEEEP 5
+[ 4.113767100] !!!! Brake activated !!!!
+[ 4.135293500] --- Risks - OFFance - OFF
+[ 4.156254400] >>> Steering - ON
+[ 4.174679900] --- Steering - OFF- OFF
 [ 4.204750000] >>> Risks - ON
 [ 4.220079000] ............%BEEP 1
 [ 4.238732200] ............%BEEEEEEP 3
-[ 4.259315100] ............Light: ^ON^
-[ 4.279819300] --- Risks - OFF
-[ 4.295660300] >>> Head - ON
-[ 4.3136
-[ 4.318195900] >>> Distance - ON
-[ 4.342974100] --- Dist
-[ 4.355231300] >>> Risks - ON
-[ 4.370591600] ............%BEEP 1
-[ 4.389243800] ............%BEEEEEEP 3
-[ 4.409826700] ............Light: ^ON^
-[ 4.430465100] --- Risks - OFFance - OFF
-[ 4.451426400] >>> Steering - ON
-[ 4.469851300] --- Steering - OFF18500] --- Head - OFF
-[ 4.497980300
-[ 4.505148600] >>> Risks - ON
-[ 4.520508300] ............%BEEEEEEP 3
-[ 4.541122000] ............Light: ^ON^
-[ 4.561626100] --- Risks - OFF] >>> Display - ON
-[ 4.586683600] ............# Distance:  45
-[ 4.611255100
-[ 4.618392000] >>> Distance - ON
-[ 4.643171000] --- Dist
-[ 4.655428200] >>> Risks - ON
-[ 4.670788500] ............%BEEEEEEP 3
-[ 4.691402200] ............Light: ^ON^
-[ 4.711907000] --- Risks - OFFance - OFF
-[ 4.732868200] >>> Head - ON
-[ 4.750826400] --- Head - OFF] ............# Speed:  11
-[ 4.779467900] >>> Steering - ON
-[ 4.797892300
-[ 4.805029800] >>> Risks - ON
-[ 4.820389100] ............%BEEEEEEP 3
-[ 4.841002800] ............Light: ^ON^
-[ 4.861507200] --- Risks - OFF] --- Steering - OFF5
-Sintomas detectados: distraccion, distancia no segura, 
-[ 4.917967400] >>> Distance - ON
-[ 4.942745900] --- Dist
-[ 4.955002700] >>> Risks - ON
-[ 4.970363000] ............%BEEEEEEP 3
-[ 4.990977100] ............Light: ^ON^
-[ 5.011481300] --- Risks - OFFance - OFF
+[ 4.259331600] ............%BEEEEEEEEEEP 5
+[ 4.281886200] !!!! Brake activated !!!!
+[ 4.303417300] --- Risks - OFF
+[ 4.319258100] >>> Distance - ON
+[ 4.344046900] --- Di
+[ 4.355279500] >>> Risks - ON
+[ 4.370639800] ............%BEEP 1
+[ 4.389292700] ............%BEEEEEEP 3
+[ 4.409876600] ............Light: ^ON^
+[ 4.430502900] ............%BEEEEEEEEP 4
+[ 4.452039900] --- Risks - OFFstance - OFF
+[ 4.474025400] >>> Steering - ON
+[ 4.492450300] --- Steer
+[ 4.505219300] >>> Risks - ON
+[ 4.520579800] ............%BEEEEEEP 3
+[ 4.541193400] ............Light: ^ON^
+[ 4.561706800] ............%BEEEEEEEEP 4
+[ 4.583243800] --- Risks - OFFing - OFF
+[ 4.603693300] >>> Head - O
+[ 4.618029100] >>> Distance - ON
+[ 4.642816900] --- Dist
+[ 4.655073900] >>> Risks - ON
+[ 4.670434400] ............%BEEEEEEP 3
+[ 4.691048300] ............Light: ^ON^
+[ 4.711560900] ............%BEEEEEEEEP 4
+[ 4.733097600] --- Risks - OFFance - OFFN
+[ 4.757689600] --- Head - OFF
+[ 4.77301820
+[ 4.779674700] >>> Steering - ON
+[ 4.798100200
+[ 4.805237100] >>> Risks - ON
+[ 4.820597200] ............%BEEEEEEP 3
+[ 4.841211500] ............Light: ^ON^
+[ 4.861724500] ............%BEEEEEEEEP 4
+[ 4.883261500] --- Risks - OFF] --- Steering - OFF0] >>> Head - ON
+[ 4.918545700] >>> Distance - ON
+[ 4.943303700] --- Dis
+[ 4.955048900] >>> Risks - ON
+[ 4.970409000] ............%BEEEEEEP 3
+[ 4.991022700] ............Light: ^ON^
+[ 5.011527200] --- Risks - OFFtance - OFF
+[ 5.034599200] --- Head - OFF
+[ 5.049927800] >>> Display - 
+[ 5.065287800] >>> Head - ON
+[ 5.083246300] --- Head - OFFON
+[ 5.099599
+[ 5.105231400] >>> Risks - ON
+[ 5.120591900] ............%BEEEEEEP 3
+[ 5.141204800] ............Light: ^ON^
+[ 5.161708900] --- Risks - OFF
+[ 5.177550200] >>> Steering - ON
+[ 5.195975700] --- Steering - OFF400] ....
+[ 5.217960700] >>> Distance - ON
+[ 5.242750400] --- Dist
+[ 5.255007800] >>> Risks - ON
+[ 5.270367300] ............%BEEP 1
+[ 5.289020600] ............%BEEEEEEP 3
+[ 5.309603100] ............Light: ^ON^
+[ 5.330108000] --- Risks - OFFance - OFF........# Distance:  70
+[ 5.365400800] ............# Speed:  115
+Sintomas detectados: distraccion, 
+[ 5.405463900] >>> Risks - ON
+[ 5.420823400] ............%BEEP 1
+[ 5.439476600] ............%BEEEEEEP 3
+[ 5.460059900] ............Light: ^ON^
+[ 5.480657000] --- Risks - OFF
+[ 5.496498300] >>> Steering - ON
+[ 5.5
+[ 5.517963800] >>> Distance - ON
+[ 5.542751500] --- Dist
+[ 5.555008400] >>> Risks - ON
+[ 5.570368500] ............%BEEEEEEP 3
+[ 5.590983600] ............Light: ^ON^
+[ 5.611497000] ............%BEEEEEEEEP 4
+[ 5.633033700] --- Risks - OFFance - OFF14922600] --- Steering - OFF
+[ 5.668330300] >>> Head - ON
+[ 5.686287200] --- Head - OFFdistanc
+[ 5.705200000] >>> Risks - ON
+[ 5.720560800] ............%BEEEEEEP 3
+[ 5.741175100] ............Light: ^ON^
+[ 5.761688200] ............%BEEEEEEEEP 4
+[ 5.783225200] --- Risks - OFFia no segura, volantazo
 
-[ 5.032954200] --- Display - OFF
-[ 5.064991900] >>> Head - ON
-[ 5.082919300] --- Head - OFF
-[ 5.104738800] >>> Risks - ON
-[ 5.120068100] ............%BEEEEEEP 3
-[ 5.140682000] ............Light: ^ON^
-[ 5.161186800] --- Risks - OFF
-[ 5.177027700] >>> Steering - ON
-[ 5.195454300] --- Steering - OFF
-[ 5.217676300] >>> Distance - ON
-[ 5.242426000] --- Dista
-[ 5.255195100] >>> Risks - ON
-[ 5.270554700] ............%BEEP 1
-[ 5.289208000] ............%BEEEEEEP 3
-[ 5.309790600] ............Light: ^ON^
-[ 5.330295500] --- Risks - OFFnce - OFF
-[ 5.350744200] >>> Display - ON
-[ 5.367128400] ............# Distance:  80
-[ 5.391700100] ..........
-[ 5.404981300] >>> Risks - ON
-[ 5.420340800] ............%BEEP 1
-[ 5.438994000] ............%BEEEEEEP 3
-[ 5.459577300] ............Light: ^ON^
-[ 5.480272500] --- Risks - OFF
-[ 5.496113800] >>> Steering - ON
-[ 5.51
-[ 5.518091900] >>> Distance - ON
-[ 5.542869700] --- Dist
-[ 5.555126300] >>> Risks - ON
-[ 5.570487200] ............%BEEEEEEP 3
-[ 5.591100200] ............Light: ^ON^
-[ 5.611605100] --- Risks - OFFance - OFF4538500] --- Steering - OFF
-[ 5.646389800] >>> Head - ON
-[ 5.664346300] --- Head - OFF..# Speed:  115
-Sintomas detectados: distraccion
-[ 5.705432400] >>> Risks - ON
-[ 5.720792500] ............%BEEEEEEP 3
-[ 5.741407000] ............Light: ^ON^
-[ 5.761911500] --- Risks - OFF, distancia no segura, 
+[ 5.81135470
+[ 5.818010000] >>> Distance - ON
+[ 5.842803900] --- Dist
+[ 5.855060800] >>> Risks - ON
+[ 5.870420800] ............%BEEEEEEP 3
+[ 5.891035800] ............Light: ^ON^
+[ 5.911549200] ............%BEEEEEEEEP 4
+[ 5.933086300] --- Risks - OFFance - OFF
+[ 5.954047600] >>> Steering - ON
+[ 5.972476700] --- Steering - OFF
+[ 5.989853400] >>> Head - ON
+[ 6.005692300] >>> Risks - ON
+[ 6.021021200] ............%BEEEEEEP 3
+[ 6.041636200] ............Light: ^ON^
+[ 6.062149500] ............%BEEEEEEEEP 4
+[ 6.083686500] --- Risks - OFF
+[ 6.101122100] --- Head - OFF0] 
+[ 6.117987100] >>> Distance - ON
+[ 6.142775200] --- Dist
+[ 6.155032400] >>> Risks - ON
+[ 6.170392500] ............%BEEEEEEP 3
+[ 6.191006000] ............Light: ^ON^
+[ 6.211510100] --- Risks - OFFance - OFF
+[ 6.232471500] >>> Steering - ON
+[ 6.250896800] --- Steering - OFF
+[ 6.268273400] >>> Head - ON
+[ 6.286231100] --- Head - OFF--- Dis
+[ 6.305144500] >>> Risks - ON
+[ 6.320504600] ............%BEEEEEEP 3
+[ 6.341117900] ............Light: ^ON^
+[ 6.361622100] --- Risks - OFFplay - OFF
+[ 6.382583100] >>> Display - ON
+[ 6.398967300] ............# Distanc
+[ 6.417911200] >>> Distance - ON
+[ 6.442702600] --- Dist
+[ 6.454959500] >>> Risks - ON
+[ 6.470319200] ............%BEEEEEEP 3
+[ 6.490934200] ............Light: ^ON^
+[ 6.511447100] ............%BEEEEEEEEP 4
+[ 6.532984200] --- Risks - OFFance - OFF
+[ 6.553945000] >>> Steering - ON
+[ 6.572372900] --- Steering - OFFe:  80
+[ 6.595377800] ...
+[ 6.605074700] >>> Risks - ON
+[ 6.620434700] ............%BEEEEEEP 3
+[ 6.641048900] ............Light: ^ON^
+[ 6.661561400] ............%BEEEEEEEEP 4
+[ 6.683098900] --- Risks - OFF
+[ 6.698939700] >>> Head - ON
+[
+[ 6.717895100] >>> Distance - ON
+[ 6.742689100] --- Dist
+[ 6.754946400] >>> Risks - ON
+[ 6.770306400] ............%BEEEEEEP 3
+[ 6.790921000] ............Light: ^ON^
+[ 6.811434300] ............%BEEEEEEEEP 4
+[ 6.832970900] --- Risks - OFFance - OFF 6.716902000] --- Head - OFF.........# Speed:  120
+[ 6.879531500] >>> Steering - ON
+[ 6.897959700
+[ 6.905097100] >>> Risks - ON
+[ 6.920456800] ............%BEEEEEEP 3
+[ 6.941071000] ............Light: ^ON^
+[ 6.961584300] ............%BEEEEEEEEP 4
+[ 6.983120900] --- Risks - OFF] --- Steering - OFF
+Sintomas detect
+[ 7.018304400] >>> Distance - ON
+[ 7.043096300] --- Dist
+[ 7.055353500] >>> Risks - ON
+[ 7.070713900] ............%BEEEEEEP 3
+[ 7.091327500] ............Light: ^ON^
+[ 7.111840500] ............%BEEEEEEEEP 4
+[ 7.133377500] --- Risks - OFFance - OFF
+[ 7.154339000] >>> Head - ON
+[ 7.172298400] --- Head - OFFados: distraccion, distancia no se
+[ 7.205035300] >>> Risks - ON
+[ 7.220395000] ............%BEEEEEEP 3
+[ 7.241010000] ............Light: ^ON^
+[ 7.261522900] ............%BEEEEEEEEP 4
+[ 7.283059500] --- Risks - OFF
+[ 7.298901100] >>> Steering - ON
+[
+[ 7.318320600] >>> Distance - ON
+[ 7.343113100] --- Dist
+[ 7.355369700] >>> Risks - ON
+[ 7.370730200] ............%BEEEEEEP 3
+[ 7.391344500] ............Light: ^ON^
+[ 7.411857500] ............%BEEEEEEEEP 4
+[ 7.433394900] --- Risks - OFFance - OFF 7.317327100] --- Steering - OFF
+[ 7.470739900] >>> Head - ON
+[ 7.488700000] --- Head - OFFgu
+[ 7.505053200] >>> Risks - ON
+[ 7.520412900] ............%BEEEEEEP 3
+[ 7.541027900] ............Light: ^ON^
+[ 7.561540500] ............%BEEEEEEEEP 4
+[ 7.583077700] --- Risks - OFF
+[ 7.598918600] >>> Steering - ON
+[
+[ 7.618339400] >>> Distance - ON
+[ 7.643132100] --- Dist
+[ 7.655388900] >>> Risks - ON
+[ 7.670749700] ............%BEEEEEEP 3
+[ 7.691364000] ............Light: ^ON^
+[ 7.711877300] ............%BEEEEEEEEP 4
+[ 7.733414000] --- Risks - OFFance - OFF 7.617346500] --- Steering - OFFra, 
 
-[ 5.790040100] --- Display - OFF
-[ 5.817676100] >>> Distance - ON
-[ 5.842429000] --- Dista
-[ 5.855198300] >>> Risks - ON
-[ 5.870558000] ............%BEEEEEEP 3
-[ 5.891172100] ............Light: ^ON^
-[ 5.911676300] --- Risks - OFFnce - OFF
-[ 5.932125000] >>> Steering - ON
-[ 5.950549900] --- Steering - OFF
-[ 5.967927300] >>> Head - ON
-[ 5.985883100] --- Head - OFF
-[ 6.004738200] >>> Risks - ON
-[ 6.020067800] ............%BEEEEEEP 3
-[ 6.040680700] ............Light: ^ON^
-[ 6.061185100] --- Risks - OFF
-[ 6.117676300] >>> Distance - ON
-[ 6.142424000] --- Dista
-[ 6.155192900] >>> Risks - ON
-[ 6.170552700] ............%BEEEEEEP 3
-[ 6.191167300] ............Light: ^ON^
-[ 6.211671500] --- Risks - OFFnce - OFF
-[ 6.232120300] >>> Steering - ON
-[ 6.250546300] --- Steering - OFF
-[ 6.267923000] >>> Head - ON
-[ 6.285881100] --- Head - OFF
-[ 6.301
-[ 6.305306100] >>> Risks - ON
-[ 6.320666200] ............%BEEEEEEP 3
-[ 6.341280200] ............Light: ^ON^
-[ 6.361785000] --- Risks - OFF210000] >>> Display - ON
-[ 6.389913600] ............# Distance:  80
-[ 6.41
-[ 6.418038800] >>> Distance - ON
-[ 6.442820200] --- Dist
-[ 6.455077200] >>> Risks - ON
-[ 6.470437600] ............%BEEEEEEP 3
-[ 6.491051600] ............Light: ^ON^
-[ 6.511556400] --- Risks - OFFance - OFF
-[ 6.532518000] >>> Steering - ON
-[ 6.550943400] --- Steering - OFF4485700] ............# Speed:  120
-Sintomas detectados: distraccion, d
-[ 6.605341300] >>> Risks - ON
-[ 6.620701700] ............%BEEEEEEP 3
-[ 6.641315700] ............Light: ^ON^
-[ 6.661819800] --- Risks - OFF
-[ 6.677660800] >>> Head - ON
-[ 6.695623000] --- Head - OFFistancia no se
-[ 6.718120200] >>> Distance - ON
-[ 6.742904200] --- Dist
-[ 6.755161100] >>> Risks - ON
-[ 6.770521200] ............%BEEEEEEP 3
-[ 6.791135600] ............Light: ^ON^
-[ 6.811640100] --- Risks - OFFance - OFFgura, 
+[ 7.773319400] --- Display - OFF
+[ 7.790215200] >>> Display -
+[ 7.805062600] >>> Risks - ON
+[ 7.820423300] ............%BEEEEEEP 3
+[ 7.841037900] ............Light: ^ON^
+[ 7.861550500] ............%BEEEEEEEEP 4
+[ 7.883087500] --- Risks - OFF
+[ 7.898928100] >>> Head - ON
+[
+[ 7.917882800] >>> Distance - ON
+[ 7.942681200] --- Dista
+[ 7.955450700] >>> Risks - ON
+[ 7.970810200] ............%BEEEEEEP 3
+[ 7.991441100] ............%BEEEEEEEEEEP 5
+[ 8.013996400] !!!! Brake activated !!!!
+[ 8.035522300] --- Risks - OFFnce - OFF
+[ 8.055971500] >>> Steering - ON
+[ 8.074398800] --- Steering - OFF 7.916889700] --- Head - O
+[ 8.105088300] >>> Risks - ON
+[ 8.120448300] ............%BEEEEEEP 3
+[ 8.141078400] ............%BEEEEEEEEEEP 5
+[ 8.163633600] !!!! Brake activated !!!!
+[ 8.185159500] --- Risks - OFFFF ON
+[ 8.203560200] ............
+[ 8.217896600] >>> Distance - ON
+[ 8.242690900] --- Dist
+[ 8.254948200] >>> Risks - ON
+[ 8.270308500] ............%BEEEEEEP 3
+[ 8.290938300] ............%BEEEEEEEEEEP 5
+[ 8.313492800] !!!! Brake activated !!!!
+[ 8.335018700] --- Risks - OFFance - OFF
+[ 8.355979300] >>> Steering - ON
+[ 8.374406100] --- Steering - OFF
+[ 8.391782800] >>> Head -
+[ 8.405094800] >>> Risks - ON
+[ 8.420455500] ............%BEEEEEEP 3
+[ 8.441086000] ............%BEEEEEEEEEEP 5
+[ 8.463641500] !!!! Brake activated !!!!
+[ 8.485168100] --- Risks - OFF ON
+[ 8.505661100] --- Head
+[ 8.517918400] >>> Distance - ON
+[ 8.542710400] --- Dist
+[ 8.554967100] >>> Risks - ON
+[ 8.570327900] ............%BEEEEEEP 3
+[ 8.590958100] ............%BEEEEEEEEEEP 5
+[ 8.613512700] !!!! Brake activated !!!!
+[ 8.635043500] --- Risks - OFFance - OFF
+[ 8.656004100] >>> Steering - ON
+[ 8.674430700] --- Steering - OFF - OFF
+[ 8.694880100] >>> 
+[ 8.705120200] >>> Risks - ON
+[ 8.720479900] ............%BEEEEEEP 3
+[ 8.741110500] ............%BEEEEEEEEEEP 5
+[ 8.763665100] !!!! Brake activated !!!!
+[ 8.785191800] --- Risks - OFFHead - ON
+[ 8.808758700] --
+[ 8.817944300] >>> Distance - ON
+[ 8.842737300] --- Dist
+[ 8.854993900] >>> Risks - ON
+[ 8.870354400] ............%BEEEEEEP 3
+[ 8.890984600] ............%BEEEEEEEEEEP 5
+[ 8.913539100] !!!! Brake activated !!!!
+[ 8.935064800] --- Risks - OFFance - OFF- Head - OFF# Distance:  40
+[ 8.972406200
+[ 8.979543300] >>> Steering - ON
+[ 8.997969400
+[ 9.005106000] >>> Risks - ON
+[ 9.020466800] ............%BEEEEEEP 3
+[ 9.041097300] ............%BEEEEEEEEEEP 5
+[ 9.063651900] !!!! Brake activated !!!!
+[ 9.085178000] --- Risks - OFF] --- Steering - OFF
+[ 9.11125890
+[ 9.117914800] >>> Distance - ON
+[ 9.142708000] --- Dist
+[ 9.154965200] >>> Risks - ON
+[ 9.170324600] ............%BEEEEEEP 3
+[ 9.190955200] ............%BEEEEEEEEEEP 5
+[ 9.213510200] !!!! Brake activated !!!!
+[ 9.235036200] --- Risks - OFFance - OFF0] >>> Head - ON
+[ 9.267302300] --- Head - OFF] ............# Speed:  120
+Sintomas detec
+[ 9.305316600] >>> Risks - ON
+[ 9.320677100] ............%BEEEEEEP 3
+[ 9.341307000] ............%BEEEEEEEEEEP 5
+[ 9.363861600] !!!! Brake activated !!!!
+[ 9.385388300] --- Risks - OFF
+[ 9.401229600] >>> Steering - ON
+[ 9.419796700] >>> Distance - ON
+[ 9.444558500] --- D
+[ 9.455279700] >>> Risks - ON
+[ 9.470639800] ............%BEEEEEEP 3
+[ 9.491254500] ............Light: ^ON^
+[ 9.511767900] ............%BEEEEEEEEP 4
+[ 9.533305400] --- Risks - OFFistance - OFF
+[ 9.555802500] --- Steering - OFF
+[ 9.573210600] >>> Head - ON
+[ 9.591172400] --- Head - 
+[ 9.604965300] >>> Risks - ON
+[ 9.620325400] ............%BEEEEEEP 3
+[ 9.640939700] ............Light: ^ON^
+[ 9.661453100] ............%BEEEEEEEEP 4
+[ 9.682990000] --- Risks - OFF
+[ 9.698831300] >>> Steering - ON
+[
+[ 9.718252300] >>> Distance - ON
+[ 9.743046000] --- Dist
+[ 9.755303300] >>> Risks - ON
+[ 9.770663500] ............%BEEEEEEP 3
+[ 9.791276900] ............Light: ^ON^
+[ 9.811781100] --- Risks - OFFance - OFF 9.717259000] --- Steering - OFFOFFtados: distraccion, distancia
+[ 9.865510600] >>> Head - ON
+[ 9.883471900] --- Head - OFF no segura, 
+[ 9.904945200] >>> Risks - ON
+[ 9.920305300] ............%BEEEEEEP 3
+[ 9.940918700] ............Light: ^ON^
+[ 9.961423600] --- Risks - OFF
 
-[ 6.836184700] --- Display - OFF
-[ 6.879193200] >>> Steering - ON
-[ 6.897589100]
-[ 6.905237900] >>> Risks - ON
-[ 6.920598700] ............%BEEEEEEP 3
-[ 6.941212000] ............Light: ^ON^
-[ 6.961716400] --- Risks - OFF --- Steering - OFF
-[ 7.017675500] >>> Distance - ON
-[ 7.042426800] --- Dista
-[ 7.055196400] >>> Risks - ON
-[ 7.070556000] ............%BEEEEEEP 3
-[ 7.091169300] ............Light: ^ON^
-[ 7.111673800] --- Risks - OFFnce - OFF
-[ 7.132122800] >>> Head - ON
-[ 7.150082500] --- Head - OFF
-[ 7.204751400] >>> Risks - ON
-[ 7.220081000] ............%BEEEEEEP 3
-[ 7.240694800] ............Light: ^ON^
-[ 7.261198800] --- Risks - OFF
-[ 7.277039700] >>> Steering - ON
-[ 7.295466800] --- Steering - OFF
-[ 7.31284
-[ 7.317964100] >>> Distance - ON
-[ 7.342746400] --- Dist
-[ 7.355003600] >>> Risks - ON
-[ 7.370363300] ............%BEEEEEEP 3
-[ 7.390977400] ............Light: ^ON^
-[ 7.411481900] --- Risks - OFFance - OFF3800] >>> Display - ON
-[ 7.443706600] ............# Distance:  5
-[ 7.465211000] >>> Head - ON
-[ 7.483171400] --- Head - OFF5
-[ 7.50
-[ 7.505135600] >>> Risks - ON
-[ 7.520495700] ............%BEEEEEEP 3
-[ 7.541109400] ............Light: ^ON^
-[ 7.561613500] --- Risks - OFF1582
-[ 7.579503100] >>> Steering - ON
-[ 7.597929600] --- Steering - OFF400] .
-[ 7.618378700] >>> Distance - ON
-[ 7.643161500] --- Dist
-[ 7.655418100] >>> Risks - ON
-[ 7.670778900] ............%BEEEEEEP 3
-[ 7.691392600] ............Light: ^ON^
-[ 7.711896700] --- Risks - OFFance - OFF...........# Speed:  120
-Sintomas detectados: distraccion, distancia no segura, 
-
-[ 7.775510500] --- Display - OFF
-[ 7.804751800] >>> Risks - ON
-[ 7.820081400] ............%BEEEEEEP 3
-[ 7.840695000] ............Light: ^ON^
-[ 7.861199400] --- Risks - OFF
-[ 7.877040900] >>> Head - ON
-[ 7.895002500] --- Head - OFF
-[ 7.917676300] >>> Distance - ON
-[ 7.942433100] --- Dista
-[ 7.955201800] >>> Risks - ON
-[ 7.970562200] ............%BEEEEEEP 3
-[ 7.991176604] ............Light: ^ON^
-[ 8.011681100] --- Risks - OFFnce - OFF
-[ 8.032129900] >>> Steering - ON
-[ 8.050556500] --- Steering - OFF
-[ 8.104750600] >>> Risks - ON
-[ 8.120079800] ............%BEEEEEEP 3
-[ 8.140693800] ............Light: ^ON^
-[ 8.161198200] --- Risks - OFF
-[ 8.217675600] >>> Distance - ON
-[ 8.242429000] --- Dista
-[ 8.255197700] >>> Risks - ON
-[ 8.270558500] ............%BEEEEEEP 3
-[ 8.291172500] ............Light: ^ON^
-[ 8.311676800] --- Risks - OFFnce - OFF
-[ 8.332126300] >>> Steering - ON
-[ 8.350553000] --- Steering - OFF
-[ 8.367930500] >>> Head - ON
-[ 8.385891200] --- Head - OFF
-[ 8.401
-[ 8.405316200] >>> Risks - ON
-[ 8.420676200] ............%BEEEEEEP 3
-[ 8.441290500] ............Light: ^ON^
-[ 8.461794900] --- Risks - OFF220000] >>> Display - ON
-[ 8.489924500] ............# Distance:  30
-[ 8.51
-[ 8.518048400] >>> Distance - ON
-[ 8.542830900] --- Dist
-[ 8.555088000] >>> Risks - ON
-[ 8.570448000] ............%BEEEEEEP 3
-[ 8.591061600] ............Light: ^ON^
-[ 8.611566100] --- Risks - OFFance - OFF
-[ 8.632527100] >>> Steering - ON
-[ 8.650953400] --- Steering - OFF
-[ 8.668330800] >>> Head - ON
-[ 8.686290700] --- Head - OFF4495400
-[ 8.705203900] >>> Risks - ON
-[ 8.720564000] ............%BEEEEEEP 3
-[ 8.741177300] ............Light: ^ON^
-[ 8.761681500] --- Risks - OFF] ............# Speed:  110
-Sintomas detectados: distraccion, distancia no se
-[ 8.818128200] >>> Distance - ON
-[ 8.842911000] --- Dist
-[ 8.855167700] >>> Risks - ON
-[ 8.870528200] ............%BEEEEEEP 3
-[ 8.891141500] ............Light: ^ON^
-[ 8.911646400] --- Risks - OFFance - OFFgura, 
-
-[ 8.936191400] --- Display - OFF
-[ 8.979192600] >>> Steering - ON
-[ 8.997588600]
-[ 9.005237700] >>> Risks - ON
-[ 9.020598200] ............%BEEEEEEP 3
-[ 9.041211900] ............Light: ^ON^
-[ 9.061716800] --- Risks - OFF --- Steering - OFF
-[ 9.087285800] >>> Head - ON
-[ 9.105248100] --- Head 
-[ 9.118016800] >>> Distance - ON
-[ 9.142799800] --- Dist
-[ 9.155057400] >>> Risks - ON
-[ 9.170417200] ............%BEEEEEEP 3
-[ 9.191030600] ............Light: ^ON^
-[ 9.211535500] --- Risks - OFFance - OFF- OFF
-[ 9.298276400
-[ 9.305413900] >>> Risks - ON
-[ 9.320773700] ............%BEEEEEEP 3
-[ 9.341387500] ............Light: ^ON^
-[ 9.361891700] --- Risks - OFF
-[ 9.377732300] >>> Steering - ON
-[ 9.396160500] --- Steering - OFF] >>> Dis
-[ 9.418145300] >>> Distance - ON
-[ 9.442928700] --- Dist
-[ 9.455186300] >>> Risks - ON
-[ 9.470545600] ............%BEEEEEEP 3
-[ 9.491159700] ............Light: ^ON^
-[ 9.511664300] --- Risks - OFFance - OFF
-[ 9.532625600] >>> Head - ON
-[ 9.550585100] --- Head - OFFplay - ON
-[ 9.570522307] ............# Distance:  50
-[ 9.595093700] ....
-[ 9.605302500] >>> Risks - ON
-[ 9.620662600] ............%BEEEEEEP 3
-[ 9.641276600] ............Light: ^ON^
-[ 9.661780700] --- Risks - OFF....
-[ 9.679670000] >>> Steering - ON
-[ 9.698097300] --- Steering - OFF....#
-[ 9.718034400] >>> Distance - ON
-[ 9.742818500] --- Dist
-[ 9.755075400] >>> Risks - ON
-[ 9.770435200] ............%BEEEEEEP 3
-[ 9.791049700] ............Light: ^ON^
-[ 9.811553900] --- Risks - OFFance - OFF Speed:  110
-Sintomas detectados: distraccion, distancia no se
-[ 9.865439900] >>> Head - ON
-[ 9.883401600] --- Head - OFFgura, 
-
-[ 9.9
-[ 9.905386300] >>> Risks - ON
-[ 9.920746800] ............%BEEEEEEP 3
-[ 9.941360500] ............Light: ^ON^
-[ 9.961865400] --- Risks - OFF02314200] --- Display - OFF
-[ 10.017675700] >>> Distance - ON
-[ 10.042952100] --- Dis
-[ 10.055209300] >>> Risks - ON
-[ 10.071081200] ............%BEEEEP 2
-[ 10.091188400] --- Risks - OFFtance - OFF
-[ 10.113173500] >>> Steering - ON
-[ 10.132111500] --- Steering - OFF
-[ 10.204751800] >>> Risks - ON
-[ 10.220592500] ............%BEEEEP 2
-[ 10.240700800] --- Risks - OFF
-[ 10.264992500] >>> Head - ON
-[ 10.283434800] --- Head - OFF
-[ 10.299276000] >>> Display - ON
-[ 1
-[ 10.318220100] >>> Distance - ON
-[ 10.343523200] --- Di
-[ 10.355268600] >>> Risks - ON
-[ 10.371140500] --- Risks - OFFstance - OFF
-[ 10.393668000] >>> Steering - ON
-[ 10.412607400] --- Steering - OFF0.316171600] ............# Distance:  95
-[ 10.453531800] ............# Speed:  62
-
-[ 10.476185600] --- Display - OFF
-[ 10.504751600] >>> Risks - ON
-[ 10.520593100] --- Risks - OFF
-[ 10.617676300] >>> Distance - ON
-[ 10.642947700] --- Dis
-[ 10.655204900] >>> Risks - ON
-[ 10.671076700] --- Risks - OFFtance - OFF
-[ 10.693093200] >>> Head - ON
-[ 10.711566000] --- Head - OFF
-[ 10.733387304] >>> Steering - ON
-[ 10.748102000] --- Steering - OFF
-[ 10.804738800] >>> Risks - ON
-[ 10.820579800] --- Risks - OFF
-[ 10.917676300] >>> Distance - ON
-[ 10.942949300] --- Dis
-[ 10.955206200] >>> Risks - ON
-[ 10.971078400] --- Risks - OFFtance - OFF
-[ 11.064991700] >>> Head - O
-[ 11.079809100] >>> Steering - ON
-[ 11.0987477
-[ 11.105373200] >>> Risks - ON
-[ 11.121244400] --- Risks - OFF00] --- Steering - OFFN
-[ 11.152525200] --- Head - OFF
-[ 11.217676100] >>> Distance - ON
-[ 11.242950000] --- Dis
-[ 11.255207300] >>> Risks - ON
-[ 11.271079200] --- Risks - OFFtance - OFF
-[ 11.298276600] >>> Display - ON
-[ 11.315141700] ............# Distance:  80
-[ 11.340225600] ............# Speed:  80
-
-[ 11.362879400] --- Display - OFF
-[ 11.404738600] >>> Risks - ON
-[ 11.420580000] --- Risks - OFF
-[ 11.436963800] >>> Steering - ON
-[ 11.455902300] --- Steering - OFF
-[ 11.473791600] >>> Head - ON
-[ 11.492262900] --- Head - OFF
-[ 11.517676300] >>> Distance - ON
-[ 11.542947500] --- Dis
-[ 11.555205000] >>> Risks - ON
-[ 11.571076900] --- Risks - OFFtance - OFF
-[ 11.704751600] >>> Risks - ON
-[ 11.720592700] --- Risks - OFF
-[ 11.779193200] >>> Steering - ON
-[ 11.798101500] --- Steering - OFF
-[ 11.817676300] >>> Distance - ON
-[ 11.842940300] --- Dis
-[ 11.855197200] >>> Risks - ON
-[ 11.871069100] ............Light: ^ON^
-[ 11.892116900] --- Risks - OFFtance - OFF
-[ 11.914102200] >>> Head - ON
-[ 11.932575000] --- Head - OFF
-[ 12.004737700] >>> Risks - ON
-[ 12.020579100] ............Light: ^ON^
-[ 12.041626500] --- Risks - OFF
-[ 12.117675400] >>> Distance - ON
-[ 12.142942700] --- Dis
-[ 12.155200200] >>> Risks - ON
-[ 12.171072000] ............Light: ^ON^
-[ 12.192119400] --- Risks - OFFtance - OFF
-[ 12.214104300] >>> Steering - ON
-[ 12.233044200] --- Steering - OFF
-[ 12.264991800] >>> Head - ON
-[ 12.283433400] --- Head - OFF
-[ 12.299274
-[ 12.305418900] >>> Risks - ON
-[ 12.321290000] ............Light: ^ON^
-[ 12.342338100] --- Risks - OFF800] >>> Display - ON
-[ 12.369443700] ............# Distance:  60
-[ 12.394527000] ............# Speed:  90
-Si
-[ 12.418204600] >>> Distance - ON
-[ 12.443500500] --- Di
-[ 12.455245100] >>> Risks - ON
-[ 12.471117300] ............Light: ^ON^
-[ 12.492169500] --- Risks - OFFstance - OFF
-[ 12.514666200] >>> Steering - ON
-[ 12.533604700] --- Steering - OFFntomas detectados: distancia no segura, 
-
-[ 12.572486000] --- Display - OFF
-[ 12.604750600] >>> Risks - ON
-[ 12.620591200] ............Light: ^ON^
-[ 12.641639300] --- Risks - OFF
-[ 12.664992000] >>> Head - ON
-[ 12.683432700] --- Head - OFF
-[ 12.717675600] >>> Distance - ON
-[ 12.742941200] --- Dis
-[ 12.755198700] >>> Risks - ON
-[ 12.771070600] ............Light: ^ON^
-[ 12.792118000] --- Risks - OFFtance - OFF
-[ 12.829192600] >>> Steering - ON
-[ 12.848099900] --- Steering - OFF
-[ 12.904662800] >>> Risks - ON
-[ 12.920503800] ............Light: ^ON^
-[ 12.941551600] --- Risks - OFF
-[ 13.017675500] >>> Distance - ON
-[ 13.042939200] --- Dis
-[ 13.055196400] >>> Risks - ON
-[ 13.071068800] ............Light: ^ON^
-[ 13.092115500] --- Risks - OFFtance - OFF
-[ 13.114100900] >>> Head - ON
-[ 13.132571900] --- Head - OFF
-[ 13.179193200] >>> Steering - ON
-[ 13.19810140
-[ 13.205239000] >>> Risks - ON
-[ 13.221110900] ............Light: ^ON^
-[ 13.242158400] --- Risks - OFF0] --- Steering - OFF
-[ 13.298276800] >>> Display - ON
-[ 13.
-[ 13.318213700] >>> Distance - ON
-[ 13.343508400] --- Di
-[ 13.355253400] >>> Risks - ON
-[ 13.371125000] ............Light: ^ON^
-[ 13.392172900] --- Risks - OFFstance - OFF315141600] ............# Distance:  30
-[ 13.436682000] ............# Speed:  100
-Sintomas de
-[ 13.465480600] >>> Head - ON
-[ 13.483952100] --- Head - OFFtectados: d
-[ 13.505424800] >>> Risks - ON
-[ 13.521297400] ............Light: ^ON^
-[ 13.542344900] --- Risks - OFF
-[ 13.558697600] >>> Steering - ON
-[ 13.577636900] --- Steering - OFFistancia no segura, 
-
-[ 13.606277700] --- Di
-[ 13.618054300] >>> Distance - ON
-[ 13.643348000] --- Di
-[ 13.655092700] >>> Risks - ON
-[ 13.670965000] ............Light: ^ON^
-[ 13.692012100] --- Risks - OFFstance - OFFsplay - OFF
-[ 13.804751800] >>> Risks - ON
-[ 13.820592900] ............Light: ^ON^
-[ 13.841640000] --- Risks - OFF
-[ 13.864992500] >>> Head - O
-[ 13.879809200] >>> Steering - ON
-[ 13.898749100] --- Steering - OFFN
-[ 13.918141900] >>> Distance - ON
-[ 13.943406500] --- Di
-[ 13.955151100] >>> Risks - ON
-[ 13.971023700] ............Light: ^ON^
-[ 13.992070500] --- Risks - OFFstance - OFF
-[ 14.016167900] --- Head - OFF
-[ 14.104751800] >>> Risks - ON
-[ 14.120592900] ............%BEEEEEEP 3
-[ 14.141718800] ............Light: ^ON^
-[ 14.162735100] --- Risks - OFF
-[ 14.217676300] >>> Distance - ON
-[ 14.242945600] --- Dis
-[ 14.255202700] >>> Risks - ON
-[ 14.271075100] ............%BEEEEEEP 3
-[ 14.292200300] ............Light: ^ON^
-[ 14.313217100] --- Risks - OFFtance - OFF
-[ 14.335202300] >>> Steering - ON
-[ 14.354140900] --- Steering - OFF
-[ 14.372030100] >>> Head - ON
-[ 14.390502800] --- Head - O
-[ 14.40
-Interrupt!
- Stopped at time 146413747 (1.046e+01 s)
-tsim> 
+[ 9.977776700] --- Display - OFF
+[ 9.994673100] >>> Display - ON
+[ 10.01105700
+[ 10.018224200] >>> Distance - ON

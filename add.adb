@@ -25,13 +25,15 @@ package body add is
     -----------------------------------------------------------------------
     ------------- constants 
     -----------------------------------------------------------------------
-    
+    pragma Locking_Policy (Ceiling_Locking) ; 
+    pragma Task_Dispatching_Policy (Fifo_Within_Priorities) ;     
+
     MOSTRAR_INFO_DISPLAY_PRIORITY  	  : Integer   := 1;
-    LEER_POSICION_CABEZA_PRIORITY 	  : Integer   := 2;
-    LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 3;
-    LEER_DISTANCIA_PRIORITY 	  	  : Integer   := 4;
-    CALCULAR_RIESGOS_PRIORITY	  	  : Integer   := 5;
-    TEST_P				  : Integer   := 6;
+    LEER_POSICION_CABEZA_PRIORITY 	  : Integer   := 5;
+    LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 2;
+    LEER_DISTANCIA_PRIORITY 	  	  : Integer   := 3;
+    CALCULAR_RIESGOS_PRIORITY	  	  : Integer   := 4;
+    Prioridad_Recurso			  : Integer   := 10;
     
     INTERVALO_DETECCION_RIESGOS		  : Time_Span := Milliseconds (150);
     INTERVALO_LECTURA_DISTANCIA_SEGURIDAD : Time_Span := Milliseconds (300);
@@ -53,7 +55,8 @@ package body add is
     -----------------------------------------------------------------------
 
     Protected Sintomas is
-      procedure Guardar_Estado_Distraccion (actual_Distraccion : in Cabeza_Inclinada_Estado_Type);
+      pragma priority (Prioridad_Recurso);
+      procedure Guardar_Estado_Distraccion (actual_pragma Locking_Policy (Ceiling_Locking) ; pragma Task_Dispatching_Policy (Fifo_Within_Priorities) ; Distraccion : in Cabeza_Inclinada_Estado_Type);
       procedure Guardar_Estado_Volantazo   (actual_Volantazo   : in Volantazo_Estado_Type);
       procedure Guardar_Estado_Distancia   (actual_Distancia   : in Distancia_Estado_Type);
       function  Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
@@ -67,6 +70,7 @@ package body add is
     end Sintomas;
     
     Protected Medidas is
+      pragma priority (Prioridad_Recurso);
       procedure Guardar_Distancia_Actual (actual_Distancia : in Distance_Samples_Type);
       procedure Guardar_Velocidad_Actual (actual_Velocidad : in Speed_Samples_Type);
       function  Obtener_Distancia_Actual return Distance_Samples_Type;
@@ -102,23 +106,10 @@ package body add is
       pragma priority (CALCULAR_RIESGOS_PRIORITY);
     end;
  
-    task test is
-      pragma priority (TEST_P);
-    end;
     
     -----------------------------------------------------------------------
     ------------- body of tasks 
     -----------------------------------------------------------------------
-    
-    task body test is
-      Comienzo: Time;
-      Periodo : Time_Span;
-    begin
-        Comienzo := Clock;
-        Execution_Time(Ada.Real_Time.Milliseconds(100));
-        Periodo := Clock - Comienzo;
-        Kernel.Serial_Output.Put(Duration'Image(To_Duration(Periodo)));
-    end;
     
     -----------------------------------------------------------------------
     ------------- TAREA POSICION CABEZA 
@@ -138,8 +129,8 @@ package body add is
       Siguiente_instante := Clock + INTERVALO_LECTURA_POSICION_CABEZA;
       
       loop
+        	Comienzo := Clock;
         
-        Comienzo := Clock;
         Starting_Notice ("Head - ON");
       
         Distraccion := CABEZA_NO_INCLINADA;
@@ -164,11 +155,12 @@ package body add is
         end if;
         
         Previous_H := Current_H;
+
         Sintomas.Guardar_Estado_Distraccion(Distraccion);
         Distraccion := CABEZA_NO_INCLINADA;
         
         Periodo := Clock - Comienzo;
-	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
+	Finishing_Notice (Duration'Image(To_Duration(Periodo))); Put("T.CAB");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -223,7 +215,7 @@ package body add is
 	Distancia_Sintoma := DISTANCIA_SEGURA;	
 	
         Periodo := Clock - Comienzo;
-	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
+	Finishing_Notice (Duration'Image(To_Duration(Periodo))); Put("tiempo distancia");
 
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
@@ -273,7 +265,7 @@ package body add is
         Volantazo := ESTADO_NO_VOLANTAZO;
         
         Periodo := Clock - Comienzo;
-	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));Put("Tiempo volante");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
@@ -342,7 +334,7 @@ package body add is
 	end if;
 	
         Periodo := Clock - Comienzo;
-	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));Put("T.DISS");
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
@@ -371,8 +363,9 @@ package body add is
       
       loop
 	
-	Comienzo := Clock;
+	Comienzo:= Clock;
 	Starting_Notice ("Risks - ON");
+
 	
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
         if (Volantazo = ESTADO_VOLANTAZO) then
@@ -402,8 +395,9 @@ package body add is
 	  Activate_Brake;
 	end if;
 	
+
 	Periodo := Clock - Comienzo;
-	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
+	Finishing_Notice (Duration'Image(To_Duration(Periodo))); Put("T.RIESG");
 
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
@@ -421,31 +415,37 @@ package body add is
       procedure Guardar_Estado_Distraccion (actual_Distraccion: in Cabeza_Inclinada_Estado_Type) is
       begin
         CABEZA_INCLINADA := actual_Distraccion;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Guardar_Estado_Distraccion;
       
       procedure Guardar_Estado_Volantazo (actual_Volantazo : in Volantazo_Estado_Type) is 
       begin
         VOLANTAZO := actual_Volantazo;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Guardar_Estado_Volantazo;
       
       procedure Guardar_Estado_Distancia (actual_Distancia : in Distancia_Estado_Type) is
       begin
       	DISTANCIA := actual_Distancia;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Guardar_Estado_Distancia;
       
       function Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type is
       begin 
         return CABEZA_INCLINADA;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Obtener_Estado_Distraccion;
       
       function Obtener_Estado_Volantazo return Volantazo_Estado_Type is
       begin
         return VOLANTAZO;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Obtener_Estado_Volantazo;
       
       function Obtener_Estado_Distancia return Distancia_Estado_Type is
       begin
         return DISTANCIA;
+	Execution_Time(Ada.Real_Time.Milliseconds(10));
       end Obtener_Estado_Distancia;
     end Sintomas;
     
@@ -454,21 +454,28 @@ package body add is
     
       procedure Guardar_Distancia_Actual (actual_Distancia : in Distance_Samples_Type) is 
       begin
+		Execution_Time(Ada.Real_Time.Milliseconds(15));
         DISTANCIA := actual_Distancia;
+
       end Guardar_Distancia_Actual;
 
       procedure Guardar_Velocidad_Actual (actual_Velocidad : in Speed_Samples_Type) is 
       begin
+		Execution_Time(Ada.Real_Time.Milliseconds(15));
         VELOCIDAD := actual_Velocidad;
+
       end Guardar_Velocidad_Actual;
       
       function Obtener_Distancia_Actual return Distance_Samples_Type is
       begin
+	Execution_Time(Ada.Real_Time.Milliseconds(15));
         return DISTANCIA;
+
       end Obtener_Distancia_Actual;
       
       function Obtener_Velocidad_Actual return Speed_Samples_Type is
       begin
+	Execution_Time(Ada.Real_Time.Milliseconds(15));
         return VELOCIDAD;
       end Obtener_Velocidad_Actual;
       

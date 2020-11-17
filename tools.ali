@@ -3,7 +3,7 @@ A -g
 P
 R nnvnrnnvnnnnvvvvnvvvnnnnnnnnnnvnnnnnnnnnnnn
 
-U tools%b		tools.adb		3A015FB9 PK IL
+U tools%b		tools.adb		477E7617 PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
@@ -53,21 +53,21 @@ D s-taspri.ads		20010312182047 3235B2AC
 D s-taprop.ads		20010312182047 36F12025
 D s-taskin.ads		20000718095949 09146F23
 D s-unstyp.ads		20000718095949 78AFB91D
-D tools.ads		20201107004417 7C34CB2C
-D tools.adb		20201107004417 37713A2E
+D tools.ads		20191007063732 7C34CB2C
+D tools.adb		20201110162300 4A0E1380
 D unchconv.ads		20000718095949 72DC4539
-D workload.ads		20201107004417 3A53254C
+D workload.ads		20191007063732 3A53254C
 X 1 ada.ads
 18U9*Ada 35|3r6 3r25 4r10 8r25 10r38 15r38 36|3r6 3r25 16r38 77r36 78r27
-. 80r37
+. 82r37
 X 5 a-reatim.ads
 43U13*Real_Time 35|3r10 3r29 4r14 8r29 10r42 15r42 36|3r10 3r29 16r42 77r40
-. 78r31 80r41
+. 78r31 82r41
 45O9*Time 35|8r39 10r52 36|16r52
-50O9*Time_Span 35|4r24 15r52 36|77r50 80r51
+50O9*Time_Span 35|4r24 15r52 36|77r50 82r51
 57U13*Clock 35|8r47 36|22r59
 62U13*"-" 36|22r65
-74U13*"/" 36|83r38
+74U13*"/" 36|85r38
 84U13*To_Duration 36|22r47
 87U13*Nanoseconds 36|78r41
 X 8 kernel.ads
@@ -89,13 +89,13 @@ X 35 tools.ads
 13s32 T 36|59b31 63r12
 14U15*Finishing_Notice 36|66b14
 14s33 T 36|66b32 70r12
-15U15*Execution_Time 36|80b14
-15O31 Time 36|80b30 83r33
+15U15*Execution_Time 36|82b14
+15O31 Time 36|82b30 85r33
 X 36 tools.adb
 45F13 Float_Printable 46r12 49r13 50r33
 46f8 nx 49m7 50r55
-77O4 Time_per_Kwhetstones 83r40
+77O4 Time_per_Kwhetstones 85r40
 X 38 workload.ads
-18U9*Workload 36|7r6 83r7
-41U13*Small_Whetstone 36|83r16
+18U9*Workload 36|7r6 85r7
+41U13*Small_Whetstone 36|85r16
 

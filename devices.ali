@@ -27,8 +27,8 @@ D a-filico.ads		20000718095948 1DECB9AC
 D a-reatim.ads		20000718095948 5DBAB303
 D a-stream.ads		20000718095948 5F7C277B
 D a-tags.ads		20000718095948 45EF7E4E
-D devices.ads		20201108194021 76B11196
-D devices.adb		20201107004417 2B46B696
+D devices.ads		20201110160655 76B11196
+D devices.adb		20191010111600 2B46B696
 D kernel.ads		20010312182047 56BBE4F1
 D kernel-cpu_primitives.ads  20010312182047 5746D7AD
 D kernel-interrupts.ads	20010312182047 72CD7AA3
@@ -57,7 +57,7 @@ D s-taprop.ads		20010312182047 36F12025
 D s-taskin.ads		20000718095949 09146F23
 D s-taprob.ads		20000718095949 1D5668B3
 D s-unstyp.ads		20000718095949 78AFB91D
-D tools.ads		20201107004417 7C34CB2C
+D tools.ads		20191007063732 7C34CB2C
 D unchconv.ads		20000718095949 72DC4539
 X 1 ada.ads
 18U9*Ada 8|3r6 3r25 10r29 10r56 11r26 11r53 12r33 12r60 13r29 13r56 15r31
@@ -94,14 +94,14 @@ X 8 devices.ads
 32I10*Value_Electrode 36r59
 33i5*Number_Electrodes 35r52
 35I10*EEG_Samples_Index 36r37 9|348r13
-36A10*EEG_Samples_Type 39r39 9|19r42 27r39 33r41 8|99r45 9|343r41 8|344r74
+36A10*EEG_Samples_Type 39r39 9|19r42 27r39 33r41 8|99r45 9|343r41 8|348r74
 39U15*Reading_Sensors 9|27b15
 39a32 L 9|27b32 29m46
 45E10*Eyes_Samples_Index 47r38 9|360r13
 45N33*left 9|364r29
 45N38*right 9|364r18
 46I10*Eyes_Samples_Values 47r61 9|84r32 84r56 88r32 88r56 355r11
-47A10*Eyes_Samples_Type 49r41 103r39 306r76 9|51r44 58r41 64r43 354r35
+47A10*Eyes_Samples_Type 49r41 103r39 310r76 9|51r44 58r41 64r43 354r35
 49U15*Reading_EyesImage 9|58b15
 49a34 L 9|58b34 60m46
 56E10*HeadPosition_Samples_Index 9|337r13 8|58r46
@@ -168,14 +168,14 @@ X 8 devices.ads
 267M10*Indice_Secuencia_Volante 268r43 9|251r10 266r15 275r13 278r15 284r24
 268A10*tipo_Secuencia_Volante 270r26 9|252r18
 270a5*Steering_Simulation 9|252r44
-304N5*cantidad_datos_EyesImage 305r44
-305M10*Indice_Secuencia_EyesImage 306r45 9|54r10 69r15 81r15 87r24
-306A10*tipo_Secuencia_EyesImage 308r22 9|55r18
-308a5*Eyes_Simulation 9|55r46
-342N5*cantidad_datos_Sensores 343r43
-343M10*Indice_Secuencia_Sensores 344r44 9|21r10 38r15
-344A10*tipo_Secuencia_Sensores 346r21 9|22r18
-346a5*EEG_Simulation 9|22r45
+308N5*cantidad_datos_EyesImage 309r44
+309M10*Indice_Secuencia_EyesImage 310r45 9|54r10 69r15 81r15 87r24
+310A10*tipo_Secuencia_EyesImage 312r22 9|55r18
+312a5*Eyes_Simulation 9|55r46
+346N5*cantidad_datos_Sensores 347r43
+347M10*Indice_Secuencia_Sensores 348r44 9|21r10 38r15
+348A10*tipo_Secuencia_Sensores 350r21 9|22r18
+350a5*EEG_Simulation 9|22r45
 X 9 devices.adb
 9i5 EYES_REACTION_WHEN_BEEP
 18w15 Sensores_Electrodos 29r9

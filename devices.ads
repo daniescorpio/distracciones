@@ -268,8 +268,12 @@ package devices is
     type tipo_Secuencia_Volante is array (Indice_Secuencia_Volante) of Steering_Samples_Type;
 
     Steering_Simulation: tipo_Secuencia_Volante :=
-                 (  0,  0, 0,  5, 4,   -- 1 muestra cada 100ms.
+                 --(  0,  0, 0,  5, 4,   -- 1 muestra cada 100ms.
+                 --   0, -2, 0, -3, 0,   -- 1s.
+ 
+ 		 (  0,  0, 0,  5, 4,   -- 1 muestra cada 100ms.
                     0, -2, 0, -3, 0,   -- 1s.
+ 
  
                    10,10,10,15,10, 
                    10,10,10,15,15,   -- 2s.

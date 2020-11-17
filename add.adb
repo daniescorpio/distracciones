@@ -31,6 +31,7 @@ package body add is
     LEER_GIRO_VOLANTE_PRIORITY 	  	  : Integer   := 3;
     LEER_DISTANCIA_PRIORITY 	  	  : Integer   := 4;
     CALCULAR_RIESGOS_PRIORITY	  	  : Integer   := 5;
+    TEST_P				  : Integer   := 6;
     
     INTERVALO_DETECCION_RIESGOS		  : Time_Span := Milliseconds (150);
     INTERVALO_LECTURA_DISTANCIA_SEGURIDAD : Time_Span := Milliseconds (300);
@@ -100,11 +101,24 @@ package body add is
     task CalcularRiesgos is
       pragma priority (CALCULAR_RIESGOS_PRIORITY);
     end;
-
-
+ 
+    task test is
+      pragma priority (TEST_P);
+    end;
+    
     -----------------------------------------------------------------------
     ------------- body of tasks 
     -----------------------------------------------------------------------
+    
+    task body test is
+      Comienzo: Time;
+      Periodo : Time_Span;
+    begin
+        Comienzo := Clock;
+        Execution_Time(Ada.Real_Time.Milliseconds(100));
+        Periodo := Clock - Comienzo;
+        Kernel.Serial_Output.Put(Duration'Image(To_Duration(Periodo)));
+    end;
     
     -----------------------------------------------------------------------
     ------------- TAREA POSICION CABEZA 
@@ -116,6 +130,8 @@ package body add is
       Current_S     	 : Steering_Samples_Type;
       Distraccion 	 : Cabeza_Inclinada_Estado_Type;
       Siguiente_Instante : Time;
+      Comienzo: Time;
+      Periodo : Time_Span;
       
     begin
     
@@ -123,6 +139,7 @@ package body add is
       
       loop
         
+        Comienzo := Clock;
         Starting_Notice ("Head - ON");
       
         Distraccion := CABEZA_NO_INCLINADA;
@@ -150,7 +167,8 @@ package body add is
         Sintomas.Guardar_Estado_Distraccion(Distraccion);
         Distraccion := CABEZA_NO_INCLINADA;
         
-        Finishing_Notice ("Head - OFF");
+        Periodo := Clock - Comienzo;
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_POSICION_CABEZA;
@@ -171,13 +189,16 @@ package body add is
        Distancia_Seguridad : Float		   := 0.0;
        Distancia_Sintoma   : Distancia_Estado_Type;
        Siguiente_Instante  : Time;
+       Comienzo: Time;
+       Periodo : Time_Span;
  
      begin
      
        Siguiente_instante := Clock + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
 	
        loop
-       
+         
+         Comienzo := Clock;
          Starting_Notice ("Distance - ON");
       
 	 Distancia_Sintoma := DISTANCIA_SEGURA;
@@ -201,7 +222,8 @@ package body add is
 	Sintomas.Guardar_Estado_Distancia(Distancia_Sintoma);
 	Distancia_Sintoma := DISTANCIA_SEGURA;	
 	
-        Finishing_Notice ("Distance - OFF");
+        Periodo := Clock - Comienzo;
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
 
 	delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_DISTANCIA_SEGURIDAD;
@@ -223,6 +245,8 @@ package body add is
       Actual_Offset 	 : Steering_Samples_Type;
       Volantazo   	 : Volantazo_Estado_Type;
       Siguiente_Instante : Time;
+      Comienzo: Time;
+      Periodo : Time_Span;
       
     begin
       
@@ -230,6 +254,7 @@ package body add is
       
       loop
       
+        Comienzo := Clock;
         Starting_Notice ("Steering - ON");
         
         Volantazo := ESTADO_NO_VOLANTAZO;
@@ -247,7 +272,8 @@ package body add is
         Sintomas.Guardar_Estado_Volantazo(Volantazo);
         Volantazo := ESTADO_NO_VOLANTAZO;
         
-        Finishing_Notice ("Steering - OFF");
+        Periodo := Clock - Comienzo;
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_LECTURA_GIRO_VOLANTE;
@@ -269,13 +295,16 @@ package body add is
       Velocidad		 : Speed_Samples_Type;
       Distancia 	 : Distance_Samples_Type;
       Siguiente_Instante : Time;
-
+      Comienzo: Time;
+      Periodo : Time_Span;
+      
     begin
       
       Siguiente_instante := Clock + INTERVALO_REFRESCO_DISPLAY;
       
       loop
         
+        Comienzo := Clock;
         Starting_Notice ("Display - ON");
         
 	Distancia := Medidas.Obtener_Distancia_Actual;
@@ -312,7 +341,8 @@ package body add is
 	
 	end if;
 	
-        Finishing_Notice ("Display - OFF");
+        Periodo := Clock - Comienzo;
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
         
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_REFRESCO_DISPLAY;
@@ -332,6 +362,8 @@ package body add is
       Distancia_Sintoma  : Distancia_Estado_Type;
       Velocidad		 : Speed_Samples_Type;      
       Siguiente_Instante : Time;
+      Comienzo: Time;
+      Periodo : Time_Span;
       
     begin
       
@@ -339,6 +371,7 @@ package body add is
       
       loop
 	
+	Comienzo := Clock;
 	Starting_Notice ("Risks - ON");
 	
         Volantazo := Sintomas.Obtener_Estado_Volantazo;
@@ -369,7 +402,8 @@ package body add is
 	  Activate_Brake;
 	end if;
 	
-	Finishing_Notice ("Risks - OFF");
+	Periodo := Clock - Comienzo;
+	Finishing_Notice (Duration'Image(To_Duration(Periodo)));
 
         delay until Siguiente_Instante;
         Siguiente_Instante := Siguiente_Instante + INTERVALO_DETECCION_RIESGOS;
@@ -377,8 +411,6 @@ package body add is
       end loop;
       
     end;
-    
-    
     
     -----------------------------------------------------------------------
     ------------- body of protected objects 

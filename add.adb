@@ -25,8 +25,6 @@ package body add is
     -----------------------------------------------------------------------
     ------------- constants 
     -----------------------------------------------------------------------
-    pragma Locking_Policy (Ceiling_Locking) ; 
-    pragma Task_Dispatching_Policy (Fifo_Within_Priorities) ;     
 
     MOSTRAR_INFO_DISPLAY_PRIORITY  	  : Integer   := 1;
     LEER_POSICION_CABEZA_PRIORITY 	  : Integer   := 5;

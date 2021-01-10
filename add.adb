@@ -46,7 +46,12 @@ package body add is
     
     type Cabeza_Inclinada_Estado_Type is (CABEZA_INCLINADA, CABEZA_NO_INCLINADA);
     type Volantazo_Estado_Type 	      is (ESTADO_VOLANTAZO, ESTADO_NO_VOLANTAZO);
-    type Distancia_Estado_Type 	      is (DISTANCIA_PELIGROSA, DISTANCIA_INSEGURA, DISTANCIA_IMPRUDENTE, DISTANCIA_SEGURA);
+    type Distancia_Estado_Type 	      is (
+    						DISTANCIA_PELIGROSA, 
+						DISTANCIA_INSEGURA, 
+						DISTANCIA_IMPRUDENTE, 
+						DISTANCIA_SEGURA
+					 );
     
     -----------------------------------------------------------------------
     ------------- declaration of protected objects 

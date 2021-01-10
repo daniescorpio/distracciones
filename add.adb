@@ -56,7 +56,7 @@ package body add is
 
     Protected Sintomas is
       pragma priority (Prioridad_Recurso);
-      procedure Guardar_Estado_Distraccion (actual_pragma Locking_Policy (Ceiling_Locking) ; pragma Task_Dispatching_Policy (Fifo_Within_Priorities) ; Distraccion : in Cabeza_Inclinada_Estado_Type);
+      procedure Guardar_Estado_Distraccion (actual_Distraccion : in Cabeza_Inclinada_Estado_Type);
       procedure Guardar_Estado_Volantazo   (actual_Volantazo   : in Volantazo_Estado_Type);
       procedure Guardar_Estado_Distancia   (actual_Distancia   : in Distancia_Estado_Type);
       function  Obtener_Estado_Distraccion return Cabeza_Inclinada_Estado_Type;
